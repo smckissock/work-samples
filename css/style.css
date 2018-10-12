@@ -1,0 +1,34 @@
+body {
+    font-family: Sans-Serif;
+    color: dimgrey;
+}
+
+h3 {
+    margin-top: 1rem;
+    margin-bottom: .3rem;
+    margin-left: 1rem;
+}
+
+h4 {
+    margin-top: .5rem;
+    margin-bottom: .3rem;
+}
+
+p {
+    margin-top: .2rem;
+    margin-bottom: 1.2rem;
+    margin-left: 1rem;
+}
+
+ul {
+    list-style: none;
+}
+
+li {
+    margin: 1.5rem 0;
+}
+
+.note {
+    font-size: .8em;
+    font-style: italic;
+}
