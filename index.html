@@ -8,24 +8,76 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body>
+<body onload="loadLinks()">
+
     <h2>Scott McKissock</h2>
     <p>scottmckissock@gmail.com</p>
 
-    <ul>
-        <li>
-            <h4>Sunlight Foundation</h4>
-            <a href="https://trumpconflicts.sunlightfoundation.com/">Search site for potential conflicts of interest</a>
-        </li>
-        <li>
-            <h4>United States Agency for International Development</h4>
-            <a href="http://smckissock.github.io/dc-samples/foreign-assistance/index.html">Interactive foriegn assistance funding chart</a><span class="note"> click to filter</span>
-        </li>
-        <li>
-            <h4>Fairfax FLAGS</h4>
-            <a href="http://smckissock.github.io/FairfaxFLAGS/page/fairfaximmersion/index.html">Map for locating school board members</a>
-        </li>
-    </ul>
+    <div id=links>
+
+
+    <script>
+        let links =
+            [
+                {
+                    "organization": "PBS NewsHour",
+                    "url": "http://smckissock.github.io/trump-russia/index-search.html",
+                    "description": "Searchable stories related to the Trump administration's relationship to Russia",
+                    "type": "Private"
+                },
+                {
+                    "organization": "Sunlight Foundation",
+                    "url": "https://trumpconflicts.sunlightfoundation.com",
+                    "description": "Search site for potential conflicts of interest",
+                    "type": "Public"
+                },
+                {
+                    "organization": "ProPublica",
+                    "url": "http://smckissock.github.io/trump-town",
+                    "description": "Experiments making Sankey and network diagrams for administration officials who were former lobbyists",
+                    "type": "Private"
+                },
+                {
+                    "organization": "United States Agency for International Development",
+                    "url": "http://smckissock.github.io/dc-samples/foreign-assistance/index.html",
+                    "description": "Interactive foriegn assistance funding chart",
+                    "type": "Public"
+                },
+                {
+                    "organization": "Fairfax FLAGS",
+                    "url": "http://smckissock.github.io/FairfaxFLAGS/page/fairfaximmersion/index.html",
+                    "description": "Map for locating school board members",
+                    "type": "Public"
+                }
+            ];
+
+        function loadLinks() {
+            let showPrivate = false;
+
+            // If url has #all, show to private ones in addition to the public 
+            let url = location.href;
+            if (url.indexOf("#") != -1) 
+                if (url.split('#')[1] == "all")
+                    showPrivate = true;
+                    
+            if (!showPrivate)
+                links = links.filter(link => { return (link.type == "Public") });
+
+            var linkLIs = "";
+            links.forEach(link => { linkLIs += linkMarkup(link) });
+
+            document.getElementById('links').innerHTML = `<ul>${linkLIs}</ul>`;
+        }
+
+        function linkMarkup(link) {
+            return `
+                <li>
+                    <h4>${link.organization}</h4>
+                    <a href="${link.url}">${link.description}</a>
+                </li>
+            `;
+        }
+    </script>
 
 </body>
 </html>
