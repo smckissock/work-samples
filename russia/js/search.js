@@ -19,8 +19,8 @@ let storiesFact;
 let termsDim;
 let termsGroup;
 
-let svgWidth = 700;
-let storyWidth = 250;
+let svgWidth = 650;
+let storyWidth = 300;
 let chartSvg;
 
 let selectedStory = null;
@@ -103,12 +103,14 @@ d3.json("data/news.json", function (err, data) {
 
     dc.renderAll();
     showFilters();
+
+    document.getElementById("search-input").focus();
 });
 
 function addSvg() {
     chartSvg = d3.select("#svg-chart")
         .append("svg")
-        .attr("width", svgWidth)
+        .attr("width", svgWidth + 3)
         .attr("height", 700);
 }
 
@@ -135,7 +137,7 @@ function setSearch(term) {
 function setWord(word) {
     searchTerm = word;
     cleanSearchTerm = word.toLowerCase();
-    if (word.length < 3)
+    if (word.length < 2)
         return;
 
     let matchedTerms = terms.filter(x => { return x.lower.indexOf(cleanSearchTerm) !== -1 });
@@ -168,7 +170,7 @@ function renderChart() {
     chartSvg.attr("height", (medias.length * rowHeight) + 20);
 
     const mediaY = {};
-    let y = 16;
+    let y = 18;
     medias.forEach(function (media) {
         mediaY[media] = y;
         y += rowHeight;
@@ -191,7 +193,7 @@ function renderChart() {
     const dates = stories.map(x => x.dateObject);
     const dateScale = d3.time.scale()
         .domain([d3.min(dates, d => d), d3.max(dates, d => d)])
-        .range([130, svgWidth - 30]); 
+        .range([130, svgWidth - 35]); 
 ``
     function storyRadius(wordCount) {
         if (wordCount < 500)
@@ -254,9 +256,9 @@ function renderChart() {
             .attr("class", "mediaLine")
             .attr({
                 x1: 0
-                , y1: function(d, i) { return 27 + (i  * rowHeight)}
+                , y1: function(d, i) { return 29 + (i * rowHeight)}
                 , x2: svgWidth
-                , y2: function(d, i) { return 27 + (i  * rowHeight)}
+                , y2: function(d, i) { return 29 + (i * rowHeight)}
             });
 
     const xAxis = d3.svg.axis()
@@ -290,7 +292,7 @@ function storyDeselect(story) {
     if (selectedStory)
         d3.select("#story-box").html(storyDetailsHtml(selectedStory));
     else
-        d3.select("#story-box").html("");
+        d3.select("#story-box").html("<p class='no-story'>No story selected (click circle)</p>");
 }
 
 
@@ -316,12 +318,12 @@ function showFilters() {
     let filterString = filterStrings.join(', ');
     let filterDiv = document.getElementById("filter-box");
     if (filterString)
-        d3.select("#filter-box").text("Filters: " + filterString);
+        d3.select("#filter-box").text(filterString);
     
     // Clear selected story whenever filters change (I guess?)
     selectedStory = null;
     selectedCircle = null;
-    d3.select("#story-box").html("");
+    storyDeselect();
         
     renderChart();
 }
@@ -364,8 +366,6 @@ function storyDetailsHtml(story) {
     function outlet(mediaOutlet) {
         return mediaOutlet;
     }
-
-    
 
     function headline(headline) {
         if (headline != "")
@@ -453,7 +453,7 @@ function storyDetailsHtml(story) {
         <div class="story-result" ${story.dateSort} onclick="window.open('${story.link}')">
             <p class="story-date">${date(story.dateObject)}</p>
             <p class="story-outlet">${outlet(story.mediaOutlet)}</p>
-            <img class="story-image" src=${image(story)} onerror="this.style.display='none'" height="170" width="220">
+            <img class="story-image" src=${image(story)} onerror="this.style.display='none'" height="190" width="270">
             <p class="story-headline">${headline(story.headline)}</p>
             <p class="story-author">${author(story.author, story.authorUrl)}</p>
             <p class="story-excerpt">${getSentence(story.sentences)}</p>

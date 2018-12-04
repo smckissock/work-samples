@@ -6,12 +6,13 @@
     --red-text: rgb(248, 48, 54);
     --grey-text: rgb(105,105,105);
     --black-text: rgb(19, 18, 14);
+    --very-light-grey: rgb(241, 241, 241);
     
-    --search-width: 12rem;
+    --search-width: 11rem;
     --bar-width: 220px;
 
-    --svg-width: 700px;
-    --story-width: 250px;
+    --svg-width: 650px;
+    --story-width: 300px;
 
     --phone-width: 50rem;
     --max-width: 1366px; 
@@ -32,7 +33,7 @@ body {
         "searchBox      chart       stories" 
         "footer         footer      footer"; 
     grid-template-columns: var(--search-width) var(--svg-width) var(--story-width);
-    grid-template-rows: 2.2rem 120px 2rem auto 1rem;
+    grid-template-rows: 2.2rem 120px 2.7rem auto 1rem;
     grid-gap: .1em;
     margin: 0px;
     height: 100vh;
@@ -64,6 +65,7 @@ body {
     grid-area: searchBox;
     display: flex;
     justify-content: center;
+    background-color: rgb(241, 241, 241);
 }
 
 .date {
@@ -84,6 +86,7 @@ body {
 .stories {
     grid-area: stories;
     overflow: auto;
+    background-color: rgb(241, 241, 241);
 }
 
 /* .topic {
