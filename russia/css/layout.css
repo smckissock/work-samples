@@ -1,0 +1,104 @@
+:root {
+    font-size: calc(0.5em + 1vw);
+
+    --white-text: rgb(255, 255, 255);
+    --blue-link: rgb(98, 132, 171);
+    --red-text: rgb(248, 48, 54);
+    --grey-text: rgb(105,105,105);
+    --black-text: rgb(19, 18, 14);
+    
+    --search-width: 12rem;
+    --bar-width: 220px;
+
+    --svg-width: 700px;
+    --story-width: 250px;
+
+    --phone-width: 50rem;
+    --max-width: 1366px; 
+}
+
+body {
+    margin: 0;
+    overflow: hidden;
+    /* background-color: rgb(22, 31, 45); */
+}
+
+.container {
+    display: grid;
+    grid-template-areas: 
+        "title          title       title"
+        "searchBox      date        stories" 
+        "searchBox      summary     stories" 
+        "searchBox      chart       stories" 
+        "footer         footer      footer"; 
+    grid-template-columns: var(--search-width) var(--svg-width) var(--story-width);
+    grid-template-rows: 2.2rem 120px 2rem auto 1rem;
+    grid-gap: .1em;
+    margin: 0px;
+    height: 100vh;
+    width: calc(100vw - 1.1rem); 
+}
+
+.container *> {
+    border: 1px solid black;    
+}
+
+@media screen and (min-width: 1200px) {
+    :root {
+        font-size: 22px; 
+    }
+    .container {
+        width: 1200px; 
+    }
+}
+
+.title {
+    grid-area: title;
+    text-align: center;
+    
+ /*    font-family: "publico", Georgia, Times, "Times New Roman", serif; */
+    font-weight: 500;
+}
+
+.search-box {
+    grid-area: searchBox;
+    display: flex;
+    justify-content: center;
+}
+
+.date {
+    grid-area: date;
+}
+
+.summary {
+    grid-area: summary;
+
+}
+
+.chart {
+    grid-area: chart;
+    overflow: auto;
+}
+
+
+.stories {
+    grid-area: stories;
+    overflow: auto;
+}
+
+/* .topic {
+    grid-area: topic;
+} */
+
+/* .filters {
+    grid-area: filters;
+} */
+
+/* .mediaOutlet {
+    grid-area: mediaOutlet;
+    overflow: auto;
+}  */
+
+.footer {
+    grid-area: footer;
+}

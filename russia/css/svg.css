@@ -1,0 +1,26 @@
+.mediaLabel {
+    /* font-weight: bolder; */
+    font-size: 12px;
+    width: 90px;
+    text-anchor: start;
+    cursor: default;
+    /*background: #ffffff;*/
+    pointer-events: none;
+    /* stroke: lightgrey; */
+    fill: black;
+}
+
+.dateAxis text {
+    font-size: 12px;
+}
+
+.mediaLine {
+    stroke: lightgrey;
+}
+
+.domain {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
+    stroke-width: 2px;
+}
