@@ -11,8 +11,8 @@
     --search-width: 11rem;
     --bar-width: 220px;
 
-    --svg-width: 650px;
-    --story-width: 300px;
+    --svg-width: 700px;
+    --story-width: 400px;
 
     --phone-width: 50rem;
     --max-width: 1366px; 
@@ -27,13 +27,14 @@ body {
 .container {
     display: grid;
     grid-template-areas: 
-        "title          title       title"
-        "searchBox      date        stories" 
-        "searchBox      summary     stories" 
-        "searchBox      chart       stories" 
-        "footer         footer      footer"; 
-    grid-template-columns: var(--search-width) var(--svg-width) var(--story-width);
-    grid-template-rows: 2.2rem 120px 2.7rem auto 1rem;
+        "title          title"
+        "searchBox      searchBox"
+        "date           stories" 
+        "summary        stories" 
+        "chart          stories" 
+        "footer         footer"; 
+    grid-template-columns: var(--svg-width) var(--story-width);
+    grid-template-rows: 2.2rem 3rem 120px 2.7rem auto 1rem;
     grid-gap: .1em;
     margin: 0px;
     height: 100vh;
@@ -56,8 +57,6 @@ body {
 .title {
     grid-area: title;
     text-align: center;
-    
- /*    font-family: "publico", Georgia, Times, "Times New Roman", serif; */
     font-weight: 500;
 }
 
@@ -65,11 +64,12 @@ body {
     grid-area: searchBox;
     display: flex;
     justify-content: center;
-    background-color: rgb(241, 241, 241);
+    /* background-color: rgb(241, 241, 241); */
 }
 
 .date {
     grid-area: date;
+    margin: .0rem 0rem .0rem 1rem;
 }
 
 .summary {
@@ -80,22 +80,14 @@ body {
 .chart {
     grid-area: chart;
     overflow: auto;
+    margin: .0rem 0rem .0rem 1rem;
 }
-
 
 .stories {
     grid-area: stories;
     overflow: auto;
-    background-color: rgb(241, 241, 241);
+    /* background-color: rgb(241, 241, 241); */
 }
-
-/* .topic {
-    grid-area: topic;
-} */
-
-/* .filters {
-    grid-area: filters;
-} */
 
 /* .mediaOutlet {
     grid-area: mediaOutlet;

@@ -4,6 +4,7 @@ let mediaOutletChart;
 let searchDim;
 let tableDim;
 let searchGroup;
+let dateDim;
 
 let all;
 let allStoryCount;
@@ -37,6 +38,19 @@ d3.json("data/news.json", function (err, data) {
     months = makeMonths();
     months.forEach(m => { console.log(); });
 
+    // From http://www.people-press.org/2014/06/12/section-1-growing-ideological-consistency/
+    // TinEye
+    const biasColors = [
+        '',         // 0 
+        'white',    // Unspecified
+        '#335064',  // Left
+        '#84a4ba',  // Center left   
+        '#4e4656',  // Center
+        '#bfc0c1',  // Mixed 
+        '#e48175',  // Center Right
+        '#923024'   // Right
+    ];    
+
     data.stories.forEach(function (d) {
         let parts = d.date.split("/");
         d.dateSort = parts[2] + "-" + parts[0].padStart(2, '0') + "-" + parts[1].padStart(2, '0');
@@ -45,19 +59,23 @@ d3.json("data/news.json", function (err, data) {
         let month = Number(parts[0]);
         d.monthNum = ((year - 2013) * 12) + month;
         d.dateObject = new Date(d.date);
+
+        d.color = biasColors[d.biasRatingId];
     });
 
-    //console.table(data.stories);
+    console.table(data.stories);
 
     stories = data.stories;
     allStoryCount = stories.length;
 
     storiesFact = crossfilter(data.stories);
     all = storiesFact.groupAll();
+    
+    
     termsDim = storiesFact.dimension(d => { return d.termIds; });
     termsGroup = termsDim.group().reduceCount();
 
-    let dateDim = storiesFact.dimension(function (d) { return d.monthNum; });
+ /*    dateDim = storiesFact.dimension(function (d) { return d.monthNum; });
     let dateGroup = dateDim.group().reduceCount(function (d) { return d.monthNum; });
     dateChart = dc.barChart("#dc-chart-date")
         .dimension(dateDim)
@@ -70,7 +88,6 @@ d3.json("data/news.json", function (err, data) {
         .ordinalColors(['#9ecae1'])
         .yAxisLabel('# Media Accounts')
         .on('filtered', showFilters)
-        //.brushOn(false) // turns it off, but afterwards clicking doesn't filter!
         .elasticY(true)
 
     dateChart.yAxis().ticks(3);
@@ -78,7 +95,29 @@ d3.json("data/news.json", function (err, data) {
 
     dateChart.xAxis().tickFormat(function (d) {
         return months[d].year + " " + months[d].quarter;
-    });
+    });  */
+
+ 
+    var dimMonthYear = storiesFact.dimension(function(d) {
+        return d3.time.month(d.dateObject)
+      });      
+    var groupMonthYear = dimMonthYear.group().reduceSum(function (d) { return d.count; });
+    
+    let timeChart = dc.barChart("#dc-chart-date")
+        .width(dateChartWidth())
+        .height(110)
+        .dimension(dimMonthYear)
+        .group(groupMonthYear)
+        .transitionDuration(500)
+        .centerBar(true)
+        .margins({top: 30, right: 50, bottom: 25, left: 40})
+        .yAxisLabel('# Media Accounts')
+        .on('filtered', showFilters)
+        .x(d3.time.scale()).elasticX(true)
+        .round(d3.time.month.round)
+        .alwaysUseRounding(true)
+        .xUnits(d3.time.months)
+
 
     d3.select("#search-input").on('keyup', function (event) {
         searchTerm = document.getElementById("search-input").value;
@@ -86,7 +125,6 @@ d3.json("data/news.json", function (err, data) {
     });
 
     let col1Width = 200;
-
     mediaOutletChart = new RowChart(storiesFact, "mediaOutlet", col1Width, 40);
 
     /* dataTable = dc.dataTable("#dc-chart-dataGrid"); */
@@ -104,6 +142,7 @@ d3.json("data/news.json", function (err, data) {
     dc.renderAll();
     showFilters();
 
+    getExampleTerms();
     document.getElementById("search-input").focus();
 });
 
@@ -146,7 +185,6 @@ function setWord(word) {
     resultsBox.innerHTML = searchTermsHtml(matchedTerms);
 }
 
-
 // When they click on a search term 
 function showStories(id) {
     selectedTerm = t = terms.filter(term => { return term.id == id })[0];
@@ -156,7 +194,6 @@ function showStories(id) {
     
     showFilters();
 }
-
 
 function renderChart() {
     chartSvg.selectAll("*").remove();
@@ -188,7 +225,7 @@ function renderChart() {
             });
 
     const stories = tableDim.top(10000);
-    console.table(stories);
+    //console.table(stories);
 
     const dates = stories.map(x => x.dateObject);
     const dateScale = d3.time.scale()
@@ -226,7 +263,7 @@ function renderChart() {
                     //.attr("stroke-width", 2);
             })
             .on('mouseout', function (d) {
-                let fillColor = "#9ECAE1";    
+                let fillColor = d.color;    
                 if (d == selectedStory)
                     fillColor = "black";
 
@@ -236,14 +273,15 @@ function renderChart() {
                     });
                     storyDeselect(d);
             })
-            .style("fill-opacity", 0)
+            .attr("r", 0)
+            //.style("fill-opacity", 0)
             .transition()
-            .duration(200)
+            .duration(500)
             .attr({
                 cx: function(d, i) { return dateScale(d.dateObject) + 20}
                 , cy: d => mediaY[d.mediaOutlet] - 4
                 , r: d => storyRadius(d.wordCount)
-                , fill: "#9ECAE1"
+                , fill: d => d.color
                 , stroke: "black"
                 , strokeWidth: 1
             })
@@ -275,8 +313,8 @@ function renderChart() {
 function storyClick(circle, story) {
     // If a story is already selected, color it blue 
     if ((selectedCircle != circle) && (selectedCircle)) 
-        selectedCircle.setAttribute("fill", "#9ECAE1")
-
+        selectedCircle.setAttribute("fill", selectedStory.color)
+        
     selectedCircle = circle;
     selectedStory = story;
     let html = storyDetailsHtml(selectedStory);
