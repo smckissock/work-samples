@@ -22,7 +22,7 @@ let termsGroup;
 
 let svgWidth = 650;
 let storyWidth = 300;
-let chartSvg;
+let graphSvg;
 
 let selectedStory = null;
 let selectedCircle = null;
@@ -75,7 +75,7 @@ d3.json("data/news.json", function (err, data) {
     termsDim = storiesFact.dimension(d => { return d.termIds; });
     termsGroup = termsDim.group().reduceCount();
 
- /*    dateDim = storiesFact.dimension(function (d) { return d.monthNum; });
+    dateDim = storiesFact.dimension(function (d) { return d.monthNum; });
     let dateGroup = dateDim.group().reduceCount(function (d) { return d.monthNum; });
     dateChart = dc.barChart("#dc-chart-date")
         .dimension(dateDim)
@@ -95,10 +95,10 @@ d3.json("data/news.json", function (err, data) {
 
     dateChart.xAxis().tickFormat(function (d) {
         return months[d].year + " " + months[d].quarter;
-    });  */
+    });  
 
  
-    var dimMonthYear = storiesFact.dimension(function(d) {
+    /* var dimMonthYear = storiesFact.dimension(function(d) {
         return d3.time.month(d.dateObject)
       });      
     var groupMonthYear = dimMonthYear.group().reduceSum(function (d) { return d.count; });
@@ -116,7 +116,7 @@ d3.json("data/news.json", function (err, data) {
         .x(d3.time.scale()).elasticX(true)
         .round(d3.time.month.round)
         .alwaysUseRounding(true)
-        .xUnits(d3.time.months)
+        .xUnits(d3.time.months) */
 
 
     d3.select("#search-input").on('keyup', function (event) {
@@ -147,7 +147,7 @@ d3.json("data/news.json", function (err, data) {
 });
 
 function addSvg() {
-    chartSvg = d3.select("#svg-chart")
+    graphSvg = d3.select("#svg-chart")
         .append("svg")
         .attr("width", svgWidth + 3)
         .attr("height", 700);
@@ -166,148 +166,181 @@ function setFocus() {
     document.getElementById('search-input').focus();
 }
 
-function setSearch(term) {
+
+// They clicked on an example. If this gives a single result - as it usually will - don't 
+// show list of choices, just put the term in the search box and show the results for that term
+// If there is more than one results, show the list  
+function setExampleSearch(term) {
     d3.select("#search-input")
         .attr("value", term);
-    setWord(term);
+
+    cleanSearchTerm = term.toLowerCase();
+    let matchedTerms = terms.filter(x => { return x.lower.indexOf(cleanSearchTerm) !== -1 });
+
+    if (matchedTerms.length == 0) {
+        alert("No entities found for " + cleanSearchTerm + "? WTF?");
+    }
+
+    // If there is only one result, "click" it 
+    if (matchedTerms.length == 1) {
+        showStories(matchedTerms[0].id)
+    } else {
+        setWord(term);
+    }
 }
 
 // Changes the list of terms, they need to select term to refresh stories 
 function setWord(word) {
     searchTerm = word;
     cleanSearchTerm = word.toLowerCase();
-    if (word.length < 2)
-        return;
+    
+    let matchedTerms = [];
+    if (word.length > 2) 
+        matchedTerms = terms.filter(x => { return x.lower.indexOf(cleanSearchTerm) !== -1 });
 
-    let matchedTerms = terms.filter(x => { return x.lower.indexOf(cleanSearchTerm) !== -1 });
-
-    let resultsBox = document.getElementById("results-box");
-    resultsBox.innerHTML = searchTermsHtml(matchedTerms);
+    document.getElementById("results-box").innerHTML = searchTermsHtml(matchedTerms);
 }
 
 // When they click on a search term 
 function showStories(id) {
     selectedTerm = t = terms.filter(term => { return term.id == id })[0];
-
     termsDim.filter(d => { return d.indexOf(id) !== -1 });
     dc.redrawAll();
     
     showFilters();
+    document.getElementById("results-box").innerHTML = searchTermsHtml([]);
 }
 
-function renderChart() {
-    chartSvg.selectAll("*").remove();
+function drawGraph() {
+    
+    const mediaY = {};
     const rowHeight = 30;
 
+    function drawMediaLabels() {
+        graphSvg.attr("height", (medias.length * rowHeight) + 20);
+        
+        let y = 18;
+        medias.forEach(function (media) {
+            mediaY[media] = y;
+            y += rowHeight;
+        });
+
+        graphSvg.selectAll("text")
+            .data(medias)
+            .enter()
+            .append("text")
+                .text(d => d)
+                .attr({
+                    x: 3
+                    , y: d => mediaY[d] 
+                    , class: "mediaLabel"
+                });
+    }
+
+    function drawStories() {
+    
+        function storyRadius(wordCount) {
+            if (wordCount < 500)
+                return 8;
+            if (wordCount < 1000)
+                return 10;
+            if (wordCount < 1500)
+                return 12;
+            return 13.5;    
+        }    
+
+        graphSvg.selectAll("circle")
+            .data(stories)
+            .enter()
+            .append("circle")
+                .attr({
+                    fill: "black"            
+                })
+                .on('click', function (d) {
+                    storyClick(this, d);
+                })
+                .on('mouseover', function (d) {
+                    d3.select(this)
+                        .attr({
+                            fill: "black"            
+                        })
+                        storySelect(d);
+                        //.style('fill-opacity', .9)
+                        //.attr("stroke", "black")
+                        //.attr("stroke-width", 2);
+                })
+                .on('mouseout', function (d) {
+                    let fillColor = d.color;    
+                    if (d == selectedStory)
+                        fillColor = "black";
+
+                    d3.select(this)
+                        .attr({
+                            fill: fillColor
+                        });
+                        storyDeselect(d);
+                })
+                .attr("r", 0)
+                //.style("fill-opacity", 0)
+                .transition()
+                .duration(500)
+                .attr({
+                    cx: function(d, i) { return dateScale(d.dateObject) + 20}
+                    , cy: d => mediaY[d.mediaOutlet] - 4
+                    , r: d => storyRadius(d.wordCount)
+                    , fill: d => d.color
+                    , stroke: "black"
+                    , strokeWidth: 1
+                })
+                .style("fill-opacity", 1);
+        }
+
+        function drawHorizontalLines() {
+            graphSvg.selectAll("line")
+                .data(stories)
+                .enter()
+                .append("line")
+                .attr("class", "mediaLine")
+                .attr({
+                    x1: 0
+                    , y1: function(d, i) { return 29 + (i * rowHeight)}
+                    , x2: svgWidth
+                    , y2: function(d, i) { return 29 + (i * rowHeight)}
+                });
+        }
+
+        function drawDateAxis() {
+            const xAxis = d3.svg.axis()
+                .orient("bottom")
+                .scale(dateScale)
+                .ticks(7);
+
+            graphSvg.append("g")
+                .attr("transform", "translate(10," + ((rowHeight * medias.length)) + ")")
+                .attr("class", "dateAxis")
+                .call(xAxis);
+        }
+
+    // Start drawGraph
     const medias = 
         mediaOutletChart.data()
             .filter(x => x.value > 0)
             .map(x => x.key);
             
-    chartSvg.attr("height", (medias.length * rowHeight) + 20);
-
-    const mediaY = {};
-    let y = 18;
-    medias.forEach(function (media) {
-        mediaY[media] = y;
-        y += rowHeight;
-    });
-
-    chartSvg.selectAll("text")
-        .data(medias)
-        .enter()
-        .append("text")
-            .text(d => d)
-            .attr({
-                x: 3
-                , y: d => mediaY[d] 
-                , class: "mediaLabel"
-            });
-
     const stories = tableDim.top(10000);
-    //console.table(stories);
+
+    d3.select("#story-box").html(storyDetailsHtml(stories[0]));
 
     const dates = stories.map(x => x.dateObject);
     const dateScale = d3.time.scale()
         .domain([d3.min(dates, d => d), d3.max(dates, d => d)])
         .range([130, svgWidth - 35]); 
-``
-    function storyRadius(wordCount) {
-        if (wordCount < 500)
-            return 8;
-        if (wordCount < 1000)
-            return 10;
-        if (wordCount < 1500)
-            return 12;
-        return 13.5;    
-    }    
 
-    chartSvg.selectAll("circle")
-        .data(stories)
-        .enter()
-        .append("circle")
-            .attr({
-                fill: "black"            
-            })
-            .on('click', function (d) {
-                storyClick(this, d);
-            })
-            .on('mouseover', function (d) {
-                d3.select(this)
-                    .attr({
-                        fill: "black"            
-                    })
-                    storySelect(d);
-                    //.style('fill-opacity', .9)
-                    //.attr("stroke", "black")
-                    //.attr("stroke-width", 2);
-            })
-            .on('mouseout', function (d) {
-                let fillColor = d.color;    
-                if (d == selectedStory)
-                    fillColor = "black";
-
-                d3.select(this)
-                    .attr({
-                        fill: fillColor
-                    });
-                    storyDeselect(d);
-            })
-            .attr("r", 0)
-            //.style("fill-opacity", 0)
-            .transition()
-            .duration(500)
-            .attr({
-                cx: function(d, i) { return dateScale(d.dateObject) + 20}
-                , cy: d => mediaY[d.mediaOutlet] - 4
-                , r: d => storyRadius(d.wordCount)
-                , fill: d => d.color
-                , stroke: "black"
-                , strokeWidth: 1
-            })
-            .style("fill-opacity", 1);
-
-    chartSvg.selectAll("line")
-        .data(stories)
-        .enter()
-        .append("line")
-            .attr("class", "mediaLine")
-            .attr({
-                x1: 0
-                , y1: function(d, i) { return 29 + (i * rowHeight)}
-                , x2: svgWidth
-                , y2: function(d, i) { return 29 + (i * rowHeight)}
-            });
-
-    const xAxis = d3.svg.axis()
-        .orient("bottom")
-        .scale(dateScale)
-        .ticks(7);
-
-    chartSvg.append("g")
-        .attr("transform", "translate(10," + ((rowHeight * medias.length)) + ")")
-        .attr("class", "dateAxis")
-        .call(xAxis);
+    graphSvg.selectAll("*").remove();
+    drawMediaLabels();
+    drawStories();
+    drawHorizontalLines();
+    drawDateAxis();
 }
 
 function storyClick(circle, story) {
@@ -332,7 +365,6 @@ function storyDeselect(story) {
     else
         d3.select("#story-box").html("<p class='no-story'>No story selected (click circle)</p>");
 }
-
 
 function showFilters() {
     
@@ -359,13 +391,15 @@ function showFilters() {
         d3.select("#filter-box").text(filterString);
     
     // Clear selected story whenever filters change (I guess?)
+    clearStory();
+    drawGraph();
+}
+
+function clearStory() { 
     selectedStory = null;
     selectedCircle = null;
     storyDeselect();
-        
-    renderChart();
 }
-
 
 // Show search terms with chars they typed 
 function searchTermsHtml(matchedTerms) {
@@ -389,10 +423,20 @@ function searchTermsHtml(matchedTerms) {
             html += typeHtml(term)
             type = term.type;
         }
-
         html += resultHtml(term);
     });
+
+    toggleChartVisible(html != "");
     return html;
+}
+
+function toggleChartVisible(hide) {
+    let display = "block";
+    if (hide)
+        display = "none";
+    d3.select("#dc-chart-date").style("display", display);
+    d3.select("#summary-box").style("display", display);
+    d3.select("#svg-chart").style("display", display);
 }
 
 function storyDetailsHtml(story) {
@@ -518,63 +562,24 @@ function formatDate(date) {
   }
   
 
+function refreshExamples() {
+    d3.select("#search-input")
+        .attr("value", "");
+    cleanSearchTerm = "";
+    searchTerm = "";
+    toggleChartVisible(true)
+    clearStory();
 
-// Was used with table listing
-/* function storyHtml(story) {
-
-    function headline(date, mediaOutlet, headline) {
-        let txt = date;
-        if (headline != "")
-            return date + " " + mediaOutlet + " - " + headline;
-        else
-            return date + " " + mediaOutlet;
-    }
-
-    function getSentence(sentences) {
-        let result = "Not Found";
-
-        if (searchTerm.length < 3)
-            return "";
-
-        sentences.forEach(function (sentence) {
-            var lower = sentence.toLowerCase();
-            if (lower.includes(cleanSearchTerm)) {
-                let start = lower.indexOf(cleanSearchTerm);
-                let answer = insert(sentence, start + searchTerm.length, "</span>");
-                answer = insert(answer, start, "<span class='selected-term'>");
-                result = '"' + answer + '"';
-            }
-        });
-        return result;
-    }
-
-    function getTermString(story) {
-        if (story.terms === undefined) {
-            let list = ""
-            story.termIds.forEach(function (id) {
-                let t = terms.filter(term => { return term.id == id });
-                if (t.length > 0)
-                    list += t[0].name + " ";
-            })
-            story.terms = list;
-        }
-        return story.terms;
-    }
-
-    return `
-        <div class="story-result" ${story.dateSort} onclick="window.open('${story.link}')">
-            <p class="story-headline">${headline(story.date, story.mediaOutlet, story.headline)}</p>
-            <p class="story-excerpt">${getSentence(story.sentences)}</p>
-            <p class="story-excerpt">${getTermString(story)}</p>
-        </div>
-    `;
-} */
-
+    getExampleTerms();
+}
 
 function getExampleTerms() {
     let examples =
-        ["Mandiant", "Goldstone", "Kaspersky", "Comey", "CrowdStrike", "McGahn", "Helsinki", "Sater", "Butina", "Veselnitskaya",
+        ["Goldstone", "Comey", "McGahn", "Helsinki", "Sater", "Butina", "Veselnitskaya",
             "Guccifer", "Prague", "Kislyak", "Wikileaks", "Magnitsky", "Lewandowski", "Podesta", "McCaskill", "Nunes", "Akhmetshin"]
+
+    // Examples without stories!!        
+    // "CrowdStrike", "Mandiant", "Kaspersky"
 
     let picked = new Set();
     while (picked.size < 3)
@@ -582,10 +587,16 @@ function getExampleTerms() {
     let terms = Array.from(picked);
 
     document.getElementById("examples-div").innerHTML = `
-    <span class="example-label">Click an example: </span>
-    <span><a class="search-example" href="javascript:setSearch('${terms[0]}')">${terms[0]}</a></span>
-    <span><a class="search-example" href="javascript:setSearch('${terms[1]}')">${terms[1]}</a></span>
-    <span><a class="search-example" href="javascript:setSearch('${terms[2]}')">${terms[2]}</a></span>
+    <span>&nbsp;</span>
+    <span onclick="refreshExamples()">
+    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="-2 -3 18 18">
+        <path d="M9 13.5c-2.49 0-4.5-2.01-4.5-4.5S6.51 4.5 9 4.5c1.24 0 2.36.52 3.17 1.33L10 8h5V3l-1.76 1.76C12.15 3.68 10.66 3 9 3 5.69 3 3.01 5.69 3.01 9S5.69 15 9 15c2.97 0 5.43-2.16 5.9-5h-1.52c-.46 2-2.24 3.5-4.38 3.5z"/>
+    </svg>
+    </span>	 
+    <span class="example-label">Click a sample: </span>
+    <span><a class="search-example" href="javascript:setExampleSearch('${terms[0]}')">${terms[0]}</a></span>
+    <span><a class="search-example" href="javascript:setExampleSearch('${terms[1]}')">${terms[1]}</a></span>
+    <span><a class="search-example" href="javascript:setExampleSearch('${terms[2]}')">${terms[2]}</a></span>
     `;
 }
 
@@ -652,5 +663,58 @@ var RowChart = function (facts, attribute, width) {
 
     return chart;
 }
+
+
+
+// Was used with table listing
+/* function storyHtml(story) {
+
+    function headline(date, mediaOutlet, headline) {
+        let txt = date;
+        if (headline != "")
+            return date + " " + mediaOutlet + " - " + headline;
+        else
+            return date + " " + mediaOutlet;
+    }
+
+    function getSentence(sentences) {
+        let result = "Not Found";
+
+        if (searchTerm.length < 3)
+            return "";
+
+        sentences.forEach(function (sentence) {
+            var lower = sentence.toLowerCase();
+            if (lower.includes(cleanSearchTerm)) {
+                let start = lower.indexOf(cleanSearchTerm);
+                let answer = insert(sentence, start + searchTerm.length, "</span>");
+                answer = insert(answer, start, "<span class='selected-term'>");
+                result = '"' + answer + '"';
+            }
+        });
+        return result;
+    }
+
+    function getTermString(story) {
+        if (story.terms === undefined) {
+            let list = ""
+            story.termIds.forEach(function (id) {
+                let t = terms.filter(term => { return term.id == id });
+                if (t.length > 0)
+                    list += t[0].name + " ";
+            })
+            story.terms = list;
+        }
+        return story.terms;
+    }
+
+    return `
+        <div class="story-result" ${story.dateSort} onclick="window.open('${story.link}')">
+            <p class="story-headline">${headline(story.date, story.mediaOutlet, story.headline)}</p>
+            <p class="story-excerpt">${getSentence(story.sentences)}</p>
+            <p class="story-excerpt">${getTermString(story)}</p>
+        </div>
+    `;
+} */
 
 

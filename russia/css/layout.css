@@ -28,7 +28,7 @@ body {
     display: grid;
     grid-template-areas: 
         "title          title"
-        "searchBox      searchBox"
+        "searchBox      stories"
         "date           stories" 
         "summary        stories" 
         "chart          stories" 
