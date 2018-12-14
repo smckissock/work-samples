@@ -24,6 +24,8 @@ let svgWidth = 650;
 let storyWidth = 300;
 let graphSvg;
 
+let mediaList;
+
 let selectedStory = null;
 let selectedCircle = null;
 
@@ -63,8 +65,10 @@ d3.json("data/news.json", function (err, data) {
         d.color = biasColors[d.biasRatingId];
     });
 
-    console.table(data.stories);
+    //console.table(data.stories);
+    console.table(data.media);
 
+    mediaList = data.media;
     stories = data.stories;
     allStoryCount = stories.length;
 
@@ -139,10 +143,28 @@ d3.json("data/news.json", function (err, data) {
 
     addSvg();
 
+    
+    d3.select("body")
+        .on("keydown", function() {
+            graphSvg.append("text")
+                .attr("x","5")
+                .attr("y","150")
+                .style("font-size","50px")
+                .text("keyCode: " + d3.event.keyCode)  
+            .transition().duration(2000)
+                .style("font-size","5px")
+                .style("fill-opacity",".1")
+                .remove();
+    });
+    
+
     dc.renderAll();
+
+    let term = getExampleTerms();
+    setExampleSearch(term);
+
     showFilters();
 
-    getExampleTerms();
     document.getElementById("search-input").focus();
 });
 
@@ -152,6 +174,7 @@ function addSvg() {
         .attr("width", svgWidth + 3)
         .attr("height", 700);
 }
+
 
 function dateChartWidth() {
     return window.innerWidth > svgWidth ? svgWidth : window.innerWidth - 220
@@ -220,8 +243,8 @@ function drawGraph() {
         graphSvg.attr("height", (medias.length * rowHeight) + 20);
         
         let y = 18;
-        medias.forEach(function (media) {
-            mediaY[media] = y;
+        medias.forEach(function(media) {
+            mediaY[media.name] = y;
             y += rowHeight;
         });
 
@@ -229,10 +252,10 @@ function drawGraph() {
             .data(medias)
             .enter()
             .append("text")
-                .text(d => d)
+                .text(d => d.name)
                 .attr({
                     x: 3
-                    , y: d => mediaY[d] 
+                    , y: d => mediaY[d.name] 
                     , class: "mediaLabel"
                 });
     }
@@ -322,14 +345,17 @@ function drawGraph() {
         }
 
     // Start drawGraph
-    const medias = 
+    const mediaNames = 
         mediaOutletChart.data()
             .filter(x => x.value > 0)
             .map(x => x.key);
+    let medias = mediaList.filter(x => mediaNames.indexOf(x.name) > -1);
+    console.table(medias);
             
     const stories = tableDim.top(10000);
 
-    d3.select("#story-box").html(storyDetailsHtml(stories[0]));
+    if (stories[0])
+        d3.select("#story-box").html(storyDetailsHtml(stories[0]));
 
     const dates = stories.map(x => x.dateObject);
     const dateScale = d3.time.scale()
@@ -434,9 +460,10 @@ function toggleChartVisible(hide) {
     let display = "block";
     if (hide)
         display = "none";
-    d3.select("#dc-chart-date").style("display", display);
-    d3.select("#summary-box").style("display", display);
-    d3.select("#svg-chart").style("display", display);
+    d3.select("#story-box").style("display", display);
+    //d3.select("#dc-chart-date").style("display", display);
+    //d3.select("#summary-box").style("display", display);
+    //d3.select("#svg-chart").style("display", display);
 }
 
 function storyDetailsHtml(story) {
@@ -514,7 +541,6 @@ function storyDetailsHtml(story) {
             if (matches.length > 0)
                 termList.push(matches[0]);
         });
-        
 
         let html = "";
         let type = "";
@@ -570,24 +596,26 @@ function refreshExamples() {
     toggleChartVisible(true)
     clearStory();
 
-    getExampleTerms();
+    setExampleSearch(getExampleTerms());
 }
 
+
+// Gets a new list of random  examples and renders them. Returns the first item, which will always have a single associated term. 
 function getExampleTerms() {
+
     let examples =
-        ["Goldstone", "Comey", "McGahn", "Helsinki", "Sater", "Butina", "Veselnitskaya",
-            "Guccifer", "Prague", "Kislyak", "Wikileaks", "Magnitsky", "Lewandowski", "Podesta", "McCaskill", "Nunes", "Akhmetshin"]
+        ["Rob Goldstone", "Comey", "McGahn", "Helsinki", "Sater", "Butina", "Veselnitskaya",
+            "Sergey Kislyak", "Wikileaks", "Magnitsky", "Corey Lewandowski", "John Podesta", "Claire McCaskill", "Devin Nunes", "Rinat Akhmetshin"]
 
     // Examples without stories!!        
-    // "CrowdStrike", "Mandiant", "Kaspersky"
+    // "CrowdStrike", "Mandiant", "Kaspersky" "Prague"
 
     let picked = new Set();
-    while (picked.size < 3)
+    while (picked.size < 7)
         picked.add(examples[Math.floor(Math.random() * examples.length)]);
     let terms = Array.from(picked);
 
     document.getElementById("examples-div").innerHTML = `
-    <span>&nbsp;</span>
     <span onclick="refreshExamples()">
     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="-2 -3 18 18">
         <path d="M9 13.5c-2.49 0-4.5-2.01-4.5-4.5S6.51 4.5 9 4.5c1.24 0 2.36.52 3.17 1.33L10 8h5V3l-1.76 1.76C12.15 3.68 10.66 3 9 3 5.69 3 3.01 5.69 3.01 9S5.69 15 9 15c2.97 0 5.43-2.16 5.9-5h-1.52c-.46 2-2.24 3.5-4.38 3.5z"/>
@@ -597,7 +625,13 @@ function getExampleTerms() {
     <span><a class="search-example" href="javascript:setExampleSearch('${terms[0]}')">${terms[0]}</a></span>
     <span><a class="search-example" href="javascript:setExampleSearch('${terms[1]}')">${terms[1]}</a></span>
     <span><a class="search-example" href="javascript:setExampleSearch('${terms[2]}')">${terms[2]}</a></span>
+    <span><a class="search-example" href="javascript:setExampleSearch('${terms[3]}')">${terms[3]}</a></span>
+    <span><a class="search-example" href="javascript:setExampleSearch('${terms[4]}')">${terms[4]}</a></span>
+    <span><a class="search-example" href="javascript:setExampleSearch('${terms[5]}')">${terms[5]}</a></span>
+    <span><a class="search-example" href="javascript:setExampleSearch('${terms[6]}')">${terms[6]}</a></span>
     `;
+
+    return terms[0];
 }
 
 function insert(str, index, value) {
@@ -650,7 +684,7 @@ var RowChart = function (facts, attribute, width) {
         .data(function (d) { return d.top(10000); })
         .width(width)
         .height(height)
-        .margins({ top: 0, right: 0, bottom: 10, left: 20 })
+        .margins({ top: 60, right: 0, bottom: 10, left: 20 })
         .elasticX(true)
         .ordinalColors(['#9ecae1']) // light blue
         .labelOffsetX(5)

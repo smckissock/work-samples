@@ -78,7 +78,7 @@ li {
 .search-container {
    /*  position: relative; */
     border-radius: 3px;
-    width: 20rem;
+    width: 16rem;
     background-color: rgb(241, 241, 241);
 }   
 
@@ -106,6 +106,7 @@ span.example-label {
     font-size: .9rem;
     font-style: italic;
     display: inline-block;
+    padding: 0rem .4rem 0rem .2rem;  
 }
 
 a.search-example {
@@ -131,7 +132,8 @@ a.reset {
 }
 
 .search-input {
-    width: 19rem;
+    margin: .3rem .1rem .3rem .1rem;
+    width: 15rem;
     border: none;
 }
 
@@ -297,7 +299,7 @@ p.story-excerpt {
  #filter-box {
     font-size: 1.1em;
     font-weight: 700;
-    margin: 0rem 0rem .1rem 1.1rem;
+    margin: .5rem 0rem .1rem 1.1rem;
     display: block
  }
 

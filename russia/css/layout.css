@@ -28,13 +28,12 @@ body {
     display: grid;
     grid-template-areas: 
         "title          title"
-        "searchBox      stories"
-        "date           stories" 
-        "summary        stories" 
-        "chart          stories" 
+        "searchBox      date  "
+        "stories        summary" 
+        "stories        chart" 
         "footer         footer"; 
-    grid-template-columns: var(--svg-width) var(--story-width);
-    grid-template-rows: 2.2rem 3rem 120px 2.7rem auto 1rem;
+    grid-template-columns: var(--story-width) var(--svg-width) ;
+    grid-template-rows: 2.2rem 120px 4rem auto 1rem;
     grid-gap: .1em;
     margin: 0px;
     height: 100vh;
@@ -69,7 +68,7 @@ body {
 
 .date {
     grid-area: date;
-    margin: .0rem 0rem .0rem 1rem;
+    margin: .5rem 0rem .0rem 1rem;
 }
 
 .summary {
