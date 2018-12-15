@@ -1,0 +1,19 @@
+[
+  "In the wake of the data sharing scandal over Facebook and Cambridge Analytica, the building of websites using third party widgets could be the stage for the next big story.",
+  "Researcher Mark Richards has been probing the third party technology running on websites handling sensitive data, particularly banks and the UK’s National Health Service.",
+  "As web developers increasingly rely on code built by others, we can expect to see more such breaches, with ensuing arguments over who was to blame.",
+  "Tech security firm RiskIQ has reported that, in order to skim credit card details, the thieves tweaked an element of the Ticketmaster site.",
+  "Somehow, the bespoke website widget that Inbenta gave to Ticketmaster was hacked, allowing the thieves to try to skim off payment details.",
+  "Ticketmaster says it disabled the Inbenta widget across all its sites after discovering the breach, and that its investigation is ongoing.",
+  "That element had been provided by a company called Inbenta, which offers website owners various tracking and site management tools.",
+  "In June Ticketmaster confirmed that hackers may have pilfered personal and payment information from customers using its UK site.",
+  "For its part, Inbenta claims that the way Ticketmaster installed the widget created a “greater risk for vulnerability”.",
+  "As more details emerge about a hack on Ticketmaster's site, the next data-sharing scandal could be about to break.",
+  "RiskIQ claims it has found hacked widgets from various companies on hundreds of different sites around the world.",
+  "It is an issue which affects not only the illegal use of data, but the legitimate data industry too.",
+  "Both companies say they are working hard to deal with the hack and prevent future occurrences.",
+  "RiskIQ are unsure whether the hack happened at Inbenta’s end or at Ticketmaster.",
+  "His petition for a Parliamentary debate on the issue has just been published.",
+  "Meanwhile customers are caught in the middle.",
+  "The bigger picture is more worrying."
+]

@@ -1,0 +1,20 @@
+[
+  "Microsoft posted more details about the attacks the next day and said that it would release a patch on Nov. 8, its next software update day and election day in the U.S. Microsoft noted that the attackers using the flaw had been sending spear-phishing emails, or targeted messages intended to deceive recipients into disclosing personal information or into installing malware on their machines.",
+  "“This attack campaign, originally identified by Google’s Threat Analysis Group, used two zero-day vulnerabilities in Adobe Flash and the down-level Windows kernel to target a specific set of customers,” wrote Terry Myerson, executive vice president of Windows and devices at Microsoft, analyzing the attacks.",
+  "Microsoft noted that users of its Windows 10 Anniversary Update “are known to be protected from versions of this attack observed in the wild.”\n\nFinally, the hacker group would install a backdoor, or security-bypassing control program, to take over the target’s machine.",
+  "The cybersecurity firm CrowdStrike made waves earlier this year when it attributed an attack on the Democratic National Committee to the same group—an attribution that has since been backed publicly by the U.S. intelligence community.",
+  "Microsoft said that a hacker group linked to Russia as well as recent breaches of U.S. political parties and campaigns is using a previously unknown flaw in Windows software to conduct computer network intrusions.",
+  "Google security engineers revealed the existence of the computer bug in a blog post on Monday after warning Microsoft of the finding, but before the company had issued a patch.",
+  "“Google’s decision to disclose these vulnerabilities before patches are broadly available and tested is disappointing, and puts customers at increased risk,” Myserson said.",
+  "Myerson added that Microsoft “has attributed more 0-day exploits to STRONTIUM than any other tracked group in 2016.”\n\nHere’s how the Russia-linked hacker group worked.",
+  "Microsoft’s threat intelligence team called the attacker group “Strontium,” but many people know the group by other names, including “APT28,” “Sofacy,” or “Fancy Bear.",
+  "Google, on the other hand, maintained that disclosing known and “actively exploited” vulnerabilities is in the interest of people seeking to secure their systems.",
+  "It would do this by exploiting an unknown flaw (also known as a zero-day vulnerability) in Adobe Flash software—a bug that Adobe patched in an update on Oct. 26.",
+  "He added that group tended to leapfrog from one compromised email account to the next, ensnaring victims by sending booby-trapped messages to their contacts.",
+  "Cybersecurity experts have previously linked this group to the Russian government and, more specifically, to its foreign intelligence agency the GRU.",
+  "Next the group would break out of the victim’s browser, escalating privileges (in the industry parlance), through the Windows vulnerability.",
+  "Google said it had a responsibility “to protect users,” since the vulnerability was actively being used to compromise people’s systems.",
+  "First, the team would gain a foothold in victims’ machines by commandeering their web browsers.",
+  "Microsoft said it was disappointed by Google’s disclosure before the release of a fix.",
+  "This article originally appeared on Fortune.com\n\nContact us at editors@time.com."
+]

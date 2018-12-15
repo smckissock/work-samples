@@ -1,0 +1,20 @@
+[
+  "Researchers Brian Dolhansky and Cristian Canton Ferrer note in their paper for Facebook that \"face retouching algorithms\" like red-eye removal and virtual makeup have become very popular.",
+  "This is, however, a new approach to it, which uses General Adversarial Networks, a kind of machine-learning algorithm where two neural networks are pitted against each other.",
+  "Getty\n\nFacebook researchers have created a machine-learning system which can take an image of somebody with closed eyes and replace them with open ones.",
+  "Facebook\n\nThe researchers did not offer any clues as to whether the eye painting technology could be integrated into Facebook in the future.",
+  "Facebook\n\nThis technique of \"in-painting,\" using software to fill a space with what it thinks belongs there, is not new.",
+  "So they turned their attention to making an algorithm that could successfully replace closed eyes with open ones.",
+  "Facebook\n\nEven though this new method is generally convincing, it isn't foolproof.",
+  "Glasses and locks of hair over the eyes were noted to interfere with the results.",
+  "Researchers did manage to do a decent job on an image of Mahatma Gandhi, however.",
+  "Gandhi's glasses don't seem to have interfered significantly with the algorithm.",
+  "The networks are trained to recognize a person's eyes and then re-create them.",
+  "In the past, eye in-painting has left a lot to be desired in terms of realism.",
+  "Adobe's eye in-painting (third column) compared to Facebook's (fourth column).",
+  "Facebook compared its own technology to that of Adobe's eye in-painting.",
+  "Adobe's is in the third column and Facebook's is in the final column.",
+  "Business Insider has reached out to Facebook for comment.",
+  "Facebook's in-painting of eyes is pretty convincing.",
+  "Facebook CEO Mark Zuckerberg."
+]

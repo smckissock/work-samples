@@ -197,6 +197,7 @@ function setExampleSearch(term) {
     d3.select("#search-input")
         .attr("value", term);
 
+    searchTerm = term;    
     cleanSearchTerm = term.toLowerCase();
     let matchedTerms = terms.filter(x => { return x.lower.indexOf(cleanSearchTerm) !== -1 });
 
@@ -355,7 +356,7 @@ function drawGraph() {
     const stories = tableDim.top(10000);
 
     if (stories[0])
-        d3.select("#story-box").html(storyDetailsHtml(stories[0]));
+        storyDetailsHtml(stories[0]);
 
     const dates = stories.map(x => x.dateObject);
     const dateScale = d3.time.scale()
@@ -376,18 +377,17 @@ function storyClick(circle, story) {
         
     selectedCircle = circle;
     selectedStory = story;
-    let html = storyDetailsHtml(selectedStory);
-    d3.select("#story-box").html(html);
+
+    storyDetailsHtml(selectedStory);
 }
 
 function storySelect(story) {
-    let html = storyDetailsHtml(story);
-    d3.select("#story-box").html(html);
+    storyDetailsHtml(story);
 }
 
 function storyDeselect(story) {
     if (selectedStory)
-        d3.select("#story-box").html(storyDetailsHtml(selectedStory));
+        storyDetailsHtml(story);
     else
         d3.select("#story-box").html("<p class='no-story'>No story selected (click circle)</p>");
 }
@@ -466,7 +466,22 @@ function toggleChartVisible(hide) {
     //d3.select("#svg-chart").style("display", display);
 }
 
+
 function storyDetailsHtml(story) {
+
+    if (story.sentences.length == 0) {
+        d3.json("data/stories/" + story.id + ".json", function (err, data) {
+            story.sentences = data;
+
+            d3.select("#story-box").html(getDetailsHtml(story));
+        });
+    } else {
+        d3.select("#story-box").html(getDetailsHtml(story));
+    }
+}
+
+
+function getDetailsHtml(story) {
 
     function date(date) {
         return formatDate(date);
@@ -494,22 +509,23 @@ function storyDetailsHtml(story) {
         return "";
     }
 
-    function getSentence(sentences) {
-        let result = "";
-
+    function getSentences(sentences) {
         if (searchTerm.length < 3)
             return "";
-
+            
+        let matches = []
         sentences.forEach(function (sentence) {
             var lower = sentence.toLowerCase();
             if (lower.includes(cleanSearchTerm)) {
-                let start = lower.indexOf(cleanSearchTerm);
-                let answer = insert(sentence, start + searchTerm.length, "</span>");
-                answer = insert(answer, start, "<span class='selected-term'>");
-                result = '"' + answer + '"';
+                if (matches.length < 3) {
+                    let start = lower.indexOf(cleanSearchTerm);
+                    let answer = insert(sentence, start + searchTerm.length, "</span>");
+                    answer = insert(answer, start, "<span class='selected-term'>");
+                    matches.push(answer);
+                }
             }
         });
-        return result;
+        return matches.join("...<br><br>");
     }
 
     function getTermString(story) {
@@ -564,7 +580,7 @@ function storyDetailsHtml(story) {
             <img class="story-image" src=${image(story)} onerror="this.style.display='none'" height="190" width="270">
             <p class="story-headline">${headline(story.headline)}</p>
             <p class="story-author">${author(story.author, story.authorUrl)}</p>
-            <p class="story-excerpt">${getSentence(story.sentences)}</p>
+            <p class="story-excerpt">${getSentences(story.sentences)}</p>
             <p>${getTermLinksHtml(story)}</p>
         </div>
     `;
@@ -604,11 +620,11 @@ function refreshExamples() {
 function getExampleTerms() {
 
     let examples =
-        ["Rob Goldstone", "Comey", "McGahn", "Helsinki", "Sater", "Butina", "Veselnitskaya",
+        ["Rob Goldstone", "Comey", "McGahn",  "Sater", "Butina", "Veselnitskaya",
             "Sergey Kislyak", "Wikileaks", "Magnitsky", "Corey Lewandowski", "John Podesta", "Claire McCaskill", "Devin Nunes", "Rinat Akhmetshin"]
 
     // Examples without stories!!        
-    // "CrowdStrike", "Mandiant", "Kaspersky" "Prague"
+    // "CrowdStrike", "Mandiant", "Kaspersky" "Prague", "Helsinki"
 
     let picked = new Set();
     while (picked.size < 7)

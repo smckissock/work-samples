@@ -1,0 +1,21 @@
+[
+  "This snippet of a message sent by a Facebook rep to a client notes that \"for any Custom Audiences data imported into Facebook, Advertisers will be required to represent and warrant that proper user content has been obtained.\"",
+  "The social network is hoping to prevent further misuse of ill-gotten data after Dr. Aleksandr Kogan's app that pulled data on 50 million Facebook users was passed to Cambridge Analytica in violation of Facebook policy.",
+  "Facebook launched Custom Audiences back in 2012 to let businesses upload hashed lists of their customers email addresses or phone numbers, allowing advertisers to target specific people instead of broad demographics.",
+  "Diana noted that \"We've always had terms in place to ensure that advertisers have consent for data they use but we're going to make that much more prominent and educate advertisers on the way they can use the data.\"",
+  "The Custom Audiences terms of service require that businesses have \"provided appropriate notice to and secured any necessary consent from the data subjects\" to attain and use these people's contact info.",
+  "This is a way to safeguard data\" Diana concluded.The company declined to specify whether it's ever blocked usage of a Custom Audience because it suspected the owner didn't have user consent. \"",
+  "The change isn't in response to a specific incident, but Facebook does plan to re-review the way it works with third-party data measurement firms to ensure everything is responsibly used.",
+  "But just like Facebook's policy told app developers like Kogan not to sell, share, or misuse data they collected from Facebook users, the company didn't go further to enforce this rule.",
+  "With clear financial incentives to bend or break those rules and limited effort spent investigating to ensure compliance, Facebook left itself and its users open to exploitation.",
+  "It essentially trusted that the fear of legal repercussions or suspension on Facebook would deter violations of both its app data privacy and Custom Audiences consent policies.",
+  "Now TechCrunch has learned Facebook will launch a certification tool that demands that marketers guarantee email addresses used for ad targeting were rightfully attained.",
+  "Custom Audiences quickly became one of Facebook's most powerful advertising options because businesses could easily reach existing customers to drive repeat sales.",
+  "That sordid data is suspected to have been used by Cambridge Analytica to support the Trump and Brexit campaigns, which employed Custom Audiences to reach voters.",
+  "Once shown the message, Facebook spokesperson Elisabeth Diana told TechCrunch \"I can confirm there is a permissions tool that we're building.\"",
+  "It will require that advertisers and the agencies representing them pledge that \"I certify that I have permission to use this data\", she said.",
+  "This new Custom Audiences certification tool was described by Facebook representatives to their marketing clients, according to two sources.",
+  "Facebook is scrambling to add safeguards against abuse of user data as it reels from backlash over the Cambridge Analytica scandal.",
+  "Facebook will also prevent the sharing of Custom Audience data across Business accounts.",
+  "Story continues"
+]

@@ -1,0 +1,17 @@
+[
+  "While the timing of Snapchat's release and its focus on privacy may appear to be a reaction to the Cambridge Analytica scandal, where user data was improperly used for election ad targeting, Snap insists that it's been working on Snap Kit for years, and has always held user privacy in mind.",
+  "Greg Sandoval/Business Insider\n\nSnap, the company behind Snapchat, introduced on Thursday a long-awaited tool developers have been asking for: Snap Kit, a tool for developers to build apps that integrate with the popular photo messaging app.",
+  "\"We definitely followed the Cambridge Analytica scandal really closely and carefully, as we do all such events in this space as they impact us,\" Katherine Tassi, Snap's deputy general counsel, said in an interview with Wired.",
+  "But even as Facebook comes under fire for allowing developers what critics say is too much access to user data, Snapchat insists it is putting privacy first and limiting how much data developers can collect.",
+  "\"But our approach to privacy and our principles are firmly embedded in the way we design products, and the way we've been developing this toolkit has had that approach all along.\"",
+  "To prevent older apps from sucking up data over long periods of time, Snap Kit apps are automatically disconnected from your Snapchat account after 90 days of inactivity.",
+  "When you log into an app with Snapchat, developers will only get your display name and Bitmoji, a custom graphic that users make to represent themselves.",
+  "So while Facebook is often criticized for copying Snapchat's best features, this could be seen as a rare instance where things are going the other way.",
+  "One of the first announced partnerships will let you log in to Tinder with your Snapchat account, the same way you can with your Facebook credentials.",
+  "Snapchat announced the release of Snap Kit, a set of tools that let third party app developers integrate certain Snapchat features into other apps.",
+  "The company's biggest competitor, Facebook, has let third party app developers use Facebook in a similar way for many years.",
+  "With Snap Kit, a workout app could let Snapchat users share a sticker with the distance they've run, for example.",
+  "But there's a notable difference between the Facebook platform and this new one from Snapchat: privacy.",
+  "Other data, like your friends list, location, and demographic information, won't be shared.",
+  "Evan Spiegel answers questions at the 2018 Code conference."
+]

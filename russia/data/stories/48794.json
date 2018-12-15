@@ -1,0 +1,18 @@
+[
+  "This breach comes less than a year after Facebook revealed that political consulting firm Cambridge Analytica had improper access to personal info from up to 87 million accounts, which it leveraged to boost Donald Trump’s campaign during the 2016 presidential election.",
+  "“We also don’t know who’s behind these attacks or where they’re based.” On a press call, Facebook’s vice president of product Guy Rosen admitted that we may actually never know the identity of the hackers.",
+  "The company claims that the hackers exploited the code associated with the platform’s “View As” feature, which allows users to see what their profiles look like when viewed from another account.",
+  "“Since we’ve only just started our investigation, we have yet to determine whether these accounts were misused or any information accessed,” Facebook’s blog post announcing the breach reads.",
+  "Alexander Koerner/Getty Images\n\nFacebook announced Friday that it discovered a cyberattack earlier this week that exposed information from almost 50 million accounts.",
+  "Facebook has further notified the FBI of the breach, along with the Irish Data Protection Commission as is required under the General Data Protection Regulation.",
+  "Facebook’s security team then began noticing a suspicious increase in user access to the website in December and then finally uncovered the hack on Tuesday.",
+  "Facebook has patched the vulnerability and reset the access tokens for the affected accounts and for another 40 million accounts as a precautionary measure.",
+  "Thus far, the company has found no evidence that the hackers viewed private messages, stole credit card info, or posted anything to the affected accounts.",
+  "The vulnerability allowed the hackers to steal access tokens, tools that let people use Facebook without having to enter their passwords every time.",
+  "The vulnerability was introduced in July 2017 when developers updated a feature that allows users to upload happy birthday videos.",
+  "Around 90 million users will have to re-enter their passwords into Facebook and any other apps that use Facebook login info.",
+  "However, they did try to access user data that could’ve included gender, hometown, name, and other personal details.",
+  "Users do not need to change their passwords, though it may be a good idea to log out just to be safe.",
+  "With these tokens, the hackers were essentially given free rein to take over peoples’ accounts.",
+  "Facebook announced that 50 million accounts have been affected."
+]

@@ -1,0 +1,17 @@
+[
+  "None of these thresholds were met in this instance.”\n\nThe company also said it will shut down Google+ for consumers by the end of August 2019, admitting in its statement Monday that “while our engineering teams have put a lot of effort and dedication into building Google+ over the years, it has not achieved broad consumer or developer adoption” since it launched in 2011.",
+  "Google pointed to the network’s low consumer engagement (90% of Google+ user sessions are less than five seconds), and it said its review of the app showed that its Google+ APIs, and its user controls, “are challenging to develop and maintain.”\n\nGoogle also announced several additional privacy settings related to how it shares users’ Google account data with developers.",
+  "The company defended its decision to keep the security breach a secret in its statement: “Our Privacy & Data Protection Office reviewed this issue, looking at the type of data involved, whether we could accurately identify the users to inform, whether there was any evidence of misuse, and whether there were any actions a developer or user could take in response.",
+  "In a Google memo to senior executives that was reviewed by the Journal, the company’s legal and policy staff advised that disclosing the breach could lead to “immediate regulatory interest” and could draw comparisons to Facebook’s Cambridge Analytica scandal.",
+  "As part of its updates, only Gmail apps that directly enhance email functionality — such as email clients, email backup services, and productivity services — will be able to access email data, and they will be subject to additional security assessments.",
+  "According to a Wall Street Journal report, Google discovered the glitch in March 2018 but did not disclose it until now, in an attempt to avoid regulatory scrutiny and damage to its reputation.",
+  "After the Journal’s story was published Monday, the company said in a statement that the information of up to 500,000 Google+ users was exposed to outside developers as a result of the bug.",
+  "Google CEO Sundar Pichai was briefed on the plan not to alert users about the breach after an internal committee had reached that decision, sources told the Wall Street Journal.",
+  "On Android, only consumer-selected default apps for making calls or sending text messages will be able to request access to a user’s phone, call logs, and SMS data.",
+  "“We found no evidence that any developer was aware of this bug, or abusing the API, and we found no evidence that any Profile data was misused,” the company said.",
+  "Google is shutting down its long-overlooked social network Google+ after a software glitch exposed the personal information of hundreds of thousands of users.",
+  "Now, instead of seeing all requested permissions in a single screen, Google apps will show you each individual requested permission.",
+  "The bug allowed developers to view users’ names, email addresses, occupations, genders, and ages.",
+  "Google did not immediately respond to BuzzFeed News’ request for comment.",
+  "Google said it immediately patched the bug after it was discovered."
+]

@@ -1,0 +1,23 @@
+[
+  "The group, which some researchers refer to as Turla, after the name of the malicious software it uses, also has targeted government organizations, embassies and companies in Russia, China and dozens of other countries, as well as research groups and pharmaceutical firms, said Stefan Tanase, senior security researcher at Kaspersky Lab, a Moscow-based cybersecurity firm with analysts around the world.",
+  "Once Turla has gained control of the user’s computer and identified data of interest, the hacker instructs the infected computer to send the stolen data to the Internet address of an innocent satellite user — someone who is online using Internet service provided by the satellite company.",
+  "(Tim Shortt/AP)\n\nA group of sophisticated Russian-speaking hackers is exploiting commercial satellites to siphon sensitive data from diplomatic and military agencies in the United States and in Europe as well as to mask their location, a security firm said in a new report.",
+  "The Turla malware originated from a “sophisticated Russian-government-affiliated” hacker group that “we call Venomous Bear,” said Dmitri Alperovitch, co-founder and chief technology officer of CrowdStrike, an Irvine, Calif.-based cybersecurity technology firm.",
+  "[How hackers hijack satellite links]\n\nTurla’s tactic exploits the fact that older satellites do not encrypt data streaming to Earth, and it relies on unsuspecting users of satellite Internet service providers around the world, Tanase said.",
+  "It allows you to achieve a much greater level of anonymity.”\n\n[Russian hackers breach some White House computers]\n\nAlthough Kaspersky has not linked Turla to the Russian government, other security firms have done so.",
+  "The data is sent to a command server controlled by Turla, but the location is effectively hidden as it can be anywhere in the range of the satellite beam, which can be thousands of miles.",
+  "Turla has used this technique for at least eight years, which reflects a degree of sophistication and creativity generally not seen among advanced hacker groups, Tanase said.",
+  "A rocket carrying a U.S Navy satellite launches from Cape Canaveral, Fla. Russian hackers are using older commercial satellites to siphon off data and cover their tracks.",
+  "Turla specializes in diplomatic and military targets in the United States, Europe, Middle East and Central Asia to gain political and strategic intelligence, he said.",
+  "Turla then hijacks the stream of data as it is being sent down from the satellite to the innocent user’s computer by spoofing the user’s Internet address.",
+  "Here’s how the scheme works: Turla infects a target’s computer by planting malicious software on a Web site that the group knows the user frequents.",
+  "Turla is not the Russian group that is believed to have hacked the State Department, White House and Pentagon over the past year, Alperovitch said.",
+  "“We’ve never seen a malicious operation that hijacked satellite” connections to obtain data and to cover its tracks.",
+  "Moreover, Tanase said, Turla tends to use satellite Internet connections in Middle Eastern and African countries.",
+  "“For us, it was very surprising,” he said in a phone interview from Bucharest, Romania.",
+  "He thinks this is an effort to avoid the scrutiny of researchers and law enforcement.",
+  "When the user visits the site, his computer is compromised.",
+  "“This is the first group that we believe has done it.",
+  "That group was dubbed Cozy Bear by CrowdStrike.",
+  "This is called a “watering hole” attack."
+]

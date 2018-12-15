@@ -1,0 +1,23 @@
+[
+  "Bloomberg describes how Cavicchia’s team made use of Metropolis:\n\nAided by as many as 120 “forward-deployed engineers” from the data mining company Palantir Technologies Inc., which JPMorgan engaged in 2009, Cavicchia’s group vacuumed up emails and browser histories, GPS locations from company-issued smartphones, printer and download activity, and transcripts of digitally recorded phone conversations.",
+  "Palantir recently came under scrutiny when the New York Times reported that one of its employees helped Cambridge Analytica build psychological profiles of people and recommended that the firm build personality quizzes to access Facebook user data.",
+  "TIMOTHY A. CLARY/AFP/Getty Images\n\nBloomberg published an exposé on Thursday that in part reported on how data firm Palantir effectively used JPMorgan as a testing ground to develop a surveillance analytics tool for the financial sector.",
+  "According to Bloomberg, the company began working with JPMorgan almost 10 years ago to assist the bank’s insider threat group, which at the time was led by a former Secret Service agent named Peter Cavicchia III.",
+  "Billionaire venture capitalist Peter Thiel founded Palantir in 2004, along with current CEO Alexander Karp, to develop programs that could analyze data gathered by the Pentagon and CIA in Iraq and Afghanistan.",
+  "The Los Angeles Police Department has also used Palantir’s tools, according to Bloomberg, to identify people who are likely to commit crimes and to map out intimate ties people may have with criminals.",
+  "Palantir’s software aggregated, searched, sorted, and analyzed these records, surfacing keywords and patterns of behavior that Cavicchia’s team had flagged for potential abuse of corporate assets.",
+  "While the software tools don’t actually collect any data themselves, they do help users to recognize connections between pieces of data and to predict a surveillance subject’s future behavior.",
+  "In March, the Verge also revealed that the New Orleans Police Department was using Palantir’s products to trace residents’ ties to gangs without the knowledge of city council members.",
+  "“We are aware that powerful technology can be abused and we spend a lot of time and energy making sure our products are used for the forces of good,” Palantir said in a statement.",
+  "Cavicchia allegedly went rogue and used Metropolis to access emails between senior executives who were conducting an investigation into a press leak, Bloomberg reported.",
+  "Palantir’s algorithm, for example, alerted the insider threat team when an employee started badging into work later than usual, a sign of potential disgruntlement.",
+  "Bank investigators believed that he later shared those emails with the suspected leaker, and JPMorgan soon cut back its Palantir operations.",
+  "The tool reportedly reviewed private information, like GPS locations and browser histories, to keep tabs on the bank’s employees.",
+  "JPMorgan used a Palantir tool that analyzed phone conversations, browser histories, GPS locations, and other info.",
+  "That would trigger further scrutiny and possibly physical surveillance after hours by bank security personnel.",
+  "Cambridge Analytica later used a quiz to improperly access personal info from up to 87 million Facebook users.",
+  "JPMorgan’s top brass later found out that Palantir was monitoring their communications as well.",
+  "Palantir maintains that the employee was not acting on behalf of the company.",
+  "Palantir was developing a product for the corporate world called Metropolis.",
+  "(Cavicchia didn’t respond to Bloomberg’s request for comment.)"
+]

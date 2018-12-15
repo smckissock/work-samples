@@ -1,0 +1,19 @@
+[
+  "In a brief media release, USCYBERCOM stated that it plans to “share unclassified malware samples it has discovered that it believes will have the greatest impact on improving global cybersecurity.”\n\nHow will Cyber Command do that?",
+  "The first malware sample uploaded by the CNMF belongs to LoJax, a family of malware that exploits vulnerable versions of the popular anti-theft software Lojack.",
+  "Today, uploads are scanned by 55 different anti-malware providers including Microsoft, Symantec, Intel Security (McAfee), F-Secure, Eset, and Crowdstrike.",
+  "That's why USCYBERCOM has been embracing collaboration, both with political allies and members of the cybersecurity community.",
+  "This week, the Cyber National Mission Force (CNMF) shared its first malware samples via the Google-owned service VirusTotal.",
+  "It's intended as a notification service to let researchers know when a new malware sample has been uploaded by the CNMF.",
+  "The U.S. Military plays an increasingly vital role in the prevention, detection, and response to online threats.",
+  "It's a very big job, and one U.S. Cyber Command knows it can do better with help from the private sector.",
+  "The LoJax attacks have been linked to the Russian threat actors known as APT28, Sofacy, and Fancy Bear.",
+  "When a provider's scan fails to detect a a sample a malware, VirusTotal can send out a notification.",
+  "Security engineers can then examine the threat and push detection updates to prevent outbreaks.",
+  "Launched in 2004, VirusTotal allows users to upload files so they can be scanned for malware.",
+  "In addition to its channel on VirusTotal, the CNMF has also set up a Twitter account.",
+  "Posting a sample to VirusTotal can help speed up response times to emerging threats.",
+  "By uploading samples of the malware it discovers to a publicly-accessible website.",
+  "The service simultaneously checks files using multiple detection engines.",
+  "That wasn't done to engage with the public."
+]

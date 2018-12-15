@@ -1,0 +1,17 @@
+[
+  "A hacking group linked to the Russian government and high-profile cyber attacks against Democrats during the U.S. presidential election likely used a malware implant on Android devices to track and target Ukrainian artillery units from late 2014 through 2016, according to a new report released Thursday.",
+  "The malware was able to retrieve communications and some locational data from infected devices, intelligence that would have likely been used to strike against the artillery in support of pro-Russian separatists fighting in eastern Ukraine, the report from cyber security firm CrowdStrike found.",
+  "Its deployment “extends Russian cyber capabilities to the front lines of the battlefield”, the report said, and “could have facilitated anticipatory awareness of Ukrainian artillery force troop movement, thus providing Russian forces with useful strategic planning information”.",
+  "Both the CIA and FBI believe that Fancy Bear and other Russian hackers were responsible for hacks during the election that were intended to help President-elect Donald Trump defeat Hillary Clinton, according to two senior government officials.",
+  "The findings are the latest to support a growing view among Western security officials and cyber security researchers that Russian President Vladimir Putin has increasingly relied on hacking to exert influence and attack geopolitical foes.",
+  "That link, in addition to the high rate of losses sustained by the type of Ukrainian artillery units targeted by hackers, creates high confidence that Fancy Bear was responsible for the implant, he said.",
+  "The malware used to track Ukrainian artillery units was a variant of the kind used to hack into the Democratic National Committee, CrowdStrike co-founder Dmitri Alperovitch said in an interview.",
+  "Baz Ratner / Reuters Soldiers of the separatist self-proclaimed Donetsk People's Republic army ride in mobile artillery cannons as they are pulling back from from Debaltseve, February 25, 2015.",
+  "The hacking group, known commonly as Fancy Bear or APT 28, is believed by U.S. intelligence officials to work primarily on behalf of the GRU, Russia’s military intelligence agency.",
+  "The implant leveraged a legitimate Android application developed by a Ukrainian artillery officer to process targeting data more quickly, CrowdStrike said.",
+  "The implant used on the legitimate app appears to be the first observed case of Fancy Bear malware used on the Android platform, according to the report.",
+  "Downloads of the legitimate app were promoted on pages used by Ukrainian artillery on vKontakte, a Russian social media website, CrowdStrike said.",
+  "“This cannot be a hands-off group or a bunch of criminals, they need to be in close communication with the Russian military,” Alperovitch said.",
+  "Russia has repeatedly denied hacking accusations, and Trump has also dismissed the assessments of the U.S. intelligence community.",
+  "There is no evidence the application was made available in the Android app store, limiting its distribution, the firm said."
+]

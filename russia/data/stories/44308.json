@@ -1,0 +1,22 @@
+[
+  "Facebook has responded to a New York Times story that raises privacy concerns about the company's device-integrated APIs, saying that it “disagree[s] with the issues they’ve raised about these APIs.”\n\nHeadined “Facebook Gave Device Makers Deep Access to Data on Users and Friends,” the New York Times article criticizes the privacy protections of device-integrated APIs, which were launched by Facebook a decade ago.",
+  "We are not aware of any abuse by these companies.”\n\nBut the New York Times report claims that Facebook’s partners were able to retrieve user data on relationship status, religion, political leanings and upcoming events, and were also able to get data about their users’ Facebook friends, even if they did not have permission.",
+  "“Some device makers could retrieve personal information even from users’ friends who believed they had barred any sharing, The New York Times found.”\n\nFacebook said in April it would begin winding down access to its device-integrated APIs, but the New York Times says that many of those partnerships are still in effect.",
+  "Before app stores became common, the APIs enabled Facebook to strike data-sharing partnerships with at least 60 device makers, including Apple, Amazon, BlackBerry, Microsoft and Samsung, that allowed them to offer Facebook features, such as messaging, address books and the like button, to their users.",
+  "“But the company officials did not disclose that Facebook had exempted the makers of cellphones, tablets and other hardware from such restrictions.”\n\nFacebook told the New York Times that data sharing through device-integrated APIs adhered to its privacy policies and the 2011 FTC agreement.",
+  "Dance, Nicholas Confessore and Michael LaForgia write that “the partnerships, whose scope has not been previously reported, raise concerns about the company’s privacy protections,” as well as its compliance with a consent decree it struck with the Federal Trade Commission in 2011.",
+  "Facebook is already under intense scrutiny by lawmakers and regulators, including the FTC, because of the Cambridge Analytica revelation, which raised serious concerns about the public APIs used by third-party developers and the company’s data-sharing policies.",
+  "“Facebook’s view that the device makers are not outsiders lets the partners go even further, The Times found: They can obtain data about a user’s Facebook friends, even those who have denied Facebook permission to share information with any third parties.”",
+  "“In the furor that followed, Facebook’s leaders said that the kind of access exploited by Cambridge in 2014 was cut off by the next year, when Facebook prohibited developers from collecting information from users’ friends,” the New York Times says.",
+  "“Facebook allowed the device companies access to the data of users’ friends without their explicit consent, even after declaring that it would no longer share such information with outsiders,” the New York Times story says.",
+  "Facebook acknowledged that some partners did store users’ data, including data from their Facebook friends, on their own servers, but said that those practices abided by strict agreements.",
+  "“Contrary to claims by the New York Times, friends’ information, like photos, was only accessible on devices when people made a decision to share their information with those friends.",
+  "In a post on Facebook’s blog, vice president of product partnerships Ime Archibong reiterates the company’s stance that the device-integrated APIs were controlled tightly.",
+  "“Tests by The Times showed that the partners requested and received data in the same way other third parties did,” it says.",
+  "The FTC is currently investigating Facebook’s privacy practices in light of the Cambridge Analytica data misuse scandal.",
+  "And our partnership and engineering teams approved the Facebook experiences these companies built,” he continued.",
+  "“Partners could not integrate the user’s Facebook features with their devices without the user’s permission.",
+  "The company also told the newspapers that it knew of no cases where a partner had misused data.",
+  "But they may have given access to more data than assumed, says the article.",
+  "New York Times reporters Gabriel J.X."
+]

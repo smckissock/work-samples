@@ -1,0 +1,21 @@
+[
+  "The story never did rise to anywhere near the public profile of the Facebook scandal, but Wyden’s dogged pursuit of it—coupled with just enough mainstream media coverage to create a credible PR threat to the carriers—seems to have done the trick, at least for now.",
+  "LocationSmart was the original source of the Securus data that the Missouri sheriff exploited, in addition to having its own vulnerabilities, which Carnegie Mellon security researcher Robert Xiao discovered and reported via the blog Krebs on Security.",
+  "Verizon was the first to respond to a May 8 letter from Wyden’s office, saying in a June 15 response to Wyden that it had conducted a full review of its “location aggregator program” and ended its agreements with contractors LocationSmart and Zumigo.",
+  "It’s an encouraging development in a privacy scandal that I argued in May should be bigger than Facebook’s Cambridge Analytica scandal, because the data involved is more sensitive and could be more easily exploited by stalkers, burglars, and others.",
+  "For instance, a Missouri sheriff was charged with misusing a service called Securus to look up people’s real-time location without a warrant, and a security researcher found that he could do the same using a service called LocationSmart.",
+  "On Tuesday, under pressure from Oregon Sen. Ron Wyden, a Democrat, and the media, all four of the largest carriers said they either have stopped or would soon stop sharing such information with the contractors implicated in the reports.",
+  "The location aggregation services appear to have been used in a few different ways, including allowing banks to verify a customer’s location as part of a fraud check, and letting shipping companies track the location of truck drivers.",
+  "Kena Betancur/Getty Images\n\nIn May, a series of reports revealed that major U.S. wireless carriers were sharing their customers’ whereabouts with little-known contractors, some of which were failing to protect that data from abuse.",
+  "When I wrote about this in May, I worried that the privacy harms of the location-sharing agreements might seem too abstract to prompt widespread public outcry and serious action from the carriers, regulators, or the legislature.",
+  "After Verizon’s response was reported on Tuesday by the Associated Press, Wyden issued a statement blasting the other major carriers for not taking action more promptly.",
+  "By day’s end, AT&T, Sprint, and T-Mobile had all said they would discontinue at least some relationships with location aggregators and re-evaluating those programs.",
+  "For those who want to better understand the specifics of the story, the Wall Street Journal has a helpful explainer on how phone companies share your data and why.",
+  "But at this moment, the battle to protect people’s sensitive personal data from exploitation looks a little less hopeless than it did before.",
+  "Follow-up will be required to make sure the carriers don’t slip back into more lax practices once the spotlight has moved on.",
+  "There could also be other applications of the technology that have not yet been disclosed.",
+  "Verizon and other wireless carriers are backing away from their location-sharing programs.",
+  "Securus’ service was marketed to prison officials as a way to track inmates’ phone usage.",
+  "And Krebs on Security offers a clear timeline of how the scandal has unfolded.",
+  "Some said they’ll suspend their location-sharing programs altogether."
+]

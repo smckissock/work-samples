@@ -1,0 +1,17 @@
+[
+  "Shutterstock\n\nFacebook's users are looking a lot more closely at how much data the company holds on them after the Cambridge Analytica scandal, which demonstrated how seemingly trivial Facebook apps could actually harvest huge amounts of personal information.",
+  "iOS isn't flawless, but privacy experts generally agree that iOS is more secure than Android, thanks to Apple's respect for user privacy, its app vetting processes, and the fact its business model doesn't rely on selling people's data to advertisers.",
+  "Here's what Matthew Green, a cryptography expert at John Hopkins University, wrote:\n\nAndroid has had a number of security scandals over the years, and its core functionality sometimes goes beyond consumers' reasonable expectation of user privacy.",
+  "A good example was a Quartz investigation into how Android phones track nearby cellphone towers, then telegraphed that information home to Google — even when users had disabled location services.",
+  "Apple lets you change app settings from a single place on the iPhone's settings, whereas Android users have to go through each individual app and adjust its settings.",
+  "If you use an iPhone, you have granular control over the kind of data apps can hoover up, and so Apple users haven't been affected by the same problem.",
+  "Google didn't immediately respond to a request for comment, but it isn't clear why Android ever allowed this level of data tracking to begin with.",
+  "Android users also have much less control over app permissions, and this is how Facebook was able to track call and text data to begin with.",
+  "Over the weekend, some users downloaded their data from Facebook, and they weren't happy with how much the company knows about them.",
+  "They found that Facebook's Android apps tracked call and text data until Google deprecated the relevant Android API in October 2017.",
+  "Theoretically, that data could reveal your location, even when you didn't want to.",
+  "But Google, which created Android, arguably deserves more criticism.",
+  "Facebook has been the focus of subsequent headlines and blame.",
+  "You can find out how to download your Facebook data here.",
+  "Google eventually discarded cell tower data."
+]

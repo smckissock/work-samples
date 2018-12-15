@@ -1,0 +1,23 @@
+[
+  "WASHINGTON -- An unusual strain of virus-like hacker software that exploits computer server vulnerabilities -- without requiring human interaction -- is a leading example of a new generation of \"ransomware,\" according to a new report by Cisco Systems Inc.\n\nHackers use such software to target large-scale networks and hold data hostage in exchange for bigger payments.",
+  "The ability to demand payment in bitcoin, a difficult-to-trace virtual currency not controlled by any country, was \"basically the birth of ransomware\" and has helped drive its success since the currency's introduction in 2009, said Craig Williams, a senior technical leader at Cisco's Talos security research group.",
+  "To regain access, users without additional safe backups who don't want to lose critical files often pay the ransom, typically $10,000 to $15,000 for an entire network or hundreds to a thousand or so dollars for a single computer.",
+  "Most ransomware still requires a human to click a link or open an infected email attachment, but Cisco's report warned that \"the age of self-propagating ransomware, or cryptoworms, is right around the corner.\"",
+  "Such losses are significantly higher than any paid ransoms because companies routinely include remediation costs, lost productivity, legal fees and sometimes even the price of lost data in their estimates.",
+  "The semi-autonomous nature of this ransomware means that defenses, such as maintaining updated and patched systems and safe backups, are more predictable than teaching users to safely use the Internet.",
+  "Ransomware has become a new targeted attack, with thousands of variants emerging over the last six months, said Dmitri Alperovitch, co-founder and chief technology officer of Crowdstrike Inc.",
+  "Last year's 2,453 reports of ransomware hackings to the FBI totaled a reported loss of $24.1 million, making up nearly one-third of the complaints over the past decade.",
+  "Once inside, the hackers sometimes implant a tool that steals credentials, allowing it to spread through the system, and encrypt scores of digital files along the way.",
+  "Hollywood Presbyterian Medical Center revealed in February that it paid 40 bitcoins -- roughly $17,000 -- to retrieve its computer system from hackers.",
+  "And just last week, the town of Plainfield, New Jersey, fell victim to hackers wielding ransomware, CBS News correspondent DeMarco Morgan reported.",
+  "Samas exploits vulnerabilities giving hackers a way into JBoss application servers that are frequently used by some of the largest corporations.",
+  "In Plainfield's case, Mayor Adrian Mapp said hackers infiltrated their computer systems when an employee clicked on an infected link.",
+  "In such attacks, hackers target backup files and records, encrypting them to make them an unreadable gobbledygook of characters.",
+  "A series of high-profile ransomware attacks have targeted health care facilities and even a city government in recent months.",
+  "Ransomware has become an increasing threat over the last six months, with reported cases on pace to beat last year's numbers.",
+  "Worms are generally virus-like infections that are programmed to spread automatically, without human interaction.",
+  "Such a strain, known as Samas or samsam, hit the MedStar Health Inc. hospital chain last month.",
+  "\"We have about 10 years of documents that we are not able to access,\" the mayor said.",
+  "They also represented 41 percent of the $57.6 million in reported losses since 2005.",
+  "The hackers then demanded roughly 650 euros paid in bitcoin."
+]

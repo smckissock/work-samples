@@ -1,0 +1,22 @@
+[
+  "“They came to office in the days following election recruiting and were very candid that they allowed us to do things they wouldn’t have allowed someone else to do because they were on our side.”\n\nThe Obama team was not doing exactly the same things as Cambridge Analytica, but this is a shocking revelation about how much data was leaving Facebook, and how little was done to stop it.",
+  "Sandy Parakilas, a former employee at Facebook who worked on a team dedicated to policing third-party app developers, told The Guardian that he warned Facebook executives about the problem of data leaking out of the company’s third-party applications, and was told: Do you really want to see what you’ll find?",
+  "“I found that utterly shocking and horrifying.”\n\nEqually troubling, Carol Davidsen, who worked on the Obama 2012 campaign, recently tweeted that Facebook knew they were pulling vast amounts of user data out of the system to use in political campaigning and did nothing to stop them.",
+  "In Zuckerberg’s statement about the weekend’s scandal, Facebook lays the blame squarely on a Cambridge psychology professor, Alex Kogan, for building an app that vacuumed up data from unwitting users and stored it outside the system, so that it could be used by Cambridge Analytica.",
+  "In 2010, The Wall Street Journal ran a series of articles detailing how many apps were both intentionally and unintentionally leaking data, including one company, Rapleaf, that was using it to build an ad-targeting product.",
+  "One problem, as the Tow Center for Digital Journalism research director Jonathan Albright explained to me, is that apps developed by third parties were crucial to Facebook’s growth in the early 2010s.",
+  "And that is fair: Users could not have imagined that when they took a personality quiz, they would end up in the voter targeting database of a company associated with Steve Bannon.",
+  "In order to secure the loyalty of developers who were helping grow the platform without being employed by the company, Facebook used the other currency at its disposal: user data.",
+  "“They were provisioning and handing out their users’ personal info en masse [via the Graph API] to whoever wanted it before the IPO—like ‘data candy,’” Albright said.",
+  "And yet, the prospective data torrent continued all the way until 2015, even after a Federal Trade Commission investigation found that Facebook had misled users.",
+  "Facebook’s position has been considerably complicated by further revelations from people formerly inside the company and those who worked with the platform.",
+  "“Facebook was surprised we were able to suck out the whole social graph, but they didn’t stop us once they realized that was what we were doing,” she said.",
+  "It wasn’t until Facebook fully introduced the “more restrictive” Graph API 2.0 that the taps begin to be turned off.",
+  "Developers could use a set of tools unavailable to normal users, the “Graph API,” to pull all kinds of user data.",
+  "What Facebook offered was a platform of users and the knowledge of their connections to each other.",
+  "And what Facebook wanted back from that was user and engagement growth.",
+  "On every single one of these questions, Zuckerberg offered nothing.",
+  "“They felt that it was better not to know,” he said.",
+  "But that is clearly not the only issue here.",
+  "Each party got what they wanted."
+]

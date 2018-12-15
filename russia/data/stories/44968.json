@@ -1,0 +1,21 @@
+[
+  "According to De Ceukelaire, depending on which quizzes a user took, a huge amount of user data could have been leaked, including their Facebook ID, first name, last name, language, gender, date of birth, profile picture, cover photo, currency, devices you use, when your information was last updated, posts and statuses, photos and friends.",
+  "In a statement sent to Business Insider, the Data Protection Officer for Nametests' developer Social Sweethearts said: \"The investigation found that there was no evidence that personal data of users was disclosed to unauthorised third parties and all the more that there was no evidence that it had been misused.\"",
+  "Ime Archibong, Facebook's vice president of product partnerships, said: \"A researcher brought the issue with the Nametests.com website to our attention through our Data Abuse Bounty Program that we launched in April to encourage reports involving Facebook data.",
+  "In his piece, De Ceukelaire writes that while Nametests has more than 120 million active monthly users, there's no way of knowing how many people could have been affected since its launch in 2015.",
+  "Nametests.com\n\nEthical hacker Inti De Ceukelaire published an article in Medium on Wednesday detailing how he found a security loophole in a popular maker of Facebook personality quizzes.",
+  "In the wake of the Cambridge Analytica scandal, Facebook announced the launch of a bounty program in April, designed to reward people for flagging the misuse of data by app developers.",
+  "De Ceukelaire reported this bug to Facebook on April 22, and on June 25 he noticed Nametests had fixed the loophole in its script that allowed third parties to access data.",
+  "He noticed while loading a quiz that the website was fetching his personal Facebook information via Nametests, meaning his data was publicly available to third parties.",
+  "De Ceukelaire was one of those who began investigating, starting with personality quizzes created by Nametests.com, which claims to have more than 120 million users.",
+  "De Ceukelaire ran a test to see how easy it would be to steal someone's personal data by setting up a website to connect to Nametests.com.",
+  "De Ceukelaire decided to donate his bounty of $4,000 to the Freedom of the Press Foundation, which Facebook matched for a total of $8,000.",
+  "If someone deleted the app, their Facebook ID, first name, last name, language, gender, and date of birth were all still vulnerable.",
+  "He ascertained that one visit to the website would provide access to someone's personal Facebook data for up to two months.",
+  "According to archive.org, the flaw had been present in the site's code since at least the end of 2016, he said.",
+  "We worked with nametests.com to resolve the vulnerability on their website, which was completed in June.\"",
+  "Nametests.com, a website behind Facebook quizzes with more than 120 million monthly users .",
+  "He noted the only way to prevent this would be by manually deleting all your cookies.",
+  "Even if someone deleted the app, Nametests could still reveal their identity.",
+  "The fix was also announced on Facebook's Bug Bounty page."
+]

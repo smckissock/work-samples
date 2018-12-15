@@ -1,0 +1,8 @@
+[
+  "The gay dating app Grindr has security flaws that could expose the locations of its more than 3 million daily users even if they choose not to share that data on their profiles, according to a report by NBC News.",
+  "Grindr said in a statement to NBC that it is aware of the issues and that it has fixed the system to prevent access to information on accounts that opted out of sharing their location.",
+  "Faden told NBC that once users entered their Grindr usernames and passwords into his website, he was able to access data that is not public on Grindr profiles.",
+  "Trever Faden found the issues after creating a third-party website that allows users to discover who has blocked them on the app.",
+  "He also discovered a separate security flaw that could expose location data sent to company servers.",
+  "Representatives for Grindr did not return a call from CNBC requesting comment."
+]

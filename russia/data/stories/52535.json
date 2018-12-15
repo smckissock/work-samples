@@ -1,0 +1,18 @@
+[
+  "Their tradecraft is superb, operational security second to none and the extensive usage of ‘living-off-the-land’ techniques enables them to easily bypass many security solutions they encounter.”\n\nThe next day, an individual calling himself Guccifer 2.0 claimed to be the culprit behind the breach and released key documents to back up the claim, writing: “Shame on CrowdStrike.”\n\nCrowdstrike stood by its original analysis, writing: “these claims do nothing to lessen our findings relating to the Russian government’s involvement, portions of which we have documented for the public and the greater security community.”\n\nOther security firms offered independent analysis and reached the same conclusion.",
+  "Additionally, APT29 appeared to cease operations on Russian holidays, and their work hours seem to align with the UTC +3 time zone, which contains cities such as Moscow and St. Petersburg,” they wrote in their report on the group.",
+  "Here’s the timeline: On June 14, the cybersecurity company CrowdStrike, under contract with the DNC, announced in a blog post that two separate Russian intelligence groups had gained access to the DNC network.",
+  "In his blog post on the DNC breaches, CrowdStrike’s CTO Dmitri Alperovitch wrote: “We’ve had lots of experience with both of these actors attempting to target our customers in the past and know them well.",
+  "Other U.S. officials have said that the group looks like it has sponsorship from the Russian government due in large part to the level of sophistication behind the group’s attacks.",
+  "“Given the evidence combined with everything else, I think it’s a strong attribution to one of the Russian intelligence agencies,” @PwnAllTheThings remarked to Motherboard.",
+  "In fact, our team considers them some of the best adversaries out of all the numerous nation-state, criminal and hacktivist/terrorist groups we encounter on a daily basis.",
+  "The group’s modus operandi (a spear-phishing attack that uploads a distinctive remote access tool on the target’s computer) is well known to cybersecurity researchers.",
+  "A Twitter user named @PwnAlltheThings looked at the metadata on the docs that Guccifer 2.0 provided in his blog post and found literal Russian signatures.",
+  "It’s the same group that hit the State Department, the White House, and the civilian email of the Joint Chiefs of Staff.",
+  "The cybersecurity company FireEye first discovered APT 29 in 2014 and was quick to point out a clear Kremlin connection.",
+  "“We suspect the Russian government sponsors the group because of the organizations it targets and the data it steals.",
+  "The other, COZY BEAR, (also called Cozy Duke and APT 29) first breached the network in the summer of 2015.",
+  "The group Fidelis undertook its own investigation and found Crowdstrike to be correct.",
+  "His findings were backed up by Dan Goodin at Ars Technica.",
+  "One group, FANCY BEAR or APT 28, gained access in April."
+]
