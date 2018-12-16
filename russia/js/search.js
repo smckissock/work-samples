@@ -142,9 +142,8 @@ d3.json("data/news.json", function (err, data) {
         .order(d3.descending); */
 
     addSvg();
-
     
-    d3.select("body")
+/*     d3.select("body")
         .on("keydown", function() {
             graphSvg.append("text")
                 .attr("x","5")
@@ -155,8 +154,7 @@ d3.json("data/news.json", function (err, data) {
                 .style("font-size","5px")
                 .style("fill-opacity",".1")
                 .remove();
-    });
-    
+    }); */
 
     dc.renderAll();
 
@@ -172,9 +170,15 @@ function addSvg() {
     graphSvg = d3.select("#svg-chart")
         .append("svg")
         .attr("width", svgWidth + 3)
-        .attr("height", 700);
+        .attr("height", 700)
+        .on("mousemove", mousemove); 
 }
 
+function mousemove() {
+    var x = d3.mouse(this)[0];
+    var y = d3.mouse(this)[1];
+    //  console.log(x + ", " + y);
+}
 
 function dateChartWidth() {
     return window.innerWidth > svgWidth ? svgWidth : window.innerWidth - 220
@@ -252,13 +256,20 @@ function drawGraph() {
         graphSvg.selectAll("text")
             .data(medias)
             .enter()
-            .append("text")
-                .text(d => d.name)
+            .append("g")
                 .attr({
-                    x: 3
-                    , y: d => mediaY[d.name] 
-                    , class: "mediaLabel"
-                });
+                    "font-weight": 500            
+                })
+                .on('mouseover', function (d) {
+                    d3.select(this).attr("font-weight", 900)
+                })
+                .append("text")
+                    .text(d => d.name)
+                    .attr({
+                        x: 3
+                        , y: d => mediaY[d.name] 
+                        , class: "mediaLabel"
+                    });
     }
 
     function drawStories() {
@@ -307,7 +318,7 @@ function drawGraph() {
                 .attr("r", 0)
                 //.style("fill-opacity", 0)
                 .transition()
-                .duration(500)
+                .duration(300)
                 .attr({
                     cx: function(d, i) { return dateScale(d.dateObject) + 20}
                     , cy: d => mediaY[d.mediaOutlet] - 4
@@ -389,7 +400,7 @@ function storyDeselect(story) {
     if (selectedStory)
         storyDetailsHtml(story);
     else
-        d3.select("#story-box").html("<p class='no-story'>No story selected (click circle)</p>");
+        d3.select("#story-box").html("<p class='no-story'>No story selected (select circle)</p>");
 }
 
 function showFilters() {
@@ -397,7 +408,7 @@ function showFilters() {
     function numberWithCommas(x) {
         return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     }
-    d3.select("#count-box").text(numberWithCommas(all.value()) + " out of " + numberWithCommas(allStoryCount) + " stories");
+    d3.select("#count-box").text(numberWithCommas(all.value()) + " of " + numberWithCommas(allStoryCount) + " stories");
    
     let filterStrings = [];
     if (selectedTerm)
@@ -472,7 +483,6 @@ function storyDetailsHtml(story) {
     if (story.sentences.length == 0) {
         d3.json("data/stories/" + story.id + ".json", function (err, data) {
             story.sentences = data;
-
             d3.select("#story-box").html(getDetailsHtml(story));
         });
     } else {
@@ -544,11 +554,11 @@ function getDetailsHtml(story) {
     function getTermLinksHtml(story) {
 
         function typeHtml(term) {
-            return `<div class="related-term-type">${term.type}</div>`;
+            return `<div class="related-term-type">${term.type} mentioned in this story:</div>`;
         }
 
         function resultHtml(term) {
-            return `<div class="related-term-result" onclick="showStories(${term.id})">${term.name}</div>`;
+            return `<div><a class="related-term-result" href="javascript:setExampleSearch('${term.name}')">${term.name}</a></div>`
         }
 
         let termList = [];
@@ -572,19 +582,19 @@ function getDetailsHtml(story) {
         termList.forEach(d => console.log(d.type + " " + d.name));
     }
 
-    //getTermLinksHtml(story);
     return `
         <div class="story-result" ${story.dateSort} onclick="window.open('${story.link}')">
             <p class="story-date">${date(story.dateObject)}</p>
-            <p class="story-outlet">${outlet(story.mediaOutlet)}</p>
-            <img class="story-image" src=${image(story)} onerror="this.style.display='none'" height="190" width="270">
+            <p class="story-outlet">${outlet(story.mediaOutlet)}</p> 
             <p class="story-headline">${headline(story.headline)}</p>
             <p class="story-author">${author(story.author, story.authorUrl)}</p>
+            <img class="story-image" src=${image(story)} onerror="this.style.display='none'" height="190" width="270">
             <p class="story-excerpt">${getSentences(story.sentences)}</p>
+        </div>
+        <div story-term-links>  
             <p>${getTermLinksHtml(story)}</p>
         </div>
     `;
-    // <p class="story-excerpt">${getTermString(story)}</p> 
 }
 
 
@@ -620,32 +630,30 @@ function refreshExamples() {
 function getExampleTerms() {
 
     let examples =
-        ["Rob Goldstone", "Comey", "McGahn",  "Sater", "Butina", "Veselnitskaya",
-            "Sergey Kislyak", "Wikileaks", "Magnitsky", "Corey Lewandowski", "John Podesta", "Claire McCaskill", "Devin Nunes", "Rinat Akhmetshin"]
+        ["Rob Goldstone", "Comey", "McGahn",  "Sater", "Butina", "Veselnitskaya", "Roger Stone", "Paul Manafort", "Oleg Deripaska", "Jason Maloni",
+        "Yevgeny Prigozhin", "Alex Stamos",
+         "Sergey Kislyak", "Wikileaks", "Magnitsky", "Corey Lewandowski", "John Podesta", "Claire McCaskill", "Devin Nunes", "Rinat Akhmetshin"]
 
     // Examples without stories!!        
     // "CrowdStrike", "Mandiant", "Kaspersky" "Prague", "Helsinki"
 
     let picked = new Set();
-    while (picked.size < 7)
+    const samples = 8;
+    while (picked.size < samples)
         picked.add(examples[Math.floor(Math.random() * examples.length)]);
     let terms = Array.from(picked);
-
-    document.getElementById("examples-div").innerHTML = `
-    <span onclick="refreshExamples()">
-    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="-2 -3 18 18">
-        <path d="M9 13.5c-2.49 0-4.5-2.01-4.5-4.5S6.51 4.5 9 4.5c1.24 0 2.36.52 3.17 1.33L10 8h5V3l-1.76 1.76C12.15 3.68 10.66 3 9 3 5.69 3 3.01 5.69 3.01 9S5.69 15 9 15c2.97 0 5.43-2.16 5.9-5h-1.52c-.46 2-2.24 3.5-4.38 3.5z"/>
-    </svg>
-    </span>	 
-    <span class="example-label">Click a sample: </span>
-    <span><a class="search-example" href="javascript:setExampleSearch('${terms[0]}')">${terms[0]}</a></span>
-    <span><a class="search-example" href="javascript:setExampleSearch('${terms[1]}')">${terms[1]}</a></span>
-    <span><a class="search-example" href="javascript:setExampleSearch('${terms[2]}')">${terms[2]}</a></span>
-    <span><a class="search-example" href="javascript:setExampleSearch('${terms[3]}')">${terms[3]}</a></span>
-    <span><a class="search-example" href="javascript:setExampleSearch('${terms[4]}')">${terms[4]}</a></span>
-    <span><a class="search-example" href="javascript:setExampleSearch('${terms[5]}')">${terms[5]}</a></span>
-    <span><a class="search-example" href="javascript:setExampleSearch('${terms[6]}')">${terms[6]}</a></span>
+    
+    let html = `
+        <span onclick="refreshExamples()">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="-2 -3 18 18">
+            <path d="M9 13.5c-2.49 0-4.5-2.01-4.5-4.5S6.51 4.5 9 4.5c1.24 0 2.36.52 3.17 1.33L10 8h5V3l-1.76 1.76C12.15 3.68 10.66 3 9 3 5.69 3 3.01 5.69 3.01 9S5.69 15 9 15c2.97 0 5.43-2.16 5.9-5h-1.52c-.46 2-2.24 3.5-4.38 3.5z"/>
+        </svg>
+        </span> 
+        <span class="example-label">Click a sample: </span>
     `;
+    for (i = 0; i < samples; i++)  
+        html += `<span><a class="search-example" href="javascript:setExampleSearch('${terms[i]}')">${terms[i]}</a></span> `;
+    document.getElementById("examples-div").innerHTML = html
 
     return terms[0];
 }

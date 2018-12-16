@@ -103,17 +103,21 @@ span.example-label {
 }
 
 .search-examples {
-    font-size: .9rem;
-    font-style: italic;
+/*     font-size: .8rem;
+    font-style: italic; */
     display: inline-block;
     padding: 0rem .4rem 0rem .2rem;  
 }
 
 a.search-example {
+    margin: .0rem .0rem .0rem .0rem;
+    font-size: .6rem;
+    font-style: italic;
     display: inline;
     text-decoration: none;
     color: var(--blue-link);
 }
+
 
 .refresh-button {
     padding: .1rem .5rem 0rem .4rem;
@@ -179,7 +183,7 @@ p.no-story {
 
 p.story-date {
     color: var(--grey-text);
-    font-size: .7em;
+    font-size: .65em;
     font-weight: 500;
     margin: .4rem .2rem .0rem .6rem;  
     text-decoration: none;
@@ -189,7 +193,7 @@ p.story-outlet {
     color: var(--black-text);
     font-size: .8em;
     font-weight: 550;
-    margin: .1rem .2rem .4rem .6rem;  
+    margin: .1rem .2rem .3rem .6rem;  
     text-decoration: none;
 }
 
@@ -271,15 +275,18 @@ p.story-excerpt {
 
  .related-term-type {
     font-size: .6em;
-    color: var(--grey-text);
-    margin: .1rem 1.5rem .2rem .3rem;
+    color: var(--black-text);
+    margin: .3rem 1.5rem .0rem .3rem;
  }
 
  .related-term-result {
-    font-size: .55em;
-    color: var(--grey-text);
-    margin: .2rem 1.5rem .2rem 1.0rem;
- }
+    margin: .0rem 0rem .0rem .6rem;
+    font-size: .6rem;
+    font-style: italic;
+    display: inline;
+    text-decoration: none;
+    color: var(--blue-link);
+}
 
  .search-result {
     font-size: .65em;
@@ -297,14 +304,15 @@ p.story-excerpt {
  }
 
  #filter-box {
-    font-size: 1.1em;
+    font-size: 1.2em;
     font-weight: 700;
     margin: .5rem 0rem .1rem 1.1rem;
     display: block
  }
 
  #count-box {
-    font-size: .70em;
+    color: var(--grey-text);
+    font-size: .6em;
     font-weight: 500;
     margin: 0rem 0rem 1.5rem 1.1rem;
     display: block;

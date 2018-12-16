@@ -33,7 +33,7 @@ body {
         "stories        chart" 
         "footer         footer"; 
     grid-template-columns: var(--story-width) var(--svg-width) ;
-    grid-template-rows: 2.2rem 120px 4rem auto 1rem;
+    grid-template-rows: 2.2rem 120px 3rem auto 1rem;
     grid-gap: .1em;
     margin: 0px;
     height: 100vh;
