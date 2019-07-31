@@ -2,10 +2,10 @@
 <html lang="en">
 
 <head>
-  <meta name="Scott McKissock" content="Scott McKissock Work Samples" />
-  <meta charset="utf-8">
-  <title>Scott McKissock</title>
-  <link rel="stylesheet" href="css/style.css">
+    <meta name="Scott McKissock" content="Scott McKissock Work Samples" />
+    <meta charset="utf-8">
+    <title>Scott McKissock</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body onload="loadLinks()">
@@ -15,81 +15,100 @@
 
     <div id=links>
 
+        <script>
+            let links =
+                [
 
-    <script>
-        let links =
-            [
-                {
-                    "organization": "Epic Games - Fortnite",
-                    "url": "https://fortnitewc.netlify.com",
-                    "description": "Player search and visualizations for the 2019 Fortnite World Cup",
-                    "type": "Public"
-                },
-                {
-                    "organization": "Russia / 2016 Election Media Coverage - work in progress",
-                    "url": "http://smckissock.github.io/work-samples/russia",
-                    "description": "Crawled news accounts, with stories displayed in a timeline by news outlet",
-                    "type": "Public"
-                },
-                {
-                    "organization": "PBS NewsHour",
-                    "url": "http://smckissock.github.io/trump-russia",
-                    "description": "Searchable stories related to the Trump administration's relationship to Russia",
-                    "type": "Public"
-                },
-                {
-                    "organization": "Sunlight Foundation",
-                    "url": "https://trumpconflicts.sunlightfoundation.com",
-                    "description": "Search site for potential conflicts of interest",
-                    "type": "Public"
-                },
-                {
-                    "organization": "ProPublica - work in progress",
-                    "url": "http://smckissock.github.io/trump-town",
-                    "description": "Experiments making Sankey and network diagrams for administration officials who were former lobbyists",
-                    "type": "Private"
-                },
-                {
-                    "organization": "United States Agency for International Development",
-                    "url": "http://smckissock.github.io/dc-samples/foreign-assistance/index.html",
-                    "description": "Interactive foreign assistance funding chart",
-                    "type": "Public"
-                },
-                {
-                    "organization": "Fairfax FLAGS",
-                    "url": "http://smckissock.github.io/FairfaxFLAGS/page/fairfaximmersion/index.html",
-                    "description": "Map for locating school board members",
-                    "type": "Public"
-                }
-            ];
+                    {
+                        "organization": "Epic Games - Fortnite (freelance project)",
+                        "url": "https://fortnitewc.netlify.com/finals.html",
+                        "description": "Interactive leaderboard with game timelines for 2019 Fortnite World Cup",
+                        "image": "img/fortnite_leaderboard.jpg",
+                        "type": "Public"
+                    },
+                    {
+                        "organization": "Epic Games - Fortnite (freelance project)",
+                        "url": "https://fortnitewc.netlify.com",
+                        "description": "Player search and visualizations for the 2019 Fortnite World Cup qualifiers",
+                        "image": "img/fornite_qualifier_leaderboard.jpg",
+                        "image": "img/fornite_qualifier_scatterplot.jpg",
+                        "type": "Public"
+                    },
+                    {
+                        "organization": "Russia / 2016 Election Media Coverage - work in progress",
+                        "url": "http://smckissock.github.io/work-samples/russia",
+                        "description": "Crawled news accounts, with stories displayed in a timeline by news outlet",
+                        "image": "img/russia_media.jpg",
+                        "type": "Public"
+                    },
+                    {
+                        "organization": "PBS NewsHour (freelance project)",
+                        "url": "http://smckissock.github.io/trump-russia",
+                        "description": "Searchable stories related to the Trump administration's relationship to Russia",
+                        "image": "img/newshour.jpg",
+                        "type": "Public"
+                    },
+                    {
+                        "organization": "Sunlight Foundation",
+                        "url": "https://trumpconflicts.sunlightfoundation.com",
+                        "description": "Search site for potential conflicts of interest",
+                        "image": "img/sunlight.jpg",
+                        "type": "Public"
+                    },
+                    {
+                        "organization": "ProPublica - work in progress",
+                        "url": "http://smckissock.github.io/trump-town",
+                        "description": "Experiments making Sankey and network diagrams for administration officials who were former lobbyists",
+                        "type": "Private"
+                    },
+                    {
+                        "organization": "United States Agency for International Development",
+                        "url": "http://smckissock.github.io/dc-samples/foreign-assistance/index.html",
+                        "image": "img/usaid.jpg",
+                        "description": "Interactive foreign assistance funding chart",
+                        "type": "Public"
+                    },
+                    {
+                        "organization": "Fairfax FLAGS",
+                        "url": "http://smckissock.github.io/FairfaxFLAGS/page/fairfaximmersion/index.html",
+                        "image": "img/flags.jpg",
+                        "description": "Map for locating school board members",
+                        "type": "Public"
+                    }
+                ];
 
-        function loadLinks() {
-            let showPrivate = false;
+            function loadLinks() {
+                let showPrivate = false;
 
-            // If url has #all, show to private ones in addition to the public 
-            let url = location.href;
-            if (url.indexOf("#") != -1) 
-                if (url.split('#')[1] == "all")
-                    showPrivate = true;
-                    
-            if (!showPrivate)
-                links = links.filter(link => { return (link.type == "Public") });
+                // If url has #all, show to private ones in addition to the public 
+                let url = location.href;
+                if (url.indexOf("#") != -1)
+                    if (url.split('#')[1] == "all")
+                        showPrivate = true;
 
-            var linkLIs = "";
-            links.forEach(link => { linkLIs += linkMarkup(link) });
+                if (!showPrivate)
+                    links = links.filter(link => { return (link.type == "Public") });
 
-            document.getElementById('links').innerHTML = `<ul>${linkLIs}</ul>`;
-        }
+                var linkLIs = "";
+                links.forEach(link => { linkLIs += linkMarkup(link) });
 
-        function linkMarkup(link) {
-            return `
+                document.getElementById('links').innerHTML = `<ul>${linkLIs}</ul>`;
+            }
+
+            function linkMarkup(link) {
+                return `
                 <li>
                     <h4>${link.organization}</h4>
                     <a href="${link.url}">${link.description}</a>
+                    </br>
+                    </br>
+                    <img src="${link.image}" alt="HI" height="500" width="750">
+                    </br>
                 </li>
             `;
-        }
-    </script>
+            }
+        </script>
 
 </body>
+
 </html>
