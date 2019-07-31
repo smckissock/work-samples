@@ -1,20 +1,20 @@
 body {
     font-family: Sans-Serif;
-    color: dimgrey;
+    color: black;
 }
 
 h2 {
     margin-top: 1rem;
-    margin-bottom: .2rem;
+    margin-bottom: .1rem;
     margin-left: 1rem;
-    font-size: 3.0rem;
+    font-size: 2.0rem;
 }
 
 h4 {
-    margin-top: .5rem;
-    margin-bottom: .2rem;
-    font-size: 1.8rem;
-}
+    margin-top: .2rem;
+    margin-bottom: .1rem;
+    font-size: 1.4rem;
+}   
 
 p {
     margin-top: .1rem;
@@ -29,7 +29,7 @@ ul {
 
 li {
     margin: 1.8rem 0;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
 }
 
 

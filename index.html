@@ -18,26 +18,31 @@
         <script>
             let links =
                 [
-
                     {
-                        "organization": "Epic Games - Fortnite (freelance project)",
+                        "organization": "Personal Project - Fortnite",
                         "url": "https://fortnitewc.netlify.com/finals.html",
                         "description": "Interactive leaderboard with game timelines for 2019 Fortnite World Cup",
                         "image": "img/fortnite_leaderboard.jpg",
                         "type": "Public"
                     },
                     {
-                        "organization": "Epic Games - Fortnite (freelance project)",
+                        "organization": "Personal Project - Fortnite",
                         "url": "https://fortnitewc.netlify.com",
                         "description": "Player search and visualizations for the 2019 Fortnite World Cup qualifiers",
-                        "image": "img/fornite_qualifier_leaderboard.jpg",
                         "image": "img/fornite_qualifier_scatterplot.jpg",
+                        "type": "Public"
+                    },
+                    {
+                        "organization": "Personal Project - US Senate news coverage",
+                        "url": "https://warnerv1.netlify.com/",
+                        "description": "Crawled news accounts for US Senators, and displayed stories on a timeline by news outlet",
+                        "image": "img/russia_media.jpg",
                         "type": "Public"
                     },
                     {
                         "organization": "Russia / 2016 Election Media Coverage - work in progress",
                         "url": "http://smckissock.github.io/work-samples/russia",
-                        "description": "Crawled news accounts, with stories displayed in a timeline by news outlet",
+                        "description": "Crawled news accounts, and displayed stories in a timeline by news outlet",
                         "image": "img/russia_media.jpg",
                         "type": "Public"
                     },
@@ -56,10 +61,11 @@
                         "type": "Public"
                     },
                     {
-                        "organization": "ProPublica - work in progress",
+                        "organization": "ProPublica Data - work in progress",
                         "url": "http://smckissock.github.io/trump-town",
                         "description": "Experiments making Sankey and network diagrams for administration officials who were former lobbyists",
-                        "type": "Private"
+                        "image": "img/pro_publica.jpg",
+                        "type": "Public"
                     },
                     {
                         "organization": "United States Agency for International Development",
@@ -100,7 +106,6 @@
                 <li>
                     <h4>${link.organization}</h4>
                     <a href="${link.url}">${link.description}</a>
-                    </br>
                     </br>
                     <img src="${link.image}" alt="" height="500" width="750">
                     </br>
