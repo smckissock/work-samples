@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Planned United States Foreign Assistance</title>
+        <script src="https://d3js.org/d3.v3.min.js"></script>
+        <script src="https://d3js.org/topojson.v1.min.js"></script>
+        <script src="https://d3js.org/queue.v1.min.js"></script>   
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/crossfilter/1.3.7/crossfilter.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/1.5.0/d3-legend.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.10.1/lodash.js"></script>
+		
+        <style type="text/css">
+			body {
+				background-color: white;
+                font-family: Helvetica, Arial, sans-serif;
+			}
+            h1 {
+				font-size: 26px;
+				margin: 7px;
+			}
+            h3 {
+				font-size: 13px;
+				margin: 7px;
+                font-weight: normal;
+			}
+			svg {
+				background-color: white;
+			}
+            .button {
+                border: 2.5px solid white;
+                -moz-border-radius: 7px;
+                -webkit-border-radius: 7px;
+                border-radius: 7px;
+                display: inline-block;
+                padding: 2.0px 0;
+                line-height: 25px;
+                background: lightgrey;
+                width: 70px;
+                text-align: center;
+                color: white;
+                font-size: 16px;
+                font-weight: bold;
+            }
+            
+            .button:hover {
+                color: darkgray;
+                cursor: pointer;
+            } 
+            
+            .barchart {
+                font-family: Helvetica, Arial, sans-serif;
+				z-index: 1;
+				position: absolute;
+				width: auto;
+				height: auto;
+				padding: 4px;
+                /*font-weight: bold;*/
+				background-color: white;
+				opacity: 1;
+                font-size: 15px;
+				-webkit-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+				-moz-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+				box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+				pointer-events: none;
+			}
+
+              .barchart p {
+                margin: 0;
+                font-family: Helvetica, Arial, sans-serif;
+                font-size: 1em;
+                line-height: 1;
+		    }
+
+            #countrytooltip {
+                font-family: Helvetica, Arial, sans-serif;
+				z-index: 1;
+				position: absolute;
+				width: auto;
+				height: auto;
+				padding: 6px;
+				background-color: white;
+				opacity: 1;
+                font-size: 15px;
+				-webkit-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+				-moz-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+				box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+				pointer-events: none;
+			}
+
+	       #countrytooltip.hidden {
+                display: none;
+		  }
+           
+           .legendLinear {
+                font-family: Helvetica, Arial, sans-serif;
+                font-size: 13px;
+                /*font-weight: bold;*/
+            }
+
+            .axis path,
+            .axis line {
+            fill: none;
+            stroke: black;
+            shape-rendering: crispEdges;
+        }
+
+        .axis text {
+            font-family: sans-serif;
+            font-size: 10px;
+        }
+
+        .y.axis path,
+        .y.axis line {
+            opacity: 0;
+        }
+
+
+		</style>
+	</head>
+	<body>
+        <h1>Planned United States Foreign Assistance 2006 - 2015</h1>
+        <h3>foreignassistance.gov, June 2014</h3>
+
+        <div class="buttonContainer">
+            <input type="button" value="2006" id="fy2006" class="button" onclick="filterYear('2006')">
+            <input type="button" value="2007" id="fy2007" class="button" onclick="filterYear('2007')">
+            <input type="button" value="2008" id="fy2008" class="button" onclick="filterYear('2008')">
+            <input type="button" value="2009" id="fy2009" class="button" onclick="filterYear('2009')">
+            <input type="button" value="2010" id="fy2010" class="button" onclick="filterYear('2010')">
+            <input type="button" value="2011" id="fy2011" class="button" onclick="filterYear('2011')">
+            <input type="button" value="2012" id="fy2012" class="button" onclick="filterYear('2012')">
+            <input type="button" value="2013" id="fy2013" class="button" onclick="filterYear('2013')">
+            <input type="button" value="2014" id="fy2014" class="button" onclick="filterYear('2014')">
+            <input type="button" value="2015" id="fy2015" class="button" onclick="filterYear('2015')">
+        </div>
+               
+        <div id="CountryBars" class="barchart">
+            <p><span id="title">Country</span></p>
+        </div>
+
+        <div id="SectorBars" class="barchart">
+            <p><span id="title">Sector</span></p>
+        </div>
+
+        <div id="AgencyBars" class="barchart">
+            <p><span id="title">Agency</span></p>
+        </div>
+
+
+        <div id="countrytooltip" class="hidden">
+            <p><strong><span id="country">name</span></strong>
+                <br>USD (mil):
+                <b><span id="amount"></b>
+            </p>
+        </div>    
+
+		<script type="text/javascript">
+            var svg;
+            var map;
+
+            var facts;
+            var yearDim;
+
+            // Shapes and codes from json file
+            var countries;
+
+            var defaultColor = 'Lightgrey';
+
+            // Just country names - no values
+            var countryNames;
+
+            var currentYear = "";
+
+            queue()
+                // From http://beta.foreignassistance.gov/js/libs/maps/lsib_world.topo.json
+	            .defer(d3.json, 'world_topo.json')
+                .defer(d3.csv, 'foreignAssistance.csv')
+                // From http://unstats.un.org/unsd/tradekb/Knowledgebase/Country-Code
+                .defer(d3.csv, 'ISO3166-1alpha-3.csv')
+	            .await(setupMap);
+
+            var width = 1400;
+            var height = 900;
+
+            var barHeight = 210;
+            var barWidth = 200;
+
+            var projection = d3.geo.mercator()
+                        .translate([(width / 2) - 65, (height / 2) + 100])
+                        .scale([width / 5]);
+
+            var path = d3.geo.path()
+                        .projection(projection);
+
+            var color = d3.scale.quantile()
+                        .range(["#eff3ff", "#c6dbef", "#9ecae1", "#6baed6", "#3182bd", "#08519c"]);
+
+            var margin = { top: 4, right: 6, bottom: 16, left: -5 };
+            
+            var countryBars;
+            var sectorBars;
+            var agencyBars
+
+            var formatNum = d3.format(",.0f");
+            
+            function setupMap(error, world, data, codes) {
+                data.forEach(function (d) {
+                    d.amount = +d.amount/1000000; 
+                });
+
+                facts = crossfilter(data);
+
+                countries = topojson.feature(world, world.objects.lsib_world);
+                addNamesToCountries(countries, codes);
+
+                countryNames = {};
+                codes.forEach(function (d) {
+                    countryNames[d.name] = d.id;
+                });
+
+                //(facts, name, field, top, left, height, width) 
+                countryBars = new BarChart(facts, "Country", "operatingUnit", 110, 15, barHeight, barWidth, codes)
+                sectorBars = new BarChart(facts, "Sector", "sector", 360, 15, barHeight, barWidth)
+                agencyBars = new BarChart(facts, "Agency", "agency", 610, 15, barHeight, barWidth)
+                
+                yearDim = facts.dimension(function (d) { return d.fiscalYear; });
+                             
+                addDataToCountries(countries, countryBars.data);
+
+                color.domain([
+                    d3.min(countryBars.data, function (d) { return +d.value; }),
+                    d3.max(countryBars.data, function (d) { return +d.value; })
+                ]);
+
+                svg = d3.select("body")
+                    .append("svg")
+                    .attr("width", width)
+                    .attr("height", height)
+                    .style("background", "6baed6")
+
+                var all = svg.append('g')
+                    .attr('class', 'boundary');
+
+                map = all.selectAll('path')
+                    .data(countries.features)
+                    .enter()
+                    .append('path')
+                    .attr('d', path)
+                    .attr("stroke", "dimgray")
+                    .style("fill", function (d) {
+                        return d.value ? color(d.value) : defaultColor;
+                    })
+                    .style("fill-opacity", function (d) {
+                        return d.value ? 0.5 : 1.0;
+                    })
+                    .style('fill-opacity', 0.5)
+                    .on('mouseover', function (d) {
+                        
+                        d3.select(this).style('fill-opacity', 1)
+                            .attr("stroke", "black")
+                            .attr("stroke-width", 2);
+                        
+                        d3.select("#countrytooltip")
+                            .style("left", (d3.event.pageX + 15) + "px")
+                            .style("top", (d3.event.pageY - 10) + "px")
+                            .select("#country")
+                            .text(d.properties.name + " " + currentYear);
+
+                        d3.select("#amount")
+                            .text(formatNum(d.value ? d.value : 0));
+
+                        d3.select("#countrytooltip").classed("hidden", false);
+                    })
+                    .on('mouseout', function (d) {
+                        d3.select(this)
+                            .style('fill-opacity', .5)
+                            .attr("stroke", "dimgray")
+                            .attr("stroke-width", 1);
+
+                        d3.select("#countrytooltip").classed("hidden", true);
+                    });
+                    filterYear("2015");
+                }
+
+                
+            var BarChart = function (facts, name, field, top, left, height, width, codes) {
+                var xAxisComponent, yAxisComponent;
+                var dim, group, data;
+
+                var widthScale = d3.scale.linear()
+								.range([0, width - margin.right - margin.left]);
+
+                var heightScale = d3.scale.ordinal()
+                                    .rangeRoundBands([margin.top, height - margin.bottom], 0.1);
+
+                var xAxis = d3.svg.axis()
+                                .scale(widthScale)
+                                .orient("bottom")
+                                .ticks(3);
+
+                var yAxis = d3.svg.axis()
+                                .scale(heightScale)
+                                .orient("right");
+
+                var id = "#" + name + "Bars";
+
+                d3.select(id) 
+                    .style("left", left + "px")
+                    .style("top", top + "px")
+
+                var thisSvg = d3.select(id)
+                    .append("svg")
+                    .attr("width", width)
+                    .attr("height", height)
+
+                dim = facts.dimension(function (d) { return d[field]; });
+                group = dim.group().reduceSum(function (d) { return d.amount; });
+
+                data = getData(codes);  
+
+
+                xAxisComponent = thisSvg.append("g")
+                	.attr("class", "x axis")
+                	.attr("transform", "translate(" + margin.left + "," + (barHeight - margin.bottom) + ")")
+
+                yAxisComponent = thisSvg.append("g")
+                	.attr("class", "y axis")
+                	.attr("transform", "translate(" + margin.left + ",0)")
+
+                function update(selectedYear) {
+                    var transition = 2000;
+
+                    data = getData(codes);
+
+                    tops = _.sortBy(data, 'value');
+                    tops = _.takeRight(tops, 10).reverse();
+
+                    widthScale.domain([0, d3.max(tops, function (d) {
+                        return d.value;
+                    })]);
+                    heightScale.domain(tops.map(function (d) { return d.key; }));
+
+                    var rects = thisSvg.selectAll("rect")
+                                    .data(tops)
+                                    .enter()
+                                    .append("rect");
+                    // Enter
+                    rects
+                        .attr("x", margin.left)
+                        .attr("y", function (d) {
+                            return heightScale(d.key);
+                        })
+                        .attr("width", widthScale(0))
+                        .attr("height", 14)
+                        .attr("fill", "green")
+                        .style('fill-opacity', 0.2)
+                        .transition(transition)
+                        .attr("width", function (d) {
+                            return widthScale(d.value > 0 ? d.value : 0);
+                        })
+
+                    // Update
+                    thisSvg.selectAll("rect")
+                        .transition(transition)
+                        .attr("width", function (d) {
+                            return widthScale(d.value > 0 ? d.value : 0);
+                        })
+
+                    xAxisComponent.transition(transition).call(xAxis);
+                    yAxisComponent.transition(transition).call(yAxis);
+
+                    d3.select(id)
+                        .select("#title")
+                        .text(name + " - FY " + (selectedYear ? selectedYear : "All"));
+
+                    //var total = facts.groupAll().reduceSum(function (d) { return d.amount; }).value();
+                    //d3.select("#countryBars")
+                    //    .select("#total")
+                    //    .text("Total Plan (m) " + millions(total));
+                }
+
+                // Make groups, but exclude non-counties if it is the country chart 
+                function getData(codes) {
+                    data = group.all();
+                    if (codes) {
+                        newData = []
+                        for (i = 0; i < data.length; i++) {
+                            d = data[i];
+                            if (countryNames[d.key]) 
+                                newData.push(d);
+                        }
+                        data = newData;
+                    };
+                    return data;
+                }
+
+                return {
+                    svg: thisSvg,
+                    data: data,
+                    update: update,
+                    group: group,
+                    dim: dim
+                }
+            }
+
+            function updateLegend() {
+                svg.append("g")
+                       .attr("class", "legendLinear")
+                       .attr("transform", "translate(1000, 60)");
+
+                var legendLinear = d3.legend.color()
+                    .shapeWidth(40)
+                    .shapeHeight(20)
+                    .labelAlign("start")
+                    .title("Planned US Foreign Assistance (mil $)")
+                    .ascending(true)
+                    .labelFormat(formatNum)
+                    .scale(color);
+
+                svg.select(".legendLinear")
+                    .call(legendLinear);
+            }
+
+            function colorMap() {
+                map.transition()
+                    .duration(400)
+			        .style("fill", function (d) {
+			            return d.value ? color(d.value) : defaultColor;
+			        });
+            }
+
+            function filterYear(selectedYear) {
+                currentYear = selectedYear; // !
+
+                var x = d3.selectAll(".buttonContainer")
+                    .selectAll(".button")
+                    .style("background", "lightgrey");
+                
+                d3.select("#fy" + selectedYear)
+                    .style("left", "20px")
+                    .style("background", "black")
+
+                yearDim.filterAll();
+                yearDim.filter(selectedYear);
+                           
+                countryBars.update(selectedYear);
+                sectorBars.update(selectedYear);
+                agencyBars.update(selectedYear);
+
+                color.domain([
+                    d3.min(countryBars.data, function (d) { return +d.value; }),
+                    d3.max(countryBars.data, function (d) { return +d.value; })
+                ]);
+                updateLegend();
+
+                addDataToCountries(countries, countryBars.data);
+                colorMap();
+            }
+            
+            // use _.find
+            function addNamesToCountries(countries, codes) {
+                countries.features.forEach(function (country) {
+                    codes.forEach(function (code) {
+                        if (country.id == code.id) 
+                            country.name = code.name;
+                    });
+                });
+            }
+
+            function addDataToCountries(countries, data) {
+                countries.features.forEach(function (country) {
+                    data.forEach(function (data) {  
+                        if (data.key == country.name) 
+                            country.value = data.value;
+                    });
+                });
+            }
+
+		</script>
+	</body>
+</html>
