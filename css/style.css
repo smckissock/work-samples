@@ -1,4 +1,9 @@
 body {
+    font-family: 'Source Sans Pro', sans-serif;
+    font: "rubic";
+}
+
+body {
     font-family: Sans-Serif;
     color: black;
 }
@@ -10,8 +15,15 @@ h2 {
     font-size: 2.0rem;
 }
 
+h3 {
+    margin-top: .1rem;
+    margin-bottom: .1rem;
+    margin-left: 1rem;
+    font-size: 1.2rem;
+}
+
 h4 {
-    margin-top: .2rem;
+    margin-top: 4.0rem;
     margin-bottom: .1rem;
     font-size: 1.4rem;
 }   

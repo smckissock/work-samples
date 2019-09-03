@@ -5,91 +5,100 @@
     <meta name="Scott McKissock" content="Scott McKissock Work Samples" />
     <meta charset="utf-8">
     <title>Scott McKissock</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,900&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body onload="loadLinks()">
 
     <h2>Scott McKissock</h2>
-    <p>scottmckissock@gmail.com</p>
+    <h3>scottmckissock@gmail.com</h3>
 
     <div id=links>
 
         <script>
             let links =
-                [
+                [   {
+                        "organization": "August 2019 Fortnite Statistics",
+                        "url": "https://fortnitewc.netlify.com/index.html",
+                        "description": "Dashboard for competitive Fortnite stats",
+                        "image": "img/ping.jpg",
+                        "type": "Public"
+                    },
                     {
-                        "organization": "Personal Project - Fortnite",
+                        "organization": "July 2019 Fortnite World Cup Finals",
                         "url": "https://fortnitewc.netlify.com/finals.html",
                         "description": "Interactive leaderboard with game timelines for 2019 Fortnite World Cup",
-                        "image": "img/fortnite_leaderboard.JPG",
+                        "image": "img/final-duos.gif",
                         "type": "Public"
                     },
                     {
-                        "organization": "Personal Project - Fortnite",
-                        "url": "https://fortnitewc.netlify.com",
-                        "description": "Player search and visualizations for the 2019 Fortnite World Cup qualifiers",
-                        "image": "img/fornite_qualifier_scatterplot.jpg",
+                        "organization": "June 2019 Fortnite World Cup Qualifiers",
+                        "url": "https://fortnitewc.netlify.com/world_cup.html",
+                        "description": "Player search and visualization for the 2019 Fortnite World Cup qualifiers",
+                        "image": "img/fornite_qualifiers.gif",
                         "type": "Public"
                     },
                     {
-                        "organization": "Personal Project - US Senate news coverage",
+                        "organization": "April 2019 US Senate news coverage",
                         "url": "https://warnerv1.netlify.com/",
                         "description": "Crawled news accounts for US Senators, and displayed stories on a timeline by news outlet",
                         "image": "img/senate_stories.jpg",
                         "type": "Public"
                     },
                     {
-                        "organization": "Russia / 2016 Election Media Coverage - work in progress",
+                        "organization": "November 2018 News Search - Russia / 2016 Election Media Coverage",
                         "url": "http://smckissock.github.io/work-samples/russia",
                         "description": "Crawled news accounts, and displayed stories in a timeline by news outlet",
                         "image": "img/russia_media.jpg",
                         "type": "Public"
                     },
                     {
-                        "organization": "PBS NewsHour (freelance project)",
+                        "organization": "July 2018 News search - PBS NewsHour ",
                         "url": "http://smckissock.github.io/trump-russia",
                         "description": "Searchable stories related to the Trump administration's relationship to Russia",
                         "image": "img/newshour.jpg",
                         "type": "Public"
                     },
                     {
-                        "organization": "Sunlight Foundation",
+                        "organization": "May 2018 News Search - Sunlight Foundation",
                         "url": "https://trumpconflicts.sunlightfoundation.com",
                         "description": "Search site for potential conflicts of interest",
                         "image": "img/sunlight.jpg",
                         "type": "Public"
                     },
                     {
-                        "organization": "ProPublica Data - work in progress",
+                        "organization": "April 2018 Sankey Diagram ProPublica ",
                         "url": "http://smckissock.github.io/trump-town",
                         "description": "Experiments making Sankey and network diagrams for administration officials who were former lobbyists",
                         "image": "img/pro_publica.jpg",
                         "type": "Public"
                     },
                     {
-                        "organization": "United States Agency for International Development",
+                        "organization": "August 2016 United States Agency for International Development",
                         "url": "http://smckissock.github.io/dc-samples/foreign-assistance/index.html",
                         "image": "img/usaid.jpg",
                         "description": "Interactive foreign assistance funding chart",
                         "type": "Public"
                     },
                     {
-                        "organization": "Project for Knight Center class: Intermediate D3 for Data Visualization",
+                        "organization": "June 2016 Project for Knight Center class: Intermediate D3 for Data Visualization",
                         "url": "https://smckissock.github.io/work-samples/usaid",
                         "image": "img/usaid_map.jpg",
                         "description": "SVG world map colored by year and category",
                         "type": "Public"
                     },
                     {
-                        "organization": "Fairfax FLAGS",
+                        "organization": "December 2015 Fairfax FLAGS - County officials",
                         "url": "http://smckissock.github.io/FairfaxFLAGS/page/fairfaximmersion/index.html",
                         "image": "img/flags.jpg",
                         "description": "Map for locating school board members",
                         "type": "Public"
                     },
                     {
-                        "organization": "Fairfax FLAGS",
+                        "organization": "December 2015 Fairfax FLAGS - County budget",
                         "url": "http://smckissock.github.io/FairfaxFLAGS/page/budgetbreakdown/index.html",
                         "image": "img/flags_budget.JPG",
                         "description": "Composition of Fairfax County Public Schools budget",
@@ -119,7 +128,7 @@
                 return `
                 <li>
                     <h4>${link.organization}</h4>
-                    <a href="${link.url}">${link.description}</a>
+                    <a href="${link.url}" target='_blank'>${link.description}</a>
                     </br>
                     <img src="${link.image}" alt="" height="500" width="750">
                     </br>
