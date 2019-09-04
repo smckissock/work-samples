@@ -22,7 +22,7 @@
 
 <body onload="loadLinks()">
 
-    <h2>Scott McKissock</h2>
+    <h1>Scott McKissock</h1>
     <h3>scottmckissock@gmail.com</h3>
 
     <div id=links>
@@ -30,101 +30,102 @@
         <script>
             let links =
                 [   {
-                        "organization": "Fortnite Statistics",
+                        "title": "Track competitive Fortnite statistics",
                         "url": "https://fortnitewc.netlify.com/index.html",
-                        "description": "Dashboard for competitive Fortnite stats",
+                        "description": "Dashboard for competitive Fortnite stats, built using d3.js/svg and dc.js/crossfilter",
                         "when": "August 2019",
                         "image": "img/ping.jpg",
                         "type": "Public"
                     },
                     {
-                        "organization": "Fortnite World Cup Finals",
+                        "title": "Visualize results of Fortnite World Cup finals",
                         "url": "https://fortnitewc.netlify.com/finals.html",
-                        "description": "Interactive leaderboard with game timelines for 2019 Fortnite World Cup",
+                        "description": "Interactive leaderboard with game timelines for 2019 Fortnite World Cup. Rectangles represent games: width represents how long a player survived, small lines are points, and a bold outline means they won. Built using d3.js/svg",
                         "when": "July 2019",
                         "image": "img/final-duos.gif",
                         "type": "Public"
                     },
                     {
-                        "organization": "Fortnite World Cup Qualifiers",
+                        "title": "Analyze Fortnite World Cup Qualifiers",
                         "url": "https://fortnitewc.netlify.com/world_cup.html",
-                        "description": "Player search and visualization for the 2019 Fortnite World Cup qualifiers",
+                        "description": "Player search and visualization for the 2019 Fortnite World Cup qualifiers. Built using d3.js/svg and dc.js/crossfilter",
+                        "when": "November 2018", 
                         "when": "June 2019",
                         "image": "img/fornite_qualifiers.gif",
                         "type": "Public"
                     },
                     {
-                        "organization": "US Senate news coverage",
+                        "title": "Track the news coverage of US Senators by date, publication, and keyword",
                         "url": "https://warnerv1.netlify.com/",
-                        "description": "Crawled news accounts for US Senators, and displayed stories on a timeline by news outlet",
+                        "description": "Crawled news accounts for US Senators, and displayed stories on a timeline by news outlet. An adaptation of the Russia site below, using the same technology" ,
                         "when": "April 2019",
                         "image": "img/senate_stories.jpg",
                         "type": "Public"
                     },
                     {
-                        "organization": "News Search - Russia / 2016 Election Media Coverage",
+                        "title": "Search Russia / 2016 Election Media Coverage by date, publication and keyword",
                         "url": "http://smckissock.github.io/work-samples/russia",
-                        "description": "Crawled news accounts, and displayed stories in a timeline by news outlet",
+                        "description": "I collected stories from MediaCloud about Russian figures involved in the 2016 US election. I used the DiffBot api and various python NLP libraries to extract named entities and other metadata. Then I made a database using this information and create a json api for use in the search site, which was I built in d3.js/svg and dc.js/crossfilter",
                         "when": "November 2018",
                         "image": "img/russia_media.jpg",
                         "type": "Public"
                     },
                     {
-                        "organization": "News search - PBS NewsHour ",
+                        "title": "Search news coverage of Russian interference in the 2016 presidential election",
+                        "description": "Based on data from a Google sheet created by the PBS NewsHour, I made this search site for Russia-related stories using dc.js",
                         "url": "http://smckissock.github.io/trump-russia",
-                        "description": "Searchable stories related to the Trump administration's relationship to Russia",
                         "when": "July 2018",
                         "image": "img/newshour.jpg",
                         "type": "Public"
                     },
                     {
-                        "organization": "News Search - Sunlight Foundation",
+                        "title": "Search news coverage of first families' potential conflicts of interest",
+                        "description": "Project down as part of Sunlight Foundation's Trump conflic of interest project. News stories were crowdsourced using an AirTable spreadheet.",
                         "url": "https://trumpconflicts.sunlightfoundation.com",
-                        "description": "Search site for potential conflicts of interest",
                         "when": "May 2018",
                         "image": "img/sunlight.jpg",
                         "type": "Public"
                     },
                     {
-                        "organization": "Sankey Diagram ProPublica",
+                        "title": "Visualize administration official's prior lobbying organizations",
                         "url": "http://smckissock.github.io/trump-town/lobbyists-sankey.html",
-                        "description": "Experiments making Sankey and network diagrams for administration officials who were former lobbyists",
+                        "description": "Experiment making a sankey diagram based on ProPublica's TrumpTown dataset.",
                         "when": "April 2018",
                         "image": "img/pro_publica.jpg",
                         "type": "Public"
                     },
                     {
-                        "organization": "United States Agency for International Development",
-                        "url": "http://smckissock.github.io/dc-samples/foreign-assistance/index.html",
-                        "image": "img/usaid.jpg",
-                        "when": "August 2017",
-                        "description": "Interactive foreign assistance funding chart",
-                        "type": "Public"
-                    },
-                    {
-                        "organization": "Project for Knight Center class: Intermediate D3 for Data Visualization",
+                        "title": "Understand US foreign assistance funding history by country",
+                        "description": "This interactive d3/svg map was my final projct for the online course from the Knight Center: Intermediate D3 for Data Visualization",
                         "url": "https://smckissock.github.io/work-samples/usaid",
                         "when": "July 2016",
                         "image": "img/usaid_map.jpg",
-                        "description": "SVG world map colored by year and category",
                         "type": "Public"
                     },
                     {
-                        "organization": "Fairfax FLAGS - County officials",
+                        "title": "Find local officials based on the districts they represent",
+                        "description": "As part of Fairfax FLAGS (Foriegn Language Advocacy for Grade School) I made this map using d3.js and svg. It was used by FLAGS members and others to find contact information for their county representives in a successfull effort to preserve language immersion funding."  ,
                         "url": "http://smckissock.github.io/FairfaxFLAGS/page/fairfaximmersion/index.html",
                         "when": "December 2015",
                         "image": "img/flags.jpg",
-                        "description": "Map for locating school board members",
                         "type": "Public"
                     },
                     {
-                        "organization": "Fairfax FLAGS - County budget",
+                        "title": "Understand revenue and spending categories for a county budget",
+                        "description": "This d3/svg Sankey diagram was used on the Fairfax FLAGS website to show the breakdown of the county budget.",
                         "url": "http://smckissock.github.io/FairfaxFLAGS/page/budgetbreakdown/index.html",
                         "when": "December 2015",
                         "image": "img/flags_budget.JPG",
-                        "description": "Composition of Fairfax County Public Schools budget",
                         "type": "Public"
-                    }
+                    },
+                    {
+                        "title": "Analyze US Foriegn assistance by funding category, year, agency and country",
+                        "description": "This chart was the used in a workshop on dc.js I taught at my employer and at meetups https://www.meetup.com/Data-Visualization-DC/events/187968182/ ",
+                        "url": "http://smckissock.github.io/dc-samples/foreign-assistance/index.html",
+                        "image": "img/usaid.jpg",
+                        "when": "June 2014",
+                        "type": "Public"
+                    },
                 ];
 
             function loadLinks() {
@@ -148,8 +149,8 @@
             function linkMarkup(link) {
                 return `
                 <li>
-                    <h4>${link.organization}</h4>
-                    <a href="${link.url}" target='_blank'>${link.description}</a>
+                    <a href="${link.url}" target='_blank'>${link.title}</a>
+                    <h2>${link.description}</h2>
                     <p>${link.when}</p>
                     </br>
                     <img src="${link.image}" alt="" height="500" width="750">
