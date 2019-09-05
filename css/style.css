@@ -37,48 +37,56 @@ a:hover {
 /* Scott McKissock */
 h1 {
     margin: 2rem 0rem .0rem 2rem; 
-    font-weight: 600;
-    font-size: 3.0rem;
+    font-weight: 400;
+    font-size: 3.2rem;
+    line-height: 3.6rem;
 }
 
 h1.email {
     margin: 0rem 0rem .1rem 2rem; 
     font-weight: 600;
     font-size: 1.6rem;
+    line-height: 1.7rem;
+    color: darkgrey;
 }
 
 /* Section Headers */
 h2 {
-    margin: 3rem .1rem .0rem .2rem; 
-    font-size: 1.5rem;
+    margin: 3.8rem .1rem .4rem .2rem; 
+    font-weight: 400;
+    font-size: 2.4rem;
 }
+
+/* Section Headers */
+h2.link-title {
+    margin: .0rem .1rem .0rem .2rem; 
+    font-size: 1.4rem;
+}
+
 
 /* Link headers */
 h3 {
     font-weight: 200;
-    margin-top: .1rem;
-    margin-bottom: .1rem;
-    margin-left: 1rem;
     font-size: 1.2rem;
+    margin: .1rem 0rem .1rem 1rem;
 }
 
 /* link descriptions */
 p {
-    margin-top: .1rem;
-    margin-bottom: 0.2rem;
-    font-size: 0.7rem;
-    margin-bottom: .1rem;
+    margin: .1rem 0.0rem 0.2rem .1rem;
+    font-size: 1.2rem;
+    color: black;
+}
+
+p.date {
+    margin: .1rem .1rem .0rem .1rem;
+    font-weight: 600;
+    font-size: 1.2rem;
     color: darkgrey;
 }
 
 ul {
     list-style: none;
-}
-
-p.date {
-    margin: .1rem, .1rem, .1rem, .1rem;
-    font-size: 1.3rem;
-    color: darkgrey;
 }
 
 

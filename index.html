@@ -23,6 +23,7 @@
 <body onload="loadLinks()">
 
     <h1>Scott McKissock</h1>
+    <h1 class="email">database design / search / data visualization</h1>
     <h1 class="email">scottmckissock@gmail.com</h1>
 
     <div id=links>
@@ -31,96 +32,104 @@
             let sections =
                 [   
                     {
-                        "name": "Fortnite",
+                        "name": "Competitive Fortnite Leaderboards",
                         "links" :
                         [
                             {
                                 "title": "Track competitive Fortnite statistics",
                                 "url": "https://fortnitewc.netlify.com/index.html",
-                                "description": "Dashboard for competitive Fortnite stats, built using d3.js/svg and dc.js/crossfilter",
+                                "description": "Dashboard for competitive Fortnite stats, sortable by statistic, searchable by player, and filterable by region and tournament. Player profile page shows conplete results for each player.",
                                 "when": "August 2019",
                                 "image": "img/ping.jpg",
-                                "type": "Public"
+                                "type": "Public",
+                                "tech": "&nbsp &nbsp d3.js &nbsp svg &nbsp dc.js &nbsp crossfilter.js"
                             },
                             {
                                 "title": "Visualize results of Fortnite World Cup finals",
                                 "url": "https://fortnitewc.netlify.com/finals.html",
-                                "description": "Interactive leaderboard with game timelines for 2019 Fortnite World Cup. Rectangles represent games: width represents how long a player survived, small lines are points, and a bold outline means they won. Built using d3.js/svg",
+                                "description": "Interactive leaderboard with game timelines for 2019 Fortnite World Cup. Rectangles represent games: width represents how long a player survived",
                                 "when": "July 2019",
                                 "image": "img/final-duos.gif",
-                                "type": "Public"
+                                "type": "Public",
+                                "tech": "&nbsp &nbsp d3.js &nbsp svg"
                             },
                             {
                                 "title": "Analyze Fortnite World Cup Qualifiers",
                                 "url": "https://fortnitewc.netlify.com/world_cup.html",
-                                "description": "Player search and visualization for the 2019 Fortnite World Cup qualifiers. Built using d3.js/svg and dc.js/crossfilter",
+                                "description": "Player search and visualization for the 2019 Fortnite World Cup qualifiers. Shows Solo and Duo results, combined or separately. Dynamic scatterplot to see relationships between player performance and play style.",
                                 "when": "November 2018", 
                                 "when": "June 2019",
                                 "image": "img/fornite_qualifiers.gif",
-                                "type": "Public"
+                                "type": "Public",
+                                "tech": "&nbsp &nbsp d3.js &nbsp svg &nbsp dc.js &nbsp crossfilter.js"
                             }
                         ],
                     },
                     {
-                        "name": "News Search",
+                        "name": "Media Coverage Search",
                         "links": 
                         [    
                             {
-                                "title": "Track the news coverage of US Senators by date, publication, and keyword",
+                                "title": "Track coverage of US Senators",
                                 "url": "https://warnerv1.netlify.com/",
-                                "description": "Crawled news accounts for US Senators, and displayed stories on a timeline by news outlet. An adaptation of the Russia site below, using the same technology" ,
+                                "description": "Crawled news accounts for US Senators, and displayed stories on a brushable timeline by news outlet. Database can generate custom search site for each senator." ,
                                 "when": "April 2019",
                                 "image": "img/senate_stories.jpg",
-                                "type": "Public"
+                                "type": "Public",
+                                "tech": "&nbsp &nbsp MediaCloud &nbsp diffbot &nbsp d3.js &nbsp svg"
                             },
                             {
-                                "title": "Search Russia / 2016 Election Media Coverage by date, publication and keyword",
+                                "title": "Search Russia / 2016 Election Media Coverage",
                                 "url": "http://smckissock.github.io/work-samples/russia",
-                                "description": "I collected stories from MediaCloud about Russian figures involved in the 2016 US election. I used the DiffBot api and various python NLP libraries to extract named entities and other metadata. Then I made a database using this information and create a json api for use in the search site, which was I built in d3.js/svg and dc.js/crossfilter",
+                                "description": "Russian figures involved in the 2016 US election. The DiffBot api and various python NLP libraries were used to extract named entities, photo links, and other meta data.",
                                 "when": "November 2018",
                                 "image": "img/russia_media.jpg",
-                                "type": "Public"
+                                "type": "Public",
+                                "tech": "&nbsp &nbsp MediaCloud &nbsp diffbot &nbsp d3.js &nbsp svg"
                             },
                             {
-                                "title": "Search news coverage of Russian interference in the 2016 presidential election",
-                                "description": "Based on data from a Google sheet created by the PBS NewsHour, I made this search site for Russia-related stories using dc.js",
+                                "title": "Search coverage of Russian interference in the 2016 presidential election",
+                                "description": "Based on data from a Google sheet created by the PBS NewsHour, this search site for Russia-related stories is filterable by category and date.",
                                 "url": "http://smckissock.github.io/trump-russia",
                                 "when": "July 2018",
                                 "image": "img/newshour.jpg",
-                                "type": "Public"
+                                "type": "Public",
+                                "tech": "&nbsp &nbsp d3.js &nbsp svg"
                             }
                         ]
                     },
                     {
-                        "name": "Sunlight",
+                        "name": "Sunlight Foundation - Media Coverage Tracking",
                         "links": 
                         [  
                             {
                                 "title": "Search news coverage of first families' potential conflicts of interest",
-                                "description": "Project down as part of Sunlight Foundation's Trump conflic of interest project. News stories were crowdsourced using an AirTable spreadheet.",
+                                "description": "Front and backend development as part of Sunlight Foundation's Trump conflic of interest project. News stories were crowdsourced using an AirTable spreadsheet.",
                                 "url": "https://trumpconflicts.sunlightfoundation.com",
                                 "when": "May 2018",
                                 "image": "img/sunlight.jpg",
-                                "type": "Public"
+                                "type": "Public",
+                                "tech": "&nbsp &nbsp d3.js &nbsp svg &nbsp dc.js &nbsp airtable"
                             }
                         ]
                     },
                     {
-                        "name": "WWW",
+                        "name": "ProPublica - Track Lobbyist Activity",
                         "links":
                         [
                             {
                                 "title": "Visualize administration official's prior lobbying organizations",
                                 "url": "http://smckissock.github.io/trump-town/lobbyists-sankey.html",
-                                "description": "Experiment making a sankey diagram based on ProPublica's TrumpTown dataset.",
+                                "description": "Experiment making sankey diagrams based on ProPublica's TrumpTown dataset. Clicking departments on the left shows former lobbyists who are current employees",
                                 "when": "April 2018",
                                 "image": "img/pro_publica.jpg",
-                                "type": "Public"
+                                "type": "Public",
+                                "tech": "&nbsp &nbsp d3.js &nbsp svg"
                             }
                         ],
                     },
                     {
-                        "name": "USAID",
+                        "name": "US Agancy for International Development Interactive Map",
                         "links":
                         [
                             {
@@ -129,21 +138,23 @@
                                 "url": "https://smckissock.github.io/work-samples/usaid",
                                 "when": "July 2016",
                                 "image": "img/usaid_map.jpg",
-                                "type": "Public"
+                                "type": "Public",
+                                "tech": "&nbsp &nbsp d3.js &nbsp svg &nbsp dc.js"
                             },
                         ],
                     },
                     {
-                        "name": "Fairfax Flags",
+                        "name": "Fairfax FLAGS",
                         "links":
                         [
                             {
                                 "title": "Find local officials based on the districts they represent",
-                                "description": "As part of Fairfax FLAGS (Foriegn Language Advocacy for Grade School) I made this map using d3.js and svg. It was used by FLAGS members and others to find contact information for their county representives in a successfull effort to preserve language immersion funding."  ,
+                                "description": "As part of Fairfax FLAGS (Foriegn Language Advocacy for Grade School) It was used by FLAGS members to find county representives to preserve language immersion funding." ,
                                 "url": "http://smckissock.github.io/FairfaxFLAGS/page/fairfaximmersion/index.html",
                                 "when": "December 2015",
                                 "image": "img/flags.jpg",
-                                "type": "Public"
+                                "type": "Public",
+                                "tech": "&nbsp &nbsp d3.js &nbsp svg"
                             },
                             {
                                 "title": "Understand revenue and spending categories for a county budget",
@@ -151,21 +162,23 @@
                                 "url": "http://smckissock.github.io/FairfaxFLAGS/page/budgetbreakdown/index.html",
                                 "when": "December 2015",
                                 "image": "img/flags_budget.JPG",
-                                "type": "Public"
+                                "type": "Public",
+                                "tech": "&nbsp &nbsp d3.js &nbsp svg"
                             }
                         ],
                     },
                     {
-                        "name": "USAID",
+                        "name": "Trends in US Foreign Assistance",
                         "links":
                         [
                             {
-                                "title": "Analyze US Foriegn assistance by funding category, year, agency and country",
+                                "title": "Analyze US Foreign assistance by funding category, year, agency and country",
                                 "description": "This chart was the used in a workshop on dc.js I taught at my employer and at meetups https://www.meetup.com/Data-Visualization-DC/events/187968182/ ",
                                 "url": "http://smckissock.github.io/dc-samples/foreign-assistance/index.html",
                                 "image": "img/usaid.jpg",
                                 "when": "June 2014",
-                                "type": "Public"
+                                "type": "Public",
+                                "tech": "&nbsp &nbsp d3.js &nbsp svg &nbsp svg"
                             }
                         ]
                     }
@@ -195,14 +208,15 @@
                     let markup = ""; 
                     links.forEach( link => markup +=
                         `
-                        <div class="link">
-                            <div class="link-header">
-                                <p class="date">${link.when}</p>
-                                <a href="${link.url}" target='_blank'>${link.title}</a>
-                                <h3>${link.description}</h3>
-                            </div>    
-                            <img class="screen" src="${link.image}" alt="" height="250" width="375">
-                        </div>
+                            <div class="link" onclick="window.open('${link.url}','mywindow');" style="cursor: pointer;">
+                                <div class="link-header">
+                                    <p class="date">${link.when}</p>
+                                    <h2 class="link-title">${link.title}</h2>
+                                    <p>${link.description}</p>
+                                    <p class="date">${link.tech}</p>
+                                </div>   
+                                <img class="screen" src="${link.image}" alt="" height="250" width="375">
+                            </div>
                         `
                     ); 
                     return markup;
