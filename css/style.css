@@ -3,6 +3,9 @@ body {
     font: "rubic";
 }
 
+.flex-container {
+    display: flex;
+}
 
 a {
     font-size: 1.5rem;

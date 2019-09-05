@@ -184,42 +184,38 @@
                     links = sections.filter(section => { return (section.type == "Public") });
 
                 var linkLIs = "";
-
                 sections.forEach(section => { linkLIs += sectionMarkup(section, linkLIs) });
-                //links.forEach(link => { linkLIs += linkMarkup(link) });
 
                 document.getElementById('links').innerHTML = `<ul>${linkLIs}</ul>`;
             }
 
             function sectionMarkup(section, linkLIs) {
+
+                function linksMarkup(links) {
+                    let markup = ""; 
+                    links.forEach( link => markup +=
+                        `
+                        <div>
+                            <a href="${link.url}" target='_blank'>${link.title}</a>
+                            <h2>${link.description}</h2>
+                            <p>${link.when}</p>
+                            </br>
+                            <img src="${link.image}" alt="" height="250" width="375">
+                        </div>
+                        `
+                    ); 
+                    return markup;
+                }
+
                 return `
-                <li>
-                    <h2>${section.name}</h2>
-                        <ul>
+                    <li>
+                        <h2>${section.name}</h2>
+                        <div class="flex-container">
                             ${linksMarkup(section.links)}
-                        </ul>
-                </li>
+                        </div>
+                    </li>
                 `;
             }
-
-            function linksMarkup(links) {
-                let markup = ""; 
-                links.forEach( link => markup +=
-                    `
-                    <li>
-                        <a href="${link.url}" target='_blank'>${link.title}</a>
-                        <h2>${link.description}</h2>
-                        <p>${link.when}</p>
-                        </br>
-                        <img src="${link.image}" alt="" height="500" width="750">
-                        </br>
-                    </li>
-                    `
-                ); 
-                return markup;
-            }
         </script>
-
 </body>
-
 </html>
