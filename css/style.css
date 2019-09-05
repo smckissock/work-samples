@@ -1,10 +1,25 @@
 body {
     font-family: 'Source Sans Pro', sans-serif;
-    font: "rubic";
 }
 
 .flex-container {
     display: flex;
+}
+
+.link {
+    margin: 0px 10px 10px 10px;
+    max-width:400px; 
+    max-height:500px;
+}
+
+.link:hover{
+    background-color:lightgrey;
+ }
+
+.link-header {
+    margin: 0px 10px 10px 10px;
+    min-height:200px;
+    max-height:200px;
 }
 
 a {
@@ -17,47 +32,41 @@ a {
 a:hover { 
     color: black;
     font-weight: 600;
-  }
-
-body {
-    font-family: Sans-Serif;
-    color: black;
 }
-
 
 /* Scott McKissock */
 h1 {
-    margin-top: 2rem;
-    margin-left: 1rem; 
-    margin-bottom: .1rem;
-    font-size: 2.0rem;
+    margin: 2rem 0rem .0rem 2rem; 
+    font-weight: 600;
+    font-size: 3.0rem;
 }
 
+h1.email {
+    margin: 0rem 0rem .1rem 2rem; 
+    font-weight: 600;
+    font-size: 1.6rem;
+}
 
-/* description */
+/* Section Headers */
 h2 {
-    margin-top: .2rem;
-    margin-bottom: .1rem;
-    font-size: 1.0rem;
+    margin: 3rem .1rem .0rem .2rem; 
+    font-size: 1.5rem;
 }
 
+/* Link headers */
 h3 {
+    font-weight: 200;
     margin-top: .1rem;
     margin-bottom: .1rem;
     margin-left: 1rem;
     font-size: 1.2rem;
 }
 
-h4 {
-    margin-top: 4.0rem;
-    margin-bottom: .1rem;
-    font-size: 1.4rem;
-}   
-
+/* link descriptions */
 p {
     margin-top: .1rem;
     margin-bottom: 0.2rem;
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     margin-bottom: .1rem;
     color: darkgrey;
 }
@@ -66,13 +75,13 @@ ul {
     list-style: none;
 }
 
-li {
-    margin: 1.8rem 0;
-    font-size: 1.2rem;
+p.date {
+    margin: .1rem, .1rem, .1rem, .1rem;
+    font-size: 1.3rem;
+    color: darkgrey;
 }
 
 
-.note {
-    font-size: .8em;
-    font-style: italic;
-}
+img.screen {
+    margin: .1rem 0rem .20px 12px; 
+ }

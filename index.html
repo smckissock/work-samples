@@ -23,7 +23,7 @@
 <body onload="loadLinks()">
 
     <h1>Scott McKissock</h1>
-    <h3>scottmckissock@gmail.com</h3>
+    <h1 class="email">scottmckissock@gmail.com</h1>
 
     <div id=links>
 
@@ -156,7 +156,7 @@
                         ],
                     },
                     {
-                        "name": "Fairfax Flags",
+                        "name": "USAID",
                         "links":
                         [
                             {
@@ -195,12 +195,13 @@
                     let markup = ""; 
                     links.forEach( link => markup +=
                         `
-                        <div>
-                            <a href="${link.url}" target='_blank'>${link.title}</a>
-                            <h2>${link.description}</h2>
-                            <p>${link.when}</p>
-                            </br>
-                            <img src="${link.image}" alt="" height="250" width="375">
+                        <div class="link">
+                            <div class="link-header">
+                                <p class="date">${link.when}</p>
+                                <a href="${link.url}" target='_blank'>${link.title}</a>
+                                <h3>${link.description}</h3>
+                            </div>    
+                            <img class="screen" src="${link.image}" alt="" height="250" width="375">
                         </div>
                         `
                     ); 
@@ -209,9 +210,11 @@
 
                 return `
                     <li>
-                        <h2>${section.name}</h2>
-                        <div class="flex-container">
-                            ${linksMarkup(section.links)}
+                        <div>
+                            <h2>${section.name}</h2>
+                            <div class="flex-container">
+                                ${linksMarkup(section.links)}
+                            </div>
                         </div>
                     </li>
                 `;
