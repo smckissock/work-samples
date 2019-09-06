@@ -74,14 +74,14 @@
                                 "url": "https://warnerv1.netlify.com/",
                                 "description": "Crawled news accounts for US Senators, and displayed stories on a brushable timeline by news outlet. Database can generate custom search site for each senator." ,
                                 "when": "April 2019",
-                                "image": "img/senate_stories.jpg",
+                                "image": "img/warner.gif",
                                 "type": "Public",
                                 "tech": "&nbsp &nbsp MediaCloud &nbsp diffbot &nbsp d3.js &nbsp svg"
                             },
                             {
                                 "title": "Search Russia / 2016 Election Media Coverage",
                                 "url": "http://smckissock.github.io/work-samples/russia",
-                                "description": "Russian figures involved in the 2016 US election. The DiffBot api and various python NLP libraries were used to extract named entities, photo links, and other meta data.",
+                                "description": "Russian figures involved in the 2016 US election. The DiffBot api and various python NLP libraries were used to extract named entities, photo links, and other metadata.",
                                 "when": "November 2018",
                                 "image": "img/russia_media.jpg",
                                 "type": "Public",
@@ -104,7 +104,7 @@
                         [  
                             {
                                 "title": "Search news coverage of first families' potential conflicts of interest",
-                                "description": "Front and backend development as part of Sunlight Foundation's Trump conflic of interest project. News stories were crowdsourced using an AirTable spreadsheet.",
+                                "description": "Front and backend development as part of Sunlight Foundation's Trump conflic of interest project. Journalists curated stories in an AirTable spreadsheet I set up.",
                                 "url": "https://trumpconflicts.sunlightfoundation.com",
                                 "when": "May 2018",
                                 "image": "img/sunlight.jpg",
@@ -129,7 +129,7 @@
                         ],
                     },
                     {
-                        "name": "US Agancy for International Development Interactive Map",
+                        "name": "US Agency for International Development Interactive Map",
                         "links":
                         [
                             {
@@ -152,7 +152,7 @@
                                 "description": "As part of Fairfax FLAGS (Foriegn Language Advocacy for Grade School) It was used by FLAGS members to find county representives to preserve language immersion funding." ,
                                 "url": "http://smckissock.github.io/FairfaxFLAGS/page/fairfaximmersion/index.html",
                                 "when": "December 2015",
-                                "image": "img/flags.jpg",
+                                "image": "img/fairfax.gif",
                                 "type": "Public",
                                 "tech": "&nbsp &nbsp d3.js &nbsp svg"
                             },
@@ -202,13 +202,18 @@
                 document.getElementById('links').innerHTML = `<ul>${linkLIs}</ul>`;
             }
 
-            function sectionMarkup(section, linkLIs) {
 
+            function linkHover() {
+                console.log("hi");
+            }
+
+            function sectionMarkup(section, linkLIs) {
+                
                 function linksMarkup(links) {
                     let markup = ""; 
                     links.forEach( link => markup +=
                         `
-                            <div class="link" onclick="window.open('${link.url}','mywindow');" style="cursor: pointer;">
+                            <div class="link" onclick="window.open('${link.url}','mywindow');" onmouseover="linkHover()" style="cursor: pointer;">
                                 <div class="link-header">
                                     <p class="date">${link.when}</p>
                                     <h2 class="link-title">${link.title}</h2>

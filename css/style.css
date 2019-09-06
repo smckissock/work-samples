@@ -18,8 +18,8 @@ body {
 
 .link-header {
     margin: 0px 10px 10px 10px;
-    min-height:200px;
-    max-height:200px;
+    min-height:210px;
+    max-height:210px;
 }
 
 a {
@@ -37,7 +37,7 @@ a:hover {
 /* Scott McKissock */
 h1 {
     margin: 2rem 0rem .0rem 2rem; 
-    font-weight: 400;
+    font-weight: 600;
     font-size: 3.2rem;
     line-height: 3.6rem;
 }
@@ -81,7 +81,7 @@ p {
 p.date {
     margin: .1rem .1rem .0rem .1rem;
     font-weight: 600;
-    font-size: 1.2rem;
+    font-size: 1.42rem;
     color: darkgrey;
 }
 
