@@ -12,14 +12,15 @@ body {
     max-height:500px;
 }
 
-.link:hover{
-    background-color:lightgrey;
- }
+/* .link:hover{
+    background-color:Gainsboro; 
+ } */
 
+ /* Description */
 .link-header {
     margin: 0px 10px 10px 10px;
-    min-height:210px;
-    max-height:210px;
+    min-height:168px;
+    max-height:168px;
 }
 
 a {
@@ -52,14 +53,14 @@ h1.email {
 
 /* Section Headers */
 h2 {
-    margin: 3.8rem .1rem .4rem .2rem; 
+    margin: 2.6rem .1rem .1rem .1rem; 
     font-weight: 400;
-    font-size: 2.4rem;
+    font-size: 2.5rem;
 }
 
 /* Section Headers */
 h2.link-title {
-    margin: .0rem .1rem .0rem .2rem; 
+    margin: .0rem .1rem .0rem .1rem; 
     font-size: 1.4rem;
 }
 
@@ -74,7 +75,7 @@ h3 {
 /* link descriptions */
 p {
     margin: .1rem 0.0rem 0.2rem .1rem;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     color: black;
 }
 
