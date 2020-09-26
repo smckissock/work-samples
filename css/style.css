@@ -47,15 +47,29 @@ h1.email {
     margin: 0rem 0rem .1rem 2rem; 
     font-weight: 600;
     font-size: 1.6rem;
-    line-height: 1.7rem;
+    line-height: 1.8rem;
     color: darkgrey;
 }
+
+
+a.resume{
+    margin: 0rem 0rem .1rem 0   rem; 
+    font-weight: 600;
+    font-size: 1.6rem;
+    line-height: 2.0rem;
+    color: darkslategrey;
+}
+
+a.resume:hover {
+    font-weight: 600;
+    font-size: 2.0rem;
+  }
 
 /* Section Headers */
 h2 {
     margin: 2.6rem .1rem .1rem .1rem; 
     font-weight: 400;
-    font-size: 2.5rem;
+    font-size: 2.0rem;
 }
 
 /* Section Headers */
