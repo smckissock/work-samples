@@ -7,8 +7,10 @@ input, textarea, [contenteditable] {
 }
 
 .flex-container {
-    display: flex;
+    display: inline-flex;
+    flex-direction: column;
 }
+
 
 .link {
     margin: 0px 10px 10px 10px;
@@ -43,14 +45,14 @@ a:hover {
 h1 {
     margin: 2rem 0rem .0rem 2rem; 
     font-weight: 600;
-    font-size: 3.2rem;
-    line-height: 3.6rem;
+    font-size: 3.0em;
+    line-height: 3.4rem;
 }
 
 h1.email {
     margin: 0rem 0rem .1rem 2rem; 
     font-weight: 600;
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     line-height: 1.8rem;
     color: darkgrey;
 }
@@ -70,7 +72,7 @@ a.resume{
 h2 {
     margin: 2.6rem .1rem .1rem .1rem; 
     font-weight: 400;
-    font-size: 2.0rem;
+    font-size: 1.2rem;
 }
 
 /* Section Headers */
