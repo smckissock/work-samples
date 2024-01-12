@@ -36,7 +36,7 @@ a {
 
 a:hover { 
     color: black;
-    font-weight: 600;
+    text-decoration: underline;
 }
 
 /* Scott McKissock */
@@ -64,10 +64,7 @@ a.resume{
     color: darkslategrey;
 }
 
-a.resume:hover {
-    font-weight: 600;
-    font-size: 2.0rem;
-  }
+
 
 /* Section Headers */
 h2 {
