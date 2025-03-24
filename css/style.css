@@ -25,8 +25,8 @@ input, textarea, [contenteditable] {
  /* Description */
 .link-header {
     margin: 0px 10px 10px 10px;
-    min-height:168px;
-    max-height:168px;
+    min-height:150px;
+    max-height:150px;
 }
 
 a {
@@ -70,9 +70,9 @@ a.resume{
 
 /* Section Headers */
 h2 {
-    margin: 2.6rem .1rem .1rem .1rem; 
+    margin: 2.6rem .1rem .0rem .1rem; 
     font-weight: 400;
-    font-size: 1.2rem;
+    font-size: .7rem;
 }
 
 /* Section Headers */
