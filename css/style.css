@@ -6,11 +6,25 @@ input, textarea, [contenteditable] {
     caret-color: transparent;
 }
 
+
 .flex-container {
-    display: inline-flex;
-    flex-direction: column;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;  /* Increased from 20px to 40px */
+    justify-content: flex-start;
+    margin: 2rem;
 }
 
+.link {
+    flex: 1;
+    min-width: 300px;
+    max-width: 400px;
+    margin-bottom: 20px;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 10px;
+    background-color: white;
+}
 
 .link {
     margin: 0px 10px 10px 10px;
@@ -18,9 +32,6 @@ input, textarea, [contenteditable] {
     max-height:500px;
 }
 
-/* .link:hover{
-    background-color:Gainsboro; 
- } */
 
  /* Description */
 .link-header {
@@ -30,7 +41,7 @@ input, textarea, [contenteditable] {
 }
 
 a {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     color: black; 
     font-weight: 400;
     text-decoration: none;
@@ -54,7 +65,7 @@ h1.email {
     font-weight: 600;
     font-size: 1.4rem;
     line-height: 1.8rem;
-    color: darkgrey;
+    color: rgb(42, 40, 40);
 }
 
 
