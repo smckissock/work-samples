@@ -122,3 +122,8 @@ ul {
 img.screen {
     margin: .1rem 0rem .20px 12px; 
  }
+
+ img {
+    max-width: 100%;
+    height: auto;
+}
