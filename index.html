@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     
+     <script src="https://d3js.org/d3.v5.min.js"></script>
 </head>
 
 <body onload="loadLinks()">
@@ -227,10 +228,10 @@
 
             function linkMarkup(link, linkId) {
                 return `
-                    <div class="link link${linkId}" onclick="window.open('${link.url}','mywindow');" onmouseover="linkHover('${linkId}', true)" onmouseout="linkHover('${linkId}', false)" style="cursor: pointer;">
-                        <div class="link-header">
+                    <div class="project link${linkId}" onclick="window.open('${link.url}','mywindow');" onmouseover="linkHover('${linkId}', true)" onmouseout="linkHover('${linkId}', false)" style="cursor: pointer;">
+                        <div class="project-header">
                             <p class="date date${linkId}">${link.when}</p>
-                            <h2 class="link-title title${linkId}">${link.title}</h2>
+                            <h2 class="project-title title${linkId}">${link.title}</h2>
                             <p>${link.description}</p>
                             <p class="date date${linkId}">${link.tech}</p>
                         </div>   
