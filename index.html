@@ -2,16 +2,6 @@
 <html lang="en">
 
 <head>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-141290996-3"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'UA-141290996-3');
-    </script>
-    <script src="https://d3js.org/d3.v5.min.js"></script>
-
     <meta name="Scott McKissock" content="Scott McKissock Work Samples" />
     <meta charset="utf-8">
     <title>Scott McKissock</title>
@@ -26,8 +16,10 @@
     <h1>Scott McKissock</h1>  
     <h1 class="email">Database Design / Search / Data Visualization</h1>
     <h1 class="email">scottmckissock@gmail.com</h1>
-    <h1 class="email"><a class="resume" href="cv/ScottMcKissockCV.docx">Resume</a></h1>
-    <h1 class="email"><a class="resume" href="https://www.linkedin.com/in/scott-mckissock-9346516/">LinkedIn</a></h1>
+    <div class="link-row">
+        <div><a class="resume" href="cv/ScottMcKissockCV.docx">Resume</a></div>
+        <div><a class="resume" href="https://www.linkedin.com/in/scott-mckissock-9346516/">LinkedIn</a></div>
+    </div>
 
 
     <div id=links>
@@ -36,7 +28,7 @@
             let allLinks = [
                 {
                     "title": "National Opinion Poll Analysis",
-                    "description": "Application to analyze 2025 Cooperative Election Study data by visualizing crosstabs. Work in progress.",
+                    "description": "Application to analyze 2025 Cooperative Election Study data",
                     "url": "https://smckissock.github.io/poll-app",
                     "image": "img/polls.jpg",
                     "when": "June 2025",
@@ -45,7 +37,7 @@
                 },
                 {
                     "title": "Survey Analysis",
-                    "description": "Reference application for building apps to analyze survey data by visualizing crosstabs",
+                    "description": "Reference application for survey analysis apps",
                     "url": "https://smckissock.github.io/survey",
                     "image": "img/surveys.gif",
                     "when": "June 2025",
@@ -54,16 +46,16 @@
                 },
                 {
                     "title": "USAID Media Coverage",
-                    "description": "Site to curate and visualize media coverage of USAID following the suspension of USAID programs in February 2025.",
+                    "description": "Visualize media coverage of USAID after shutdown",
                     "url": "https://usaidmedia.org",
                     "image": "img/usaid_media.jpg",
                     "when": "February 2025",
                     "type": "Public",
-                    "tech": "FastAPI &nbsp SQLModel &nbsp PostgreSQLnbsp &nbsp d3.js &nbsp crossfilter &nbsp dc.js"
+                    "tech": "FastAPI &nbsp SQLModel &nbsp PostgreSQL&nbsp &nbsp d3.js &nbsp crossfilter &nbsp dc.js"
                 },
                 {
                     "title": "Democracy Docket",
-                    "description": "Prototype redesign of Democracy Docket web with new search and visualization features. The site is a database of voting rights litigation.",
+                    "description": "Redesign of Democracy Docket web site",
                     "url": "https://smckissock.github.io/democracy-docket-cases/app/index.html",
                     "image": "img/democracy-docket.png",
                     "when": "December 2023",
@@ -72,7 +64,7 @@
                 },
                 {
                     "title": "The Union Action Center",
-                    "description": "Built site to share races, volunteer events and press covereage for the Union, the volunteer group associated with the Lincoln project.",
+                    "description": "Share races, volunteer events and press covereage for the Union",
                     "url": "https://jointheunion.us/",
                     "image": "img/union-home.png",
                     "when": "November 2022",
@@ -80,53 +72,53 @@
                     "tech": "&nbsp &nbsp django &nbsp PostgreSQL &nbsp d3.js &nbsp svg"
                 },
                 {
-                    "title": "Track competitive Fortnite statistics",
+                    "title": "Competitive Fortnite Stats",
                     "url": "https://smckissock.github.io/fortnite/",
-                    "description": "Dashboard for competitive Fortnite stats, sortable by statistic, searchable by player, and filterable by region and tournament. Player profile page shows conplete results for each player.",
-                    "when": "August 2019",
+                    "description": "Dashboard for competitive Fortnite stats for all players",
+                    "when": "August 2019",  
                     "image": "img/ping.jpg",
                     "type": "Public",
                     "tech": "&nbsp &nbsp d3.js &nbsp svg &nbsp dc.js &nbsp crossfilter.js"
                 },
                 {
-                    "title": "Visualize Fortnite World Cup finals",
+                    "title": "Fortnite World Cup Finals",
                     "url": "https://smckissock.github.io/fortnite/squad-finals.html",
-                    "description": "Interactive leaderboard with game timelines for 2019 Fortnite World Cup. Rectangles represent games: width represents how long a player survived",
+                    "description": "Interactive leaderboard with game timelines for 2019 Fortnite World Cup",
                     "when": "July 2019",
                     "image": "img/final-duos.gif",
                     "type": "Public",
                     "tech": "&nbsp &nbsp d3.js &nbsp svg"
                 },
                 {
-                    "title": "Analyze Fortnite World Cup Qualifiers",
+                    "title": "Fortnite World Cup Qualifiers",
                     "url": "https://smckissock.github.io/fortnite/world_cup.html",
-                    "description": "Player search and visualization for the 2019 Fortnite World Cup qualifiers. Shows Solo and Duo results, combined or separately. Dynamic scatterplot to see relationships between performance and play style.",
+                    "description": "Player search and visualization for the 2019 Fortnite World Cup qualifiers",
                     "when": "June 2019",
                     "image": "img/fornite_qualifiers.gif",
                     "type": "Public",
                     "tech": "&nbsp &nbsp d3.js &nbsp svg &nbsp dc.js &nbsp crossfilter.js"
                 },
                 {
-                    "title": "Track coverage of US Senators",
+                    "title": "US Senate Media Coverage",
                     "url": "https://warnerv1.netlify.com/",
-                    "description": "Crawled news accounts for US Senators, and displayed stories on a brushable timeline by news outlet. The database can generate custom search site for each senator." ,
+                    "description": "News accounts for US Senators, with brushable timeline by news outlet" ,
                     "when": "April 2019",
                     "image": "img/warner.gif",
                     "type": "Public",
                     "tech": "&nbsp &nbsp MediaCloud &nbsp diffbot &nbsp d3.js &nbsp svg"
                 },
                 {
-                    "title": "Search Russia/2016 coverage",
+                    "title": "Russia/2016 coverage",
                     "url": "http://smckissock.github.io/work-samples/russia",
-                    "description": "Russian figures involved in the 2016 US election. The DiffBot api and various python NLP libraries were used to extract named entities, photo links, and other metadata.",
+                    "description": "Coverage of Russian figures involved in the 2016 US election",
                     "when": "November 2018",
                     "image": "img/russia_media.jpg",
                     "type": "Public",
                     "tech": "&nbsp &nbsp MediaCloud &nbsp diffbot &nbsp d3.js &nbsp svg"
                 },
                 {
-                    "title": "Links to Russia/2016 coverage",
-                    "description": "Based on data from a Google sheet created by the PBS NewsHour, this search site for stories related to Russion interference in the 2016 election is filterable by category and date.",
+                    "title": "Links to Russia/2016 Coverage",
+                    "description": "PBS NewsHour compilation of Russion interference in 2016 election",
                     "url": "http://smckissock.github.io/trump-russia",
                     "when": "July 2018",
                     "image": "img/russia-newshour.gif",
@@ -134,8 +126,8 @@
                     "tech": "&nbsp &nbsp d3.js &nbsp svg"
                 },
                 {
-                    "title": "Investigations of potential conflicts of interest",
-                    "description": "Front and backend development as part of Sunlight Foundation's Trump conflicts of interest project. Journalists curated stories in an AirTable spreadsheet I set up.",
+                    "title": "Trump's Conflicts of Interest",
+                    "description": "Developed as part of Sunlight Foundation's Trump conflicts of interest project",
                     "url": "https://trumpconflicts.sunlightfoundation.com",
                     "when": "May 2018",
                     "image": "img/trump-conflicts.gif",
@@ -143,17 +135,17 @@
                     "tech": "&nbsp &nbsp d3.js &nbsp svg &nbsp dc.js &nbsp airtable"
                 },
                 {
-                    "title": "Former lobbyists in federal agencies",
+                    "title": "Lobbyists in Federal Agencies",
                     "url": "http://smckissock.github.io/trump-town/lobbyists-sankey.html",
-                    "description": "Experiment making sankey diagrams based on ProPublica's TrumpTown dataset. Clicking departments on the left shows former lobbyists who are current employees",
+                    "description": "Experiment making sankey diagrams based on ProPublica's TrumpTown dataset",
                     "when": "April 2018",
                     "image": "img/lobbyists.gif",
                     "type": "Public",
                     "tech": "&nbsp &nbsp d3.js &nbsp svg"
                 },
                 {
-                    "title": "US foreign assistance history by country",
-                    "description": "This interactive d3/svg map shades countries by yearly funding level. It was my final project for the online course from the Knight Center: Intermediate D3 for Data Visualization.",
+                    "title": "US Foreign Assistance Country",
+                    "description": "Interactive d3/svg map shades countries by yearly assistance funding level",
                     "url": "https://smckissock.github.io/work-samples/usaid",
                     "when": "July 2016",
                     "image": "img/foreign-assistance-map.gif",
@@ -161,8 +153,8 @@
                     "tech": "&nbsp &nbsp d3.js &nbsp svg &nbsp dc.js"
                 },
                 {
-                    "title": "Find officials based on geographic area",
-                    "description": "As part of Fairfax FLAGS (Foriegn Language Advocacy for Grade Schools) It was used by FLAGS members to find county representives to preserve language immersion funding." ,
+                    "title": "Language Immersion Advocacy",
+                    "description": "Help parents find county officials based on school boundry", 
                     "url": "http://smckissock.github.io/FairfaxFLAGS/page/fairfaximmersion/index.html",
                     "when": "December 2015",
                     "image": "img/fairfax.gif",
@@ -170,8 +162,8 @@
                     "tech": "&nbsp &nbsp d3.js &nbsp svg"
                 },
                 {
-                    "title": "County budget funding flows",
-                    "description": "This d3/svg Sankey diagram was used on the Fairfax FLAGS website to show the funding sources and uses of funds of the Fairfax county budget.",
+                    "title": "County Budget Funding Flows",
+                    "description": "Show the funding sources and uses of funds in the budet of Fairfax County, Virginia",
                     "url": "http://smckissock.github.io/FairfaxFLAGS/page/budgetbreakdown/index.html",
                     "when": "December 2015",
                     "image": "img/flags_budget.JPG",
@@ -179,8 +171,8 @@
                     "tech": "&nbsp &nbsp d3.js &nbsp svg"
                 },
                 {
-                    "title": "US foreign assistance funding",
-                    "description": "This project was created for a course I taught at my employer and at meetups. Clickabe charts filter the data set and updates other charts. Crossfilter manages the data, and dc.js renders the charts." ,
+                    "title": "US Foreign Assistance Funding",
+                    "description": "Clickabe charts filter the data set and updates other charts" ,
                     "url": "http://smckissock.github.io/dc-samples/foreign-assistance/index.html",
                     "image": "img/foreign-assistance.gif",
                     "when": "June 2014",
@@ -191,7 +183,6 @@
 
                 
             function loadLinks() {
-
                 let showPrivate = false;
 
                 // If url has #all, show to private ones in addition to the public 
@@ -243,13 +234,18 @@
                             <p>${link.description}</p>
                             <p class="date date${linkId}">${link.tech}</p>
                         </div>   
-                        <img class="screen" src="${link.image}" alt="" height="250" width="375">
+
+                        <div class="project-box">
+                          <img src="${link.image}" alt="Project 1 demo">
+                        </div>
+
+                        
                     </div>
                 `;
             }            
         </script>
 
-         <script data-goatcounter="https://smckissock.goatcounter.com/count"
+        <script data-goatcounter="https://smckissock.goatcounter.com/count"
             async src="//gc.zgo.at/count.js">
         </script>
 </body>

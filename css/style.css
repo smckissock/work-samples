@@ -10,34 +10,34 @@ input, textarea, [contenteditable] {
 .flex-container {
     display: flex;
     flex-wrap: wrap;
-    gap: 40px;  /* Increased from 20px to 40px */
+    gap: 10px;  
     justify-content: flex-start;
-    margin: 2rem;
+    margin: 1rem;
 }
 
-.link {
-    flex: 1;
-    min-width: 300px;
-    max-width: 400px;
-    margin-bottom: 20px;
-    border: 1px solid #eee;
-    border-radius: 8px;
-    padding: 10px;
-    background-color: white;
-}
 
 .link {
-    margin: 0px 10px 10px 10px;
-    max-width:400px; 
-    max-height:500px;
+  flex: 1;
+  min-width: 300px;
+  max-width: 400px;
+  max-height: 450px;
+  overflow: hidden;      
+  margin: 0 10px 10px 10px;  /* top right bottom left */
+  border: 1px solid #eee;
+  border-radius: 8px;
+  padding: 10px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;  /* centers image and other content horizontally */
 }
 
 
  /* Description */
 .link-header {
     margin: 0px 10px 10px 10px;
-    min-height:150px;
-    max-height:150px;
+    min-height:100px;
+    max-height:100px;
 }
 
 a {
@@ -57,23 +57,23 @@ h1 {
     margin: 2rem 0rem .0rem 2rem; 
     font-weight: 600;
     font-size: 2.0em;
-    line-height: 3.0rem;
+    line-height: 2.5rem;
 }
 
 h1.email {
     margin: 0rem 0rem .1rem 2rem; 
     font-weight: 600;
-    font-size: 1.4rem;
-    line-height: 1.8rem;
+    font-size: 1.1rem;
+    line-height: 1.5rem;
     color: rgb(42, 40, 40);
 }
 
 
 a.resume{
-    margin: 0rem 0rem .1rem 0   rem; 
+    margin: 1rem 0rem .1rem 0rem; 
     font-weight: 600;
-    font-size: 1.6rem;
-    line-height: 2.0rem;
+    font-size: 1.4rem;
+    line-height: 3.0rem;
     color: darkslategrey;
 }
 
@@ -83,13 +83,13 @@ a.resume{
 h2 {
     margin: 2.6rem .1rem .0rem .1rem; 
     font-weight: 400;
-    font-size: .7rem;
+    font-size: .6rem;
 }
 
 /* Section Headers */
 h2.link-title {
     margin: .0rem .1rem .0rem .1rem; 
-    font-size: 1.4rem;
+    font-size: 1.3rem;
 }
 
 
@@ -102,8 +102,8 @@ h3 {
 
 /* link descriptions */
 p {
-    margin: .1rem 0.0rem 0.2rem .1rem;
-    font-size: 1.1rem;
+    margin: .1rem 0.0rem 0.4rem .1rem;
+    font-size: 1.0rem;
     color: black;
 }
 
@@ -126,4 +126,30 @@ img.screen {
  img {
     max-width: 100%;
     height: auto;
+}
+
+.project-box {
+    width: 350px;
+    height: 260px;
+    margin: 10px;
+    overflow: hidden;
+    background-color: #fafafa;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.project-box img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+
+.link-row {
+    display: flex;
+    gap: 10px;
+    margin: .2rem 0rem .0rem 2rem; 
 }
