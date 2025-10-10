@@ -19,7 +19,7 @@ input, textarea, [contenteditable] {
 .project {
     flex: 1;
     min-width: 300px;
-    max-width: 400px;
+    max-width: 440px;  /* Adjusted to accommodate wider box */
     max-height: 450px;
     overflow: hidden;      
     margin: 0 10px 10px 10px;
@@ -126,8 +126,7 @@ img.screen {
 }
 
 .project-box {
-    width: 350px;
-    height: 260px;
+    height: 280px;  
     margin: 10px;
     overflow: hidden;
     background-color: #fafafa;
