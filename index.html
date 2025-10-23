@@ -13,20 +13,29 @@
 </head>
 
 <body onload="loadLinks()">
-
     <h1>Scott McKissock</h1>  
-    <h1 class="email">Database Pipelines / Search / Data Visualization</h1>
+
+    <h1 class="email">Data Pipelines / Data Visualization</h1>
     <h1 class="email">scottmckissock@gmail.com</h1>
+    <h1 class="email">McLean, Va </h1>
     <div class="link-row">
         <div><a class="resume" href="cv/ScottMcKissockCV.docx">Resume</a></div>
-        <div><a class="resume" href="https://www.linkedin.com/in/scott-mckissock-9346516/">LinkedIn</a></div>
+        <div><a class="resume" href="https://www.linkedin.com/in/scott-mckissock" target="_blank" rel="noopener noreferrer">LinkedIn</a></div>
+        <div><a class="resume" href="https://github.com/smckissock" target="_blank" rel="noopener noreferrer">GitHub</a></div>
     </div>
 
-
     <div id=links>
-
         <script>
             let allLinks = [
+                {
+                    "title": "Political Contributions",
+                    "description": "Data pipeline for FEC compiled political contributions to PACs and candidates",
+                    "url": "https://github.com/smckissock/fec",
+                    "image": "img/fec.png",
+                    "when": "October 2025 - present",
+                    "type": "Public",
+                    "tech": "Snowflake &nbsp; dbt &nbsp; SQL&nbsp; Python"
+                },
                 {
                     "title": "OpenSecrets Media Citations",
                     "description": "Track where OpenSecrets' work is cited in the media",
