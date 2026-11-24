@@ -4,48 +4,82 @@
 <head>
     <meta name="Scott McKissock" content="Scott McKissock Work Samples" />
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Scott McKissock</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
 
-    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     
      <script src="https://d3js.org/d3.v5.min.js"></script>
 </head>
 
 <body onload="loadLinks()">
-    <h1>Scott McKissock</h1>  
-
-    <h1 class="email">Data Pipelines / Data Visualization</h1>
-    <h1 class="email">scottmckissock@gmail.com</h1>
-    <h1 class="email">McLean, Virginia USA</h1>
-    <div class="link-row">
-        <div><a class="resume" href="cv/ScottMcKissockCV.docx">Resume</a></div>
-        <div><a class="resume" href="https://www.linkedin.com/in/scott-mckissock" target="_blank" rel="noopener noreferrer">LinkedIn</a></div>
-        <div><a class="resume" href="https://github.com/smckissock" target="_blank" rel="noopener noreferrer">GitHub</a></div>
-    </div>
+    <header class="site-header">
+        <h1>Scott McKissock</h1>
+        <p class="tagline">Software engineering for policy research</p>
+        <p><strong>Policy research applications.</strong> I build research applications, automated data pipelines and interactive visualizations for policy researchers, analysts, journalists and advocates. My projects cover international affairs, foreign assistance, elections, Congress and government accountability.</p>
+        <p><strong>Agentic development and AI.</strong> I develop software using AI coding agents, which have substantially increased the speed, scale and complexity of what I can build independently. I also use LLMs and natural language processing to summarize documents, classify media coverage, extract entities and organize research materials.</p>
+        <p><strong>Government experience.</strong> Former USAID Foreign Service officer. During my 25&#8209;year government career, including years at State Department headquarters, I designed and led the development of information systems supporting foreign assistance programs and U.S. government operations in Afghanistan and Pakistan.</p>
+        <p class="credentials">
+            MS, Software Engineering, Johns Hopkins University<br>
+            BA, History, University of Virginia<br>
+            McLean, Virginia
+        </p>
+        <div class="link-row">
+            <a href="cv/ScottMcKissockCV.docx">Resume</a>
+            <a href="https://www.linkedin.com/in/scott-mckissock" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a href="https://github.com/smckissock" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <span class="email-copy">
+                <span class="email-address">scottmckissock@gmail.com</span>
+                <button type="button" class="copy-email" onclick="copyEmail(this)" aria-label="Copy email address">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+                        <rect x="8" y="3.5" width="12.5" height="12.5" rx="2.4" fill="#fff" stroke="currentColor" stroke-width="1.7"/>
+                        <rect x="3.5" y="8" width="12.5" height="12.5" rx="2.4" fill="#fff" stroke="currentColor" stroke-width="1.7"/>
+                    </svg>
+                </button>
+            </span>
+        </div>
+    </header>
+    <script>
+        async function copyEmail(button) {
+            try {
+                await navigator.clipboard.writeText('scottmckissock@gmail.com');
+                if (!button._icon) button._icon = button.innerHTML;
+                button.textContent = 'Copied';
+                button.classList.add('is-copied');
+                clearTimeout(button._copyTimer);
+                button._copyTimer = setTimeout(function () {
+                    button.innerHTML = button._icon;
+                    button.classList.remove('is-copied');
+                }, 2000);
+            } catch (err) {}
+        }
+    </script>
 
     
     <div id=links>
         <script>
             let allLinks = [
                 {
-                    "title": "Photo Album",
+                    "title": "Congressional Staff Outreach",
+                    "description": "Contact  manager for committees, members and staff",
+                    "url": "https://pardonpedia.github.io/congress",
+                    "image": "img/coons.png",
+                    "when": "August 2026 - present",
+                    "type": "Public",
+                    "tech": "Cursor &nbsp Python &nbsp PostgreSQL &nbsp FastAPI &nbsp Leaflet"
+                },
+                {
+                    "title": "Custom Photo Album",
                     "description": "Agent coded photo album website w/admin webapp",
                     "url": "https://smckissock.github.io/west-coast",
                     "image": "img/west-coast.png",
                     "when": "September 2026",
                     "type": "Public",
-                    "tech": "Cursor, html, javascript, python"
+                    "tech": "Cursor &nbsp; Python"
                 },
-                {
-                    "title": "Congressional Outreach",
-                    "description": "Contact  manager for committees, members and staff",
-                    "url": "https://pardonpedia.org",
-                    "image": "img/congress.jpg",
-                    "when": "August 2026 - present",
-                    "type": "Public",
-                    "tech": "PostgreSQL &nbsp FastAPI &nbsp javascript &nbsp leaflet"
-                },
+
                 {
                     "title": "Presidential Pardon Archives",
                     "description": "Document presidential pardons since Nixon",
@@ -53,35 +87,35 @@
                     "image": "img/pardonpedia.jpg",
                     "when": "March 2026 - present",
                     "type": "Public",
-                    "tech": "PostgreSQL &nbsp Dagster &nbsp Python &nbsp d3.js"
+                    "tech": "Cursor &nbsp PostgreSQL &nbsp Dagster &nbsp D3.js"
                 },
                 {
-                    "title": "Document Executive Curruption",
+                    "title": "Document Executive Corruption",
                     "description": "Navigate Anne Applebaum's Kleptocracy Tracker",
                     "url": "https://smckissock.github.io/kleptocracy/",
                     "image": "img/kleptocracy.jpg",
                     "when": "February 2026 - present",
                     "type": "Public",
-                    "tech": "PostgreSQL &nbsp Dagster &nbsp Python &nbsp d3.js"
+                    "tech": "PostgreSQL &nbsp; Dagster &nbsp; Python &nbsp; D3.js"
                 },
                 {
-                    "title": "",
-                    "description": "Track coverage of USAID shutdown by local media",
+                    "title": "International USAID Media Coverage",
+                    "description": "Track USAID coverage in recipient country press",
                     "url": "https://usaidmedia.org/countries.html?bureau=LAC",
                     "image": "img/south-america.jpg",
                     "when": "February 2025 - present",
                     "type": "Public",
-                    "tech": "Snowflake &nbsp PostgreSQL &nbsp Dagster &nbsp Python &nbsp d3.js"
+                    "tech": "Cursor &nbsp; PostgreSQL &nbsp; Dagster &nbsp; Python &nbsp; D3.js"
                 },
-                {
-                    "title": "International Media Coverage",
-                    "description": "USAID coverage in recipient country press",
-                    "url": "https://usaidmedia.org/world.html",
-                    "image": "img/usaid-mission-press.jpg",
-                    "when": "November 2025 - present",
-                    "type": "Public",
-                    "tech": "Python Dagster &nbsp SQLModel &nbsp PostgreSQL&nbsp &nbsp d3.js"
-                },
+                // {
+                //     "title": "International Media Coverage",
+                //     "description": "USAID coverage in recipient country press",
+                //     "url": "https://usaidmedia.org/world.html",
+                //     "image": "img/usaid-mission-press.jpg",
+                //     "when": "November 2025 - present",
+                //     "type": "Public",
+                //     "tech": "Python &nbsp; Dagster &nbsp SQLModel &nbsp; PostgreSQL&nbsp &nbsp; D3.js"
+                // },
                 {
                     "title": "Political Contributions",
                     "description": "Data pipeline for FEC compiled political contributions to PACs and candidates",
@@ -98,16 +132,16 @@
                     "image": "img/open-secrets.png",
                     "when": "October 2025 - present",
                     "type": "Public",
-                    "tech": "DuckDb &nbsp; Python &nbsp; Dagster &nbsp; d3.js"
+                    "tech": "DuckDB &nbsp; Python &nbsp; Dagster &nbsp; D3.js"
                 },
                 {
-                    "title": "USAID Media Coverage",
+                    "title": "Local USAID Media Coverage",
                     "description": "Visualize media coverage of USAID after shutdown",
                     "url": "https://usaidmedia.org",
                     "image": "img/usaid_media.jpg",
                     "when": "February 2025 - present",
                     "type": "Public",
-                    "tech": "Python Dagster &nbsp FastAPI &nbsp SQLModel &nbsp PostgreSQL&nbsp &nbsp d3.js"
+                    "tech": "Cursor &nbsp; Dagster &nbsp; FastAPI &nbsp; SQLModel &nbsp; PostgreSQL &nbsp; D3.js"
                 },
                 {
                     "title": "National Opinion Poll Analysis",
@@ -116,7 +150,7 @@
                     "image": "img/polls.jpg",
                     "when": "June 2025",
                     "type": "Public",
-                    "tech": "Python &nbsp Apache Arrow &nbsp d3.js &nbsp crossfilter"
+                    "tech": "Cursor &nbsp; Python &nbsp Apache Arrow &nbsp; D3.js &nbsp crossfilter"
                 },
                 {
                     "title": "Survey Analysis",
@@ -125,7 +159,7 @@
                     "image": "img/surveys.gif",
                     "when": "June 2025",
                     "type": "Public",
-                    "tech": "Python &nbsp FastAPI &nbsp SQLModel &nbsp d3.js &nbsp crossfilter"
+                    "tech": "Python &nbsp; FastAPI &nbsp SQLModel &nbsp D3.js &nbsp; crossfilter"
                 },                
                 {
                     "title": "Democracy Docket",
@@ -138,22 +172,22 @@
                 },
                 {
                     "title": "The Union Action Center",
-                    "description": "Share races, volunteer events and press covereage for the Union",
+                    "description": "Share races, volunteer events and press coverage for the Union",
                     "url": "https://jointheunion.us/",
                     "image": "img/union-home.png",
                     "when": "November 2022",
                     "type": "Public",
-                    "tech": "Python &nbsp django &nbsp PostgreSQL &nbsp d3.js"
+                    "tech": "Python &nbsp django &nbsp PostgreSQL &nbsp D3.js"
                 },
-                {
-                    "title": "Competitive Fortnite Stats",
-                    "url": "https://smckissock.github.io/fortnite/",
-                    "description": "Dashboard for competitive Fortnite stats for all players",
-                    "when": "August 2019",  
-                    "image": "img/ping.jpg",
-                    "type": "Public",
-                    "tech": "Python &nbsp R &nbsp ggplot2 &nbspd3.js &nbsp svg &nbsp crossfilter.js"
-                },
+                // {
+                //     "title": "Competitive Fortnite Stats",
+                //     "url": "https://smckissock.github.io/fortnite/",
+                //     "description": "Dashboard for competitive Fortnite stats for all players",
+                //     "when": "August 2019",  
+                //     "image": "img/ping.jpg",
+                //     "type": "Public",
+                //     "tech": "Python &nbsp R &nbsp ggplot2 &nbsp; D3.js &nbsp svg &nbsp crossfilter.js"
+                // }, 
                 {
                     "title": "Fortnite World Cup Finals",
                     "url": "https://smckissock.github.io/fortnite/squad-finals.html",
@@ -161,7 +195,7 @@
                     "when": "July 2019",
                     "image": "img/final-duos.gif",
                     "type": "Public",
-                    "tech": "Python &nbsp R &nbspd3.js &nbsp svg"
+                    "tech": "Python &nbsp R &nbsp; D3.js &nbsp svg"
                 },
                 {
                     "title": "Fortnite World Cup Qualifiers",
@@ -170,7 +204,7 @@
                     "when": "June 2019",
                     "image": "img/fornite_qualifiers.gif",
                     "type": "Public",
-                    "tech": "Python &nbsp d3.js &nbsp svg &nbsp crossfilter.js"
+                    "tech": "Python &nbsp D3.js &nbsp svg &nbsp crossfilter.js"
                 },
                 {
                     "title": "US Senate Media Coverage",
@@ -179,25 +213,25 @@
                     "when": "April 2019",
                     "image": "img/warner.gif",
                     "type": "Public",
-                    "tech": "Python &nbsp MediaCloud &nbsp diffbot &nbsp d3.js"
+                    "tech": "Python &nbsp; MediaCloud &nbsp; diffbot &nbsp; D3.js"
                 },
                 {
-                    "title": "Russia/2016 coverage",
+                    "title": "Russia/2016 Media Coverage",
                     "url": "http://smckissock.github.io/work-samples/russia",
                     "description": "Coverage of Russian figures involved in the 2016 US election",
                     "when": "November 2018",
                     "image": "img/russia_media.jpg",
                     "type": "Public",
-                    "tech": "Python &nbsp MediaCloud &nbsp diffbot &nbsp d3.js"
+                    "tech": "Python &nbsp; MediaCloud &nbsp; diffbot &nbsp; D3.js"
                 },
                 {
                     "title": "Links to Russia/2016 Coverage",
-                    "description": "PBS NewsHour compilation of Russion interference in 2016 election",
+                    "description": "PBS NewsHour compilation of Russian interference in 2016 election",
                     "url": "http://smckissock.github.io/trump-russia",
                     "when": "July 2018",
                     "image": "img/russia-newshour.gif",
                     "type": "Public",
-                    "tech": "Python &nbsp d3.js &nbsp svg"
+                    "tech": "Python &nbsp; D3.js &nbsp; svg"
                 },
                 {
                     "title": "Trump's Conflicts of Interest",
@@ -206,7 +240,7 @@
                     "when": "May 2018",
                     "image": "img/trump-conflicts.gif",
                     "type": "Public",
-                    "tech": "&nbsp &nbsp d3.js &nbsp svg &nbsp dc.js &nbsp airtable"
+                    "tech": "&nbsp; D3.js &nbsp; svg &nbsp; dc.js &nbsp; airtable"
                 },
                 {
                     "title": "Lobbyists in Federal Agencies",
@@ -215,7 +249,16 @@
                     "when": "April 2018",
                     "image": "img/lobbyists.gif",
                     "type": "Public",
-                    "tech": "&nbsp &nbsp d3.js &nbsp svg"
+                    "tech": "&nbsp; &nbsp; D3.js &nbsp; svg"
+                },
+                {
+                    "title": "USAID/State Congressional Budget Justification",
+                    "url": "img/cbj.webp",
+                    "description": "Led the team that built the applcation to formulate the joint USAID/State budget",
+                    "when": "August 2016 - September 2019",
+                    "image": "img/cbj.webp",
+                    "type": "Public",
+                    "tech": "&nbsp; &nbsp; SQL Server &nbsp; C#"
                 },
                 {
                     "title": "US Foreign Assistance Country",
@@ -224,25 +267,25 @@
                     "when": "July 2016",
                     "image": "img/foreign-assistance-map.gif",
                     "type": "Public",
-                    "tech": "&nbsp &nbsp d3.js &nbsp svg &nbsp dc.js"
+                    "tech": "&nbsp; &nbsp; D3.js &nbsp; svg &nbsp; dc.js"
                 },
                 {
                     "title": "Language Immersion Advocacy",
-                    "description": "Help parents find county officials based on school boundry", 
+                    "description": "Help parents find county officials based on school boundary", 
                     "url": "http://smckissock.github.io/FairfaxFLAGS/page/fairfaximmersion/index.html",
                     "when": "December 2015",
                     "image": "img/fairfax.gif",
                     "type": "Public",
-                    "tech": "&nbsp &nbsp d3.js &nbsp svg"
+                    "tech": "&nbsp; &nbsp; D3.js &nbsp; svg"
                 },
                 {
                     "title": "County Budget Funding Flows",
-                    "description": "Show the funding sources and uses of funds in the budet of Fairfax County, Virginia",
+                    "description": "Show the funding sources and uses of funds in the budget of Fairfax County, Virginia",
                     "url": "http://smckissock.github.io/FairfaxFLAGS/page/budgetbreakdown/index.html",
                     "when": "December 2015",
                     "image": "img/flags_budget.JPG",
                     "type": "Public",
-                    "tech": "&nbsp &nbsp d3.js &nbsp svg"
+                    "tech": "&nbsp; &nbsp; D3.js &nbsp; svg"
                 },
                 {
                     "title": "US Foreign Assistance Funding",
@@ -251,7 +294,7 @@
                     "image": "img/foreign-assistance.gif",
                     "when": "June 2014",
                     "type": "Public",
-                    "tech": "&nbsp &nbsp dc.js &nbsp crossfilter &nbsp svg"
+                    "tech": "&nbsp; &nbsp; dc.js &nbsp; crossfilter &nbsp; svg"
                 }
             ];
 

@@ -1,3 +1,8 @@
+html, body {
+    background-color: white;
+    color: #1a1a1a;
+}
+
 body {
     font-family: 'Source Sans Pro', sans-serif;
 }
@@ -51,29 +56,100 @@ a:hover {
     text-decoration: underline;
 }
 
-/* Scott McKissock */
-h1 {
-    margin: 2rem 0rem .0rem 2rem; 
-    font-weight: 600;
-    font-size: 2.0em;
-    line-height: 2.5rem;
+.site-header {
+    max-width: 46rem;
+    margin: 2rem 2rem 1.25rem;
+    color: #686868;
+    font-size: 1.15rem;
+    line-height: 1.45;
 }
 
-h1.email {
-    margin: 0rem 0rem .1rem 2rem; 
-    font-weight: 600;
-    font-size: 1.1rem;
-    line-height: 1.5rem;
-    color: rgb(42, 40, 40);
+.site-header h1 {
+    margin: 0 0 0.15rem;
+    font-weight: 700;
+    font-size: 2rem;
+    line-height: 1.2;
+    color: #1a1a1a;
 }
 
-
-a.resume{
-    margin: 1rem 0rem .1rem 0rem; 
+.site-header .tagline {
+    margin: 0 0 1rem;
     font-weight: 600;
-    font-size: 1.4rem;
-    line-height: 3.0rem;
-    color: darkslategrey;
+    font-size: 1.2rem;
+    line-height: 1.35;
+    color: #686868;
+}
+
+.site-header p {
+    margin: 0 0 1rem;
+}
+
+.site-header strong {
+    font-weight: 600;
+}
+
+.site-header .credentials {
+    margin: 0.15rem 0 1rem;
+    font-size: 0.92rem;
+    line-height: 1.45;
+    color: #666;
+}
+
+.site-header .link-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem;
+    margin: 0.35rem 0 0;
+    font-size: 1.15rem;
+}
+
+.site-header .link-row a {
+    color: #0000ee;
+    font-size: inherit;
+    font-weight: 400;
+    text-decoration: underline;
+}
+
+.site-header .link-row a:hover {
+    color: #0000ee;
+    text-decoration: underline;
+}
+
+.site-header .email-copy {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+}
+
+.site-header .email-address {
+    color: #686868;
+    font-weight: 400;
+}
+
+.site-header .copy-email {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: #b0b0b0;
+    cursor: pointer;
+    line-height: 0;
+}
+
+.site-header .copy-email svg {
+    display: block;
+    width: 1.05em;
+    height: 1.05em;
+}
+
+.site-header .copy-email.is-copied {
+    font-family: inherit;
+    font-size: 0.85rem;
+    line-height: 1;
+    color: #666;
 }
 
 
@@ -143,9 +219,3 @@ img.screen {
     object-fit: contain;
 }
 
-
-.link-row {
-    display: flex;
-    gap: 10px;
-    margin: .2rem 0rem .0rem 2rem; 
-}
