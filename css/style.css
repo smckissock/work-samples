@@ -134,15 +134,15 @@ a:hover {
     padding: 0;
     border: 0;
     background: transparent;
-    color: #b0b0b0;
+    color: #8e8e8e;
     cursor: pointer;
     line-height: 0;
 }
 
 .site-header .copy-email svg {
     display: block;
-    width: 1.05em;
-    height: 1.05em;
+    width: 18px;
+    height: 18px;
 }
 
 .site-header .copy-email.is-copied {
